@@ -1,4 +1,4 @@
-﻿<runtime:UserControlBase x:Class="HLP.Controls.Component.TextBox"
+﻿<runtime:UserControlBase x:Class="HLP.Controls.Component.HlpTextBox"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:runtime="clr-namespace:HLP.Controls.Base"
@@ -11,7 +11,8 @@
                    HorizontalAlignment="Left"
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
-        <TextBox Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
+        <TextBox x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
+                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"
                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>
     </WrapPanel>
 </runtime:UserControlBase>

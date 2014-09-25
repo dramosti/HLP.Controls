@@ -1,4 +1,6 @@
 ﻿using HLP.Controls.Base;
+using HLP.Controls.Converters.Component;
+using HLP.Controls.Static;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,8 @@ namespace HLP.Controls.Component
         public HlpCheckBox()
         {
             InitializeComponent();
+
+         
         }
     }
 }

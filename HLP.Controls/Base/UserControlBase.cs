@@ -17,6 +17,20 @@ namespace HLP.Controls.Base
             DependencyProperty.Register("Text", typeof(string), typeof(UserControlBase), new PropertyMetadata("lbl"));
 
 
+
+        public bool IsReadOnly
+        {
+            get { return (bool)GetValue(IsReadOnlyProperty); }
+            set { SetValue(IsReadOnlyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsReadOnly.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsReadOnlyProperty =
+            DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(UserControlBase), new PropertyMetadata(false));
+
+        
+
+
         #endregion
 
         #region Property
