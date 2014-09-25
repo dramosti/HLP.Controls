@@ -47,11 +47,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component\CheckBox.xaml.cs">
-      <DependentUpon>CheckBox.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Base\AutoSelectTextBoxAttachedProperty.cs" />
     <Compile Include="Component\ComboBox.xaml.cs">
       <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\DatePicker.xaml.cs">
+      <DependentUpon>DatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpCheckBox.xaml.cs">
+      <DependentUpon>HlpCheckBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\FindFile.xaml.cs">
@@ -77,6 +81,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Page Include="Component\HlpCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\UserControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -88,11 +100,11 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Component\CheckBox.xaml">
+    <Page Include="Component\ComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Component\ComboBox.xaml">
+    <Page Include="Component\DatePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +120,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+    <Folder Include="Model\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModel\Command\" />
+    <Folder Include="ViewModel\ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace HLP.Controls.Component
 {
     /// <summary>
-    /// Interaction logic for DatePicker.xaml
+    /// Interaction logic for HlpCheckBox.xaml
     /// </summary>
-    public partial class DatePicker : UserControlBase
+    public partial class HlpCheckBox : UserControlBase
     {
-        public DatePicker()
+        public HlpCheckBox()
         {
             InitializeComponent();
         }

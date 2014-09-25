@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HLP.Controls.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace HLP.Controls.Component
     /// <summary>
     /// Interaction logic for FindFile.xaml
     /// </summary>
-    public partial class FindFile : UserControl
+    public partial class FindFile : UserControlBase
     {
         public FindFile()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HLP.Controls.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace HLP.Controls.Component
     /// <summary>
     /// Interaction logic for FindImage.xaml
     /// </summary>
-    public partial class FindImage : UserControl
+    public partial class FindImage : UserControlBase
     {
         public FindImage()
         {
