@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" x:Class="HLP.Controls.WindowTeste.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+    <TabControl>
+        <TabItem>
+            <AdornerDecorator>
+                <Expander>
+                    <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
+                        <Component:TextBox Text="Teste de componentes de texto" WidthStatus="Full" Orientation="Horizontal"/>
+                    </Component:WrapPanel>
+                </Expander>
+            </AdornerDecorator>
+        </TabItem>
+    </TabControl>
+</Window>
