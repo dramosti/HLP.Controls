@@ -5,7 +5,7 @@ using System.Windows.Controls;
 namespace HLP.Controls.Base
 {
     public class UserControlBase : UserControl, INotifyPropertyChanged
-    {   
+    {
         #region Property Dependecy
         public string Text
         {
@@ -21,6 +21,7 @@ namespace HLP.Controls.Base
 
         #region Property
         private Orientation _Orientation = Orientation.Horizontal;
+        [Category("HLP.Base")]
         public Orientation Orientation
         {
             get { return _Orientation; }
@@ -33,6 +34,7 @@ namespace HLP.Controls.Base
         }
 
         private double _WidthComp1Parent = 0;
+        [Category("HLP.Base")]
         public double WidthComp1Parent
         {
             get { return _WidthComp1Parent; }
@@ -40,6 +42,7 @@ namespace HLP.Controls.Base
         }
 
         private double _WidthComp1 = 0;
+        [Category("HLP.Base")]
         public double WidthComp1
         {
             get { return _WidthComp1; }
@@ -47,6 +50,7 @@ namespace HLP.Controls.Base
         }
 
         private double _WidthComp2 = 0;
+        [Category("HLP.Base")]
         public double WidthComp2
         {
             get { return _WidthComp2; }
@@ -55,6 +59,7 @@ namespace HLP.Controls.Base
 
         public enum stWidthComp2 { Codigo, Full };
         private stWidthComp2 _WidthStatus = stWidthComp2.Codigo;
+        [Category("HLP.Base")]
         public stWidthComp2 WidthStatus
         {
             get { return _WidthStatus; }
@@ -82,7 +87,7 @@ namespace HLP.Controls.Base
         #endregion
 
         #region Method
-        private void Atualize() 
+        private void Atualize()
         {
             switch (this.WidthStatus)
             {

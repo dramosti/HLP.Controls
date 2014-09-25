@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using HLP.Controls.Base;
 using System;
 using System.Diagnostics;
 using System.Windows;
