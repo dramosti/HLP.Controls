@@ -7,6 +7,7 @@ namespace HLP.Controls.Base
     public class UserControlBase : UserControl, INotifyPropertyChanged
     {
         #region Property Dependecy
+        [Category("HLP.Base")]
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
@@ -14,27 +15,37 @@ namespace HLP.Controls.Base
         }
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(UserControlBase), new PropertyMetadata("lbl"));
+            DependencyProperty.Register("Text", typeof(string), typeof(UserControlBase), new PropertyMetadata(""));
 
+        [Category("HLP.Base")]
+        public string TextLabel
+        {
+            get { return (string)GetValue(TextLabelProperty); }
+            set { SetValue(TextLabelProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for TextLabel.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextLabelProperty =
+            DependencyProperty.Register("TextLabel", typeof(string), typeof(UserControlBase), new PropertyMetadata("lbl"));
 
+        [Category("HLP.Base")]
         public bool IsReadOnly
         {
             get { return (bool)GetValue(IsReadOnlyProperty); }
             set { SetValue(IsReadOnlyProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for IsReadOnly.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsReadOnlyProperty =
             DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(UserControlBase), new PropertyMetadata(false));
 
-        
+
 
 
         #endregion
 
         #region Property
         private Orientation _Orientation = Orientation.Horizontal;
+
         [Category("HLP.Base")]
         public Orientation Orientation
         {
@@ -49,6 +60,8 @@ namespace HLP.Controls.Base
 
         private double _WidthComp1Parent = 0;
         [Category("HLP.Base")]
+        [Browsable(browsable: false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public double WidthComp1Parent
         {
             get { return _WidthComp1Parent; }
@@ -57,6 +70,7 @@ namespace HLP.Controls.Base
 
         private double _WidthComp1 = 0;
         [Category("HLP.Base")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public double WidthComp1
         {
             get { return _WidthComp1; }
@@ -65,6 +79,8 @@ namespace HLP.Controls.Base
 
         private double _WidthComp2 = 0;
         [Category("HLP.Base")]
+        [Browsable(browsable: false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public double WidthComp2
         {
             get { return _WidthComp2; }

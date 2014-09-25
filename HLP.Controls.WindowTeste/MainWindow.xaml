@@ -8,7 +8,7 @@
             <AdornerDecorator>
                 <Expander IsExpanded="True">
                     <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                        <Component:HlpTextBox Text="Teste de componentes de texto" IsReadOnly="True" WidthStatus="Full" Orientation="Horizontal"/>
+                        <Component:HlpTextBox TextLabel="Teste de componentes de texto"  WidthStatus="Full" Orientation="Horizontal"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

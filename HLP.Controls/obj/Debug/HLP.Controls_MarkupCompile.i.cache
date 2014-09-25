@@ -16,5 +16,5 @@ DEBUG;TRACE
 12-1401562060
 Component\HlpCheckBox.xaml;Resources\Styles\UserControlStyles.xaml;Component\ComboBox.xaml;Component\DatePicker.xaml;Component\FindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
-True
+False
 

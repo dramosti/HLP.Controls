@@ -44,7 +44,6 @@ namespace HLP.Controls.Component
 
                 BindingOperations.SetBinding(target: this.txt,
                     dp: HlpTextBox.StyleProperty, binding: bindingManual);
-
             }
         }
     }
