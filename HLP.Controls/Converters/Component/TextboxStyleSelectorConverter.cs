@@ -19,10 +19,10 @@ namespace HLP.Controls.Converters.Component
 
             if ((bool?)value == true)
             {
-                return resource[key: "TextBoxComponentStyle"] as Style;
+                return resource[key: "HLP_TextBox_Search"] as Style;
             }
             else
-                return resource[key: "TextBoxBaseStyle"] as Style;
+                return resource[key: "HLP_TextBox"] as Style;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

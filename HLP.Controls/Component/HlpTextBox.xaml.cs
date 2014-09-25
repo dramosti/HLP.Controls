@@ -42,7 +42,7 @@ namespace HLP.Controls.Component
                 TextboxStyleSelectorConverter txtConverter = new TextboxStyleSelectorConverter();
                 bindingManual.Converter = txtConverter;
 
-                BindingOperations.SetBinding(target: this,
+                BindingOperations.SetBinding(target: this.txt,
                     dp: HlpTextBox.StyleProperty, binding: bindingManual);
 
             }
