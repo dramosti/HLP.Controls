@@ -38,9 +38,6 @@ namespace HLP.Controls.Base
         public static readonly DependencyProperty IsReadOnlyProperty =
             DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(UserControlBase), new PropertyMetadata(false));
 
-
-
-
         #endregion
 
         #region Property
