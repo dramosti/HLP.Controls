@@ -9,6 +9,8 @@
                 <Expander IsExpanded="True">
                     <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
                         <Component:HlpTextBox TextLabel="Teste de componentes de texto"  WidthStatus="Full" Orientation="Horizontal"/>
+                        <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
+                        ></Component:HlpIntellisense>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

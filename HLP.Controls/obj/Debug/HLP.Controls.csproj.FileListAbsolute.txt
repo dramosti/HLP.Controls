@@ -10,7 +10,6 @@ C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Con
 C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csproj.GenerateResource.Cache
 C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.dll
 C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.pdb
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\ComboBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindFile.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindImage.baml
@@ -34,3 +33,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpCheckBox.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpCheckBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTextBox.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTextBox.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\bin\Debug\HLP.Controls.dll.config

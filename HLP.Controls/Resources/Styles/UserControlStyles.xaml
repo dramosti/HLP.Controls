@@ -4,7 +4,8 @@
                     xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing">
 
     <!--Cores-->
-    <!--Linear Gradient Brush-->
+    <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
+    <!--Linear Gradient Brush-->    
     <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
         <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
         <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
@@ -581,9 +582,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-
-
-
-
 </ResourceDictionary>  

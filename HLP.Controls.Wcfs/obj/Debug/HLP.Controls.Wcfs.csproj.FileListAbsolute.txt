@@ -1,0 +1,14 @@
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\HLP.Controls.Wcfs.dll.config
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\HLP.Controls.Wcfs.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\HLP.Controls.Wcfs.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\obj\Debug\HLP.Controls.Wcfs.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\obj\Debug\HLP.Controls.Wcfs.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\HLP.Controls.Models.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\Ninject.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\Microsoft.Practices.ServiceLocation.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\Microsoft.Practices.Unity.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\Microsoft.Practices.Unity.Interception.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\bin\HLP.Controls.Models.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcfs\obj\Debug\HLP.Controls.Wcfs.csprojResolveAssemblyReference.cache
