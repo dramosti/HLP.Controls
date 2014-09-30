@@ -63,6 +63,9 @@
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\wdQuickSearch.xaml.cs">
+      <DependentUpon>wdQuickSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\FindFile.xaml.cs">
       <DependentUpon>FindFile.xaml</DependentUpon>
@@ -74,8 +77,10 @@
       <DependentUpon>HlpTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
+    <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
     <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
+    <Compile Include="Enum\EnumControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -103,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpIntellisense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\wdQuickSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
