@@ -80,7 +80,9 @@ namespace HLP.Controls.ViewModel.Command
         {
             Controls.Component.HlpTextBox txt = (o as Controls.Component.HlpTextBox);
 
-            if (txt.IsReadOnly)
+            if (txt == null)
+                return true;
+            else if (txt.IsReadOnly)
                 return true;
             else
                 return false;

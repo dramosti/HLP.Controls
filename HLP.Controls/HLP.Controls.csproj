@@ -63,9 +63,6 @@
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Component\wdQuickSearch.xaml.cs">
-      <DependentUpon>wdQuickSearch.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\FindFile.xaml.cs">
       <DependentUpon>FindFile.xaml</DependentUpon>
@@ -108,10 +105,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpIntellisense.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Component\wdQuickSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
