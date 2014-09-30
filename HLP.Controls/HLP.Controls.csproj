@@ -63,6 +63,9 @@
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\wdQuickSearch.xaml.cs">
+      <DependentUpon>wdQuickSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\FindFile.xaml.cs">
       <DependentUpon>FindFile.xaml</DependentUpon>
@@ -74,7 +77,10 @@
       <DependentUpon>HlpTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
+    <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
+    <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
+    <Compile Include="Enum\EnumControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -88,16 +94,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repository\ADO\HlpDbFuncoes.cs" />
     <Compile Include="Repository\ADO\SqlDataBaseOperations.cs" />
+    <Compile Include="Repository\ADO\HlpDbFuncoesGeral.cs" />
     <Compile Include="Services\HlpPesqPadraoService.cs" />
     <Compile Include="Static\Util.cs" />
     <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
+    <Compile Include="ViewModel\Command\HLPTextBoxCommands.cs" />
     <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
     <Page Include="Component\HlpCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpIntellisense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\wdQuickSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
