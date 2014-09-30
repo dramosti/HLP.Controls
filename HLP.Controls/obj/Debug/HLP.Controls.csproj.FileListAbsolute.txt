@@ -37,5 +37,3 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\bin\Debug\HLP.Controls.dll.config
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\wdQuickSearch.baml
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\wdQuickSearch.g.cs
