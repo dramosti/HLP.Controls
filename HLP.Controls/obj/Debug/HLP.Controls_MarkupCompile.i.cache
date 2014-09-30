@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 8-100039753
 
-311835649467
+381534269223
 14-105585256
 Component\HlpCheckBox.xaml;Component\HlpIntellisense.xaml;Resources\Styles\UserControlStyles.xaml;Component\ComboBox.xaml;Component\DatePicker.xaml;Component\FindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
-True
+False
 

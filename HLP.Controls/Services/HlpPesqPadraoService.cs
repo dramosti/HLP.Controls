@@ -14,11 +14,9 @@ namespace HLP.Controls.Services
         {
         }
 
-        public DataSet GetData(string sSelect, bool addDefault = false, string sWhere = "", bool bOrdena = true)
+        public DataTable GetData(string sSelect, bool addDefault = false, string sWhere = "", bool bOrdena = true)
         {
-            //HlpDbFuncoes.qrySeekRet(sExpressao: sSelect);
-            SqlDataBaseOperations sqlRepository = new SqlDataBaseOperations();
-            return sqlRepository.GetData(xQuery: sSelect);
+            return HlpDbFuncoes.qrySeekRet(sExpressao: sSelect);
         }
     }
 }

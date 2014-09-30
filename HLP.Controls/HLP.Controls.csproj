@@ -94,12 +94,19 @@
     <Compile Include="Repository\ADO\HlpDbFuncoes.cs" />
     <Compile Include="Repository\ADO\SqlDataBaseOperations.cs" />
     <Compile Include="Repository\ADO\HlpDbFuncoesGeral.cs" />
+    <Compile Include="Repository\Impementation\HlpPesquisaPadraoRepository.cs" />
+    <Compile Include="Repository\Model\modelBase.cs" />
+    <Compile Include="Repository\Model\PesquisaPadraoModelContract.cs" />
+    <Compile Include="Repository\Model\RecordsSqlModel.cs" />
     <Compile Include="Services\HlpPesqPadraoService.cs" />
+    <Compile Include="Services\OperacoesDataBaseService.cs" />
     <Compile Include="Static\Util.cs" />
     <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
     <Compile Include="ViewModel\Command\HLPTextBoxCommands.cs" />
+    <Compile Include="ViewModel\Command\QuickSearchCommands.cs" />
     <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\QuickSearchViewModel.cs" />
     <Page Include="Component\HlpCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +156,7 @@
     <Folder Include="Dependencies\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="Window\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

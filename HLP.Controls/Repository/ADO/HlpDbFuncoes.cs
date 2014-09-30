@@ -1,6 +1,8 @@
-﻿using System;
+﻿using HLP.Controls.Repository.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -201,6 +203,79 @@ namespace HLP.Controls.Repository.ADO
             }
             sCampos = sCampos.Remove(sCampos.Length - 1, 1);
             return sCampos;
+        }
+
+
+        public static List<RecordsSqlModel> GetRegistros(string xQuery)
+        {
+            try
+            {
+                List<RecordsSqlModel> lRet = new List<RecordsSqlModel>();
+                lRet = HlpDbFuncoes.qrySeekRet(xQuery).AsEnumerable().Select(c => new RecordsSqlModel
+                {
+                    display = c["display"].ToString(),
+                    id = Convert.ToInt32(c["id"].ToString())
+                }).ToList();
+                return lRet;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int GetRecord(string xNameTable, string xCampo, string xValue, HLP.Controls.Enum.EnumControls.stFilterQuickSearch stFilterQS, int idEmpresa = 0)
+        {
+
+            //string queryGetPkField = string.Format(format: "SELECT COLUMN_NAME FROM " +
+            //"INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE " +
+            //"where TABLE_NAME = '{0}' and (CONSTRAINT_NAME like '%PK' or CONSTRAINT_NAME like 'PK%')", arg0: xNameTable);
+
+            //object nameFieldPk = HlpDbFuncoes.qrySeekValue("INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE", "COLUMN_NAME",
+            //    string.Format("TABLE_NAME = '{0}' and (CONSTRAINT_NAME like '%PK' or CONSTRAINT_NAME like 'PK%')",xNameTable));
+
+            //string sWhere = string.Empty;
+
+            //switch (stFilterQS)
+            //{
+            //    case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.equal:
+            //        {
+            //            sWhere = string.Format(format: "WHERE {0} = '{1}'", arg0: xCampo, arg1: xValue);
+            //        }
+            //        break;
+            //    case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.startWith:
+            //        {
+            //            sWhere = string.Format(format: "WHERE {0} LIKE'{1}%'", arg0: xCampo, arg1: xValue);
+            //        }
+            //        break;
+            //    case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.contains:
+            //        {
+            //            sWhere = string.Format(format: "WHERE {0} LIKE'%{1}%'", arg0: xCampo, arg1: xValue);
+            //        }
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            //string query = string.Format(format: "SELECT {0} FROM {1} {2}",
+            //    arg0: nameFieldPk, arg1: xNameTable, arg2: sWhere);
+
+            //if (idEmpresa > 0)
+            //{
+            //    query = string.Format(format: "{0} and idEmpresa = {1}", arg0: query, arg1: idEmpresa);
+            //}
+
+            //DbCommand commGetValue = UndTrabalho.dbPrincipal.GetSqlStringCommand
+            //                  (
+            //                  query: query
+            //                  );
+
+            //object record = UndTrabalho.dbPrincipal.ExecuteScalar(command: commGetValue);
+
+            //if (record != null)
+            //    return (int)record;
+
+            return 0;
         }
 
     }
