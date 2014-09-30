@@ -528,34 +528,9 @@
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
             </Trigger>
         </ControlTemplate.Triggers>
-    </ControlTemplate>
+    </ControlTemplate>    
 
-    <Style x:Key="ComboBox_NOVO" TargetType="{x:Type ComboBox}">
-        <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Height" Value="22"/>
-        <Setter Property="Margin" Value="0,0,0,1"/>
-        <Setter Property="Padding" Value="6,3,5,3"/>
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ItemContainerStyle" Value="{DynamicResource ComboBoxItemStyle}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
-        <Style.Triggers>
-            <Trigger Property="IsEditable" Value="true">
-                <Setter Property="IsTabStop" Value="false"/>
-                <Setter Property="Padding" Value="2"/>
-                <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="ComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
+    <Style x:Key="HLP_ComboBoxItem" TargetType="{x:Type ComboBoxItem}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Padding" Value="4,1"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -575,6 +550,123 @@
                         <Trigger Property="IsHighlighted" Value="True">
                             <Setter Property="Background" TargetName="Bd" Value="#FFE7E7E7"/>
                             <Setter Property="BorderBrush" TargetName="Bd" Value="#FFE7E7E7"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HLP_ComboBox" TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Margin" Value="0,0,0,1"/>
+        <Setter Property="Padding" Value="6,3,5,3"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource HLP_ComboBoxItem}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="IsEditable" Value="true">
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--CheckBox-->
+
+    <Style x:Key="HLP_CheckBox" TargetType="{x:Type CheckBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="18.002"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0CFF00"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0CFF00"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0CFF00"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0CFF00"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="border">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.465"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="18.002"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-0.01"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF0CFF00"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF0CFF00"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF0CFF00"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF0CFF00"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                <EasingColorKeyFrame KeyTime="0" Value="WhiteSmoke"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="WhiteSmoke"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid Background="Transparent" SnapsToDevicePixels="True">
+                        <Border x:Name="border" BorderThickness="0.7" CornerRadius="10.7" BorderBrush="#FF626262">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                            <Ellipse x:Name="ellipse" Height="22" Width="22" Stroke="#FF626262" StrokeThickness="0.7" Margin="-0.703,-0.689,17.302,-0.712" RenderTransformOrigin="0.5,0.5" Fill="WhiteSmoke">
+                                <Ellipse.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
