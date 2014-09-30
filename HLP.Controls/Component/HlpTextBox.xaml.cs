@@ -1,6 +1,7 @@
 ﻿using HLP.Controls.Base;
 using HLP.Controls.Converters.Component;
 using HLP.Controls.Static;
+using HLP.Controls.ViewModel.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,25 +27,18 @@ namespace HLP.Controls.Component
         public HlpTextBox()
         {
             InitializeComponent();
-
-            if (!Util.IsDesignTime())
-            {
-                Binding bindingManual = new Binding();
-
-                RelativeSource r = new RelativeSource();
-                r.Mode = RelativeSourceMode.Self;
-
-                PropertyPath p = new PropertyPath(path: "IsReadOnly", pathParameters: new object[] { });
-
-                bindingManual.Path = p;
-                bindingManual.RelativeSource = r;
-
-                TextboxStyleSelectorConverter txtConverter = new TextboxStyleSelectorConverter();
-                bindingManual.Converter = txtConverter;
-
-                BindingOperations.SetBinding(target: this.txt,
-                    dp: HlpTextBox.StyleProperty, binding: bindingManual);
-            }
+            this.CustomViewModel = new HLPTextBoxViewModel();
+            
         }
+
+        private HLPTextBoxViewModel  _hlpTextBoxViewModelViewModel;
+        public HLPTextBoxViewModel CustomViewModel  
+        {
+            get { return _hlpTextBoxViewModelViewModel; }
+            set { _hlpTextBoxViewModelViewModel = value; }
+        }
+        
+
+        
     }
 }
