@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>\\hlpsrvweb\inetpub\wwwroot\wcfs\Components</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/HLP.Controls.Models.dll">
+      <publishTime>09/29/2014 12:00:34</publishTime>
+    </File>
+    <File Include="bin/HLP.Controls.Wcfs.dll">
+      <publishTime>09/29/2014 13:34:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>09/29/2014 10:33:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>09/29/2014 10:33:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>09/29/2014 10:33:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>09/29/2014 10:33:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>09/29/2014 10:33:24</publishTime>
+    </File>
+    <File Include="bin/Ninject.dll">
+      <publishTime>09/29/2014 11:55:23</publishTime>
+    </File>
+    <File Include="Dependencies/Dlls/NInject/Ninject.dll">
+      <publishTime>09/29/2014 11:55:23</publishTime>
+    </File>
+    <File Include="wcfPesquisaRapida.svc">
+      <publishTime>09/29/2014 11:51:43</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/29/2014 12:00:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

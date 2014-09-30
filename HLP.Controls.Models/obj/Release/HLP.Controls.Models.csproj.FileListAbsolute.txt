@@ -1,0 +1,12 @@
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\HLP.Controls.Models.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\HLP.Controls.Models.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Microsoft.Practices.Prism.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Microsoft.Practices.ServiceLocation.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Microsoft.Practices.Unity.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Microsoft.Practices.Unity.Interception.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Release\Ninject.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\obj\Release\HLP.Controls.Models.csprojResolveAssemblyReference.cache
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\obj\Release\HLP.Controls.Models.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\obj\Release\HLP.Controls.Models.pdb

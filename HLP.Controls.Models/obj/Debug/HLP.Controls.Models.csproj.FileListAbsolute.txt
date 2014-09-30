@@ -1,0 +1,11 @@
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\HLP.Controls.Models.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\HLP.Controls.Models.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\obj\Debug\HLP.Controls.Models.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\obj\Debug\HLP.Controls.Models.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Microsoft.Practices.Prism.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Microsoft.Practices.Unity.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Models\bin\Debug\Ninject.dll

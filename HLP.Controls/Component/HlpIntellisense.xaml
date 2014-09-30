@@ -1,0 +1,144 @@
+﻿<runtime:UserControlBase x:Class="HLP.Controls.Component.HlpIntellisense"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"                                     
+             xmlns:runtime="clr-namespace:HLP.Controls.Base"
+             >
+    <runtime:UserControlBase.Resources>
+        <Style x:Key="Button_PESQUISA_Pesquisa" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard1">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF0072C6"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.3" Value="White"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="Storyboard2">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#000072C6"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                    <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF626262"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Border x:Name="border" BorderThickness="0.7" CornerRadius="0,4,4,0" BorderBrush="Transparent"  Background="Transparent">
+                                <Grid>
+                                    <Path x:Name="path" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Width="15" Stretch="Fill" Fill="#FF626262" Data="F1 M 42.5,22C 49.4036,22 55,27.5964 55,34.5C 55,41.4036 49.4036,47 42.5,47C 40.1356,47 37.9245,46.3435 36,45.2426L 26.9749,54.2678C 25.8033,55.4393 23.9038,55.4393 22.7322,54.2678C 21.5607,53.0962 21.5607,51.1967 22.7322,50.0251L 31.7971,40.961C 30.6565,39.0755 30,36.8644 30,34.5C 30,27.5964 35.5964,22 42.5,22 Z M 42.5,26C 37.8056,26 34,29.8056 34,34.5C 34,39.1944 37.8056,43 42.5,43C 47.1944,43 51,39.1944 51,34.5C 51,29.8056 47.1944,26 42.5,26 Z "/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                                </Trigger.EnterActions>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TextBox_PESQUISA" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Foreground" Value="#FF626262"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid Focusable="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.ColumnSpan="3" x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                            <Border Grid.ColumnSpan="3" x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="True" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Foreground="#FF626262" FontFamily="Segoe Ui Light" VerticalAlignment="Center" HorizontalAlignment="Left"></ScrollViewer>
+                            <Button Visibility="Visible" Width="20" Grid.Column="1" Focusable="False" x:Name="btn" Style="{DynamicResource Button_PESQUISA_Pesquisa}">
+                            </Button>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                                <Setter Property="Effect" TargetName="border">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsReadOnly" Value="True">
+                                <Setter Property="Visibility" TargetName="btn" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="Validation.ErrorTemplate">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <DockPanel LastChildFill="True">
+                                                <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                    <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                                </Border>
+                                                <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                    <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                                </AdornedElementPlaceholder>
+                                            </DockPanel>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </runtime:UserControlBase.Resources>
+    <WrapPanel Orientation="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Orientation}">
+        <TextBlock x:Name="compBlock" TextWrapping="Wrap" 
+                   HorizontalAlignment="Left"
+                   Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
+                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
+        <TextBox 
+                 Style="{StaticResource TextBox_PESQUISA}"
+                 x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
+                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"
+            Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}
+            ,Path=customViewModel.xTextSearch, Mode=TwoWay
+            , UpdateSourceTrigger=PropertyChanged}"            
+                 Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}">
+        </TextBox>
+        <Popup 
+               MaxHeight="200" Name="popUp" Placement="Bottom" PlacementTarget="{Binding ElementName=txt}">
+            <DataGrid Style="{x:Null}" GridLinesVisibility="None" IsReadOnly="True" 
+                      SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, 
+                Path=customViewModel.selectedItem}"
+                ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, 
+                Path=customViewModel.cvs}"></DataGrid>
+        </Popup>
+    </WrapPanel>
+</runtime:UserControlBase>

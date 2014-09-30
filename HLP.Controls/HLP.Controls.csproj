@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -48,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\AutoSelectTextBoxAttachedProperty.cs" />
+    <Compile Include="Base\RelayCommand.cs" />
     <Compile Include="Component\ComboBox.xaml.cs">
       <DependentUpon>ComboBox.xaml</DependentUpon>
     </Compile>
@@ -56,6 +59,9 @@
     </Compile>
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpIntellisense.xaml.cs">
+      <DependentUpon>HlpIntellisense.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\FindFile.xaml.cs">
@@ -68,6 +74,7 @@
       <DependentUpon>HlpTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
+    <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -82,8 +89,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repository\ADO\HlpDbFuncoes.cs" />
+    <Compile Include="Repository\ADO\SqlDataBaseOperations.cs" />
+    <Compile Include="Repository\ADO\HlpDbFuncoesGeral.cs" />
+    <Compile Include="Services\HlpPesqPadraoService.cs" />
     <Compile Include="Static\Util.cs" />
+    <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
+    <Compile Include="ViewModel\Command\HLPTextBoxCommands.cs" />
+    <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
     <Page Include="Component\HlpCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpIntellisense.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,6 +114,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -124,11 +144,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Dependencies\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="Services\" />
-    <Folder Include="ViewModel\Command\" />
-    <Folder Include="ViewModel\ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
