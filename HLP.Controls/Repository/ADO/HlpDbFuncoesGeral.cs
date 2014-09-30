@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -129,6 +130,7 @@ namespace HLP.Controls.Repository.ADO
                 //sbConexao.Append(";");
                 //sbConexao.Append("Dialect=3; Charset=NONE;Role=;Connection lifetime=15;Pooling=true; MinPoolSize=0;MaxPoolSize=2000;Packet Size=8192;ServerType=0;");
                 //return (string)sbConexao.ToString();
+
                 return HlpDbFuncoesGeral.stringConnection;
             }
             catch (Exception ex)
@@ -147,7 +149,35 @@ namespace HLP.Controls.Repository.ADO
                 //    HlpDbFuncoesGeral._conexao = new FbConnection(MontaStringConexao());
                 //}
                 //return HlpDbFuncoesGeral._conexao;
-                return new SqlConnection(MontaStringConexao());
+                                
+                var conn = ConfigurationSettings.GetConfig(sectionName: "connectionStrings");
+                string xConnection = string.Empty;
+
+                if (conn != null)
+                {
+                    var connections = conn.GetType().GetProperty(name: "ConnectionStrings").GetValue(obj: conn);
+
+                    if (connections != null)
+                    {
+                        System.Reflection.PropertyInfo piName = null;
+                        foreach (var c in connections as System.Collections.IEnumerable)
+                        {
+                            piName = c.GetType().GetProperty(name: "Name");
+
+                            if (piName != null)
+                                if (piName.GetValue(obj: c).ToString() == "dbPrincipal")
+                                {
+                                    xConnection = c.GetType().GetProperty(name: "ConnectionString").GetValue(obj: c) as string;
+                                }
+                        }
+
+                        if (string.IsNullOrEmpty(value: xConnection))
+                            xConnection = @"Data Source=HLPSRV\SQLSERVER14;Initial Catalog=BD_MAGNIFICUS_ATUAL;User Id=sa;Password=H029060tSql;pooling=false";
+
+                    }
+                }
+
+                return new SqlConnection(connectionString: xConnection);
             }
             set
             {
@@ -160,13 +190,13 @@ namespace HLP.Controls.Repository.ADO
             HlpDbFuncoesGeral._conexao = null;
         }
 
-        private static string _stringConnection = @"Data Source=HLPSRV\SQLSERVER14;Initial Catalog=BD_MAGNIFICUS_ATUAL;User Id=sa;Password=H029060tSql;pooling=false";
+        private static string _stringConnection;
         public static string stringConnection
         {
             get { return _stringConnection; }
             set { _stringConnection = value; }
         }
-        
+
 
     }
 }
