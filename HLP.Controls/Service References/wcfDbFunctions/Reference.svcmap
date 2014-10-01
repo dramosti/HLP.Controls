@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="78f61785-7e77-462e-90b3-8c1aa9d0ad04" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="dbFunctionsToComponents.xsd" MetadataType="Schema" ID="575ed346-5fd4-4d5b-90eb-10d620315e33" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd1" />
+    <MetadataFile FileName="dbFunctionsToComponents.wsdl" MetadataType="Wsdl" ID="a0c0a9bb-fc24-4c72-b66c-58d2fc5891bd" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?wsdl" />
+    <MetadataFile FileName="dbFunctionsToComponents1.xsd" MetadataType="Schema" ID="61084da0-c52a-474c-819e-ca13a9b02fb2" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd0" />
+    <MetadataFile FileName="dbFunctionsToComponents.disco" MetadataType="Disco" ID="02af5c5d-4a01-45d6-87a0-a5bc62a959ca" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?disco" />
+    <MetadataFile FileName="dbFunctionsToComponents2.xsd" MetadataType="Schema" ID="8c72107d-cc6c-41af-ab75-1ce29f7db3a7" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
