@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HLP.Controls.Base;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -9,7 +11,7 @@ namespace HLP.Controls.Static
 {
     public class Util
     {
-        public static bool IsDesignTime() 
+        public static bool IsDesignTime()
         {
             return System.ComponentModel.DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject());
         }
@@ -46,5 +48,36 @@ namespace HLP.Controls.Static
 
             return t;
         }
+
+        public static TipoConexao EmRedeLocal()
+        {
+            System.Net.NetworkInformation.Ping p = new System.Net.NetworkInformation.Ping();
+            System.Net.NetworkInformation.PingReply pr;
+
+            try
+            {
+                string xIpServidor = ConfigurationSettings.AppSettings.Get(name: "ipServidor");
+
+                if (!string.IsNullOrEmpty(value: xIpServidor))
+                {
+                    pr = p.Send(xIpServidor);
+
+                    if ((pr.Status == System.Net.NetworkInformation.IPStatus.Success))
+                        return TipoConexao.enumRede;
+                }
+
+                InternetCS verificaInternet = new InternetCS();
+
+                if (verificaInternet.Conexao())
+                    return TipoConexao.enumInternet;
+
+                return TipoConexao.enumOff;
+            }
+            catch (Exception)
+            {
+                return TipoConexao.enumOff;
+            }
+        }
+
     }
 }
