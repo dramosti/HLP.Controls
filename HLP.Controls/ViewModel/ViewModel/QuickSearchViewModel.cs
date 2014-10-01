@@ -25,7 +25,7 @@ namespace HLP.Controls.ViewModel.ViewModel
         public QuickSearchViewModel(Type modelType, object sender)
         {
 
-            BindingExpression bExp = (sender as TextBox).GetBindingExpression(dp: TextBox.TextProperty);
+            BindingExpression bExp = (sender as HLP.Controls.Component.HlpTextBox).GetBindingExpression(dp: HLP.Controls.Component.HlpTextBox.TextProperty);
 
             this.modelType = modelType;
 

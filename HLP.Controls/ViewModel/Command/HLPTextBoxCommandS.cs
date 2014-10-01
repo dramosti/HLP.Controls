@@ -1,6 +1,7 @@
 ﻿using HLP.Controls.Base;
 using HLP.Controls.Static;
 using HLP.Controls.ViewModel.ViewModel;
+using HLP.Controls.ViewWindow;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,9 +40,11 @@ namespace HLP.Controls.ViewModel.Command
 
                 object[] _params = new object[] { _modelType.PropertyType, o };
 
-                object _return = Util.ExecuteMethodByReflection(xNamespace: "HLP.Components.View.WPF",
-                    xType: "wdQuickSearch", xMethod: "ShowDialogWdQuickSearch",
-                                parameters: _params);
+                var _return = wdQuickSearch.ShowDialogWdQuickSearch(modelType: _modelType.PropertyType, sender: txt);
+
+                //object _return = Util.ExecuteMethodByReflection(xNamespace: "HLP.Components.View.WPF",
+                //    xType: "wdQuickSearch", xMethod: "ShowDialogWdQuickSearch",
+                //                parameters: _params);
 
                 _dataContext.GetType().GetProperty(name: "currentID").SetValue(obj: _dataContext, value: _return);
 

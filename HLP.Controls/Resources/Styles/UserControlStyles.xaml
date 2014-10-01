@@ -195,8 +195,8 @@
                             </Grid.ColumnDefinitions>
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                             <Button Grid.Column="1" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
-                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TextBox}}, Path=CustomViewModel.searchCommand}"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TextBox}}}"
+                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.searchCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
                                     Style="{DynamicResource Button_Search_TextBox}">                                
                             </Button>
                         </Grid>
