@@ -1,0 +1,19 @@
+﻿<Window x:Class="HLP.Controls.ViewWindow.wdQuickSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="wdQuickSearch" Height="150" Width="250" WindowStyle="None" SnapsToDevicePixels="True" AllowsTransparency="True" >
+    <Border BorderThickness="1.5" BorderBrush="#FF0072C6">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+    </Border>
+</Window>
