@@ -107,6 +107,9 @@
     <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\QuickSearchViewModel.cs" />
+    <Compile Include="ViewWindow\wdQuickSearch.xaml.cs">
+      <DependentUpon>wdQuickSearch.xaml</DependentUpon>
+    </Compile>
     <Page Include="Component\HlpCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +132,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Page Include="ViewWindow\wdQuickSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Component\ComboBox.xaml">
@@ -156,7 +163,6 @@
     <Folder Include="Dependencies\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="Window\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

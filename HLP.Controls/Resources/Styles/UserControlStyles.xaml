@@ -722,7 +722,7 @@
                     <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
                     <Condition Property="IsSelectionActive" Value="false"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                <!--<Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>-->
             </MultiTrigger>
         </Style.Triggers>
     </Style>
