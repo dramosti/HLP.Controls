@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,42 @@ namespace HLP.Controls.WindowTeste
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new MainWindowDataContext();
+
+            (this.DataContext as MainWindowDataContext).selectedFruta = 2;
         }
+    }
+
+    public class MainWindowDataContext : INotifyPropertyChanged
+    {
+
+
+        private int _selectedFruta;
+
+        public int selectedFruta
+        {
+            get { return _selectedFruta; }
+            set
+            {
+                _selectedFruta = value;
+                this.NotifyPropertyChanged(propertyName: "selectedFruta");
+            }
+        }
+
+
+        #region NotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void NotifyPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
     }
 }

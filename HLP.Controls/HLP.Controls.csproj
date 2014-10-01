@@ -50,15 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\AutoSelectTextBoxAttachedProperty.cs" />
+    <Compile Include="Base\enumsSistema.cs" />
+    <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
-    <Compile Include="Component\ComboBox.xaml.cs">
-      <DependentUpon>ComboBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Component\DatePicker.xaml.cs">
-      <DependentUpon>DatePicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpComboBox.xaml.cs">
+      <DependentUpon>HlpComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpDatePicker.xaml.cs">
+      <DependentUpon>HlpDatePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
@@ -98,6 +100,11 @@
     <Compile Include="Repository\Model\modelBase.cs" />
     <Compile Include="Repository\Model\PesquisaPadraoModelContract.cs" />
     <Compile Include="Repository\Model\RecordsSqlModel.cs" />
+    <Compile Include="Service References\wcfDbFunctions\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\HlpPesqPadraoService.cs" />
     <Compile Include="Services\OperacoesDataBaseService.cs" />
     <Compile Include="Static\Util.cs" />
@@ -107,10 +114,26 @@
     <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\QuickSearchViewModel.cs" />
-    <Compile Include="ViewWindow\wdQuickSearch.xaml.cs">
-      <DependentUpon>wdQuickSearch.xaml</DependentUpon>
-    </Compile>
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Service References\wcfDbFunctions\dbFunctionsToComponents.wsdl" />
+    <None Include="Service References\wcfDbFunctions\dbFunctionsToComponents.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wcfDbFunctions\dbFunctionsToComponents1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wcfDbFunctions\dbFunctionsToComponents2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Page Include="Component\HlpCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpDatePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,20 +155,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Page Include="ViewWindow\wdQuickSearch.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Component\ComboBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Component\DatePicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Component\FindFile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,9 +174,28 @@
     <Folder Include="Dependencies\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="Window\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wcfDbFunctions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfDbFunctions\dbFunctionsToComponents.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfDbFunctions\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfDbFunctions\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wcfDbFunctions\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

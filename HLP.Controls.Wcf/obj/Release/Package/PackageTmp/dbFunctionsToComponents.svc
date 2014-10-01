@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="HLP.Controls.Wcf.dbFunctionsToComponents" CodeBehind="dbFunctionsToComponents.svc.cs" %>

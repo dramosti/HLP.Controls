@@ -10,10 +10,8 @@ C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Con
 C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csproj.GenerateResource.Cache
 C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.dll
 C:\Users\diego.HLP\Documents\Testes[\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.pdb
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\ComboBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindFile.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindImage.baml
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\ComboBox.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindFile.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindImage.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -26,8 +24,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.g.resources
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.Properties.Resources.resources
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csproj.GenerateResource.Cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.pdb
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\DatePicker.g.cs
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\DatePicker.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Resources\Styles\UserControlStyles.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpCheckBox.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpCheckBox.baml
@@ -36,6 +32,8 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTextBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\bin\Debug\HLP.Controls.dll.config
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\ViewWindow\wdQuickSearch.baml
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\ViewWindow\wdQuickSearch.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpComboBox.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpComboBox.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpDatePicker.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpDatePicker.baml
