@@ -12,11 +12,7 @@ DEBUG;TRACE
 
 9986624327
 
-<<<<<<< HEAD
 39948938942
-=======
-381534269223
->>>>>>> 1903ecd26a14775d80cdec2b9c74e24e0351670f
 14-105585256
 Component\HlpCheckBox.xaml;Component\HlpIntellisense.xaml;Resources\Styles\UserControlStyles.xaml;ViewWindow\wdQuickSearch.xaml;Component\ComboBox.xaml;Component\DatePicker.xaml;Component\FindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
