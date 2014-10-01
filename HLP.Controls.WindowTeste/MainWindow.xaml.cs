@@ -34,6 +34,19 @@ namespace HLP.Controls.WindowTeste
     public class MainWindowDataContext : INotifyPropertyChanged
     {
 
+        
+        private DateTime _dt;
+
+        public DateTime dt
+        {
+            get { return _dt; }
+            set
+            {
+                _dt = value;
+                this.NotifyPropertyChanged(propertyName: "dt");
+            }
+        }
+        
 
         private int _selectedFruta;
 

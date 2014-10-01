@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:runtime="clr-namespace:HLP.Controls.Base"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:conv="clr-namespace:HLP.Controls.Component.Converter" 
              >
     <runtime:UserControlBase.Resources>
         <Style x:Key="Button_HLP_DATE_PICKER" TargetType="{x:Type Button}">
@@ -106,20 +107,24 @@
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
         <Grid
             Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}">
+            <Grid.Resources>
+                <conv:DateTimeMaskConverter x:Key="dtMaskConv"/>
+                <conv:TimeSpanMaskConverter x:Key="tmMaskConv"/>
+            </Grid.Resources>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="27"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBox 
+            <TextBox Width="85"
                 x:Name="txtDate"
                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
-                AncestorType={x:Type UserControl}}, Path=xDate}"
+                AncestorType={x:Type UserControl}}, Path=xDate, Converter={StaticResource dtMaskConv}}"
                 Grid.Column="0"></TextBox>
             <TextBox 
-                x:Name="txtTime"
+                x:Name="txtTime" Width="55"
                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
-                AncestorType={x:Type UserControl}}, Path=xTime}"
+                AncestorType={x:Type UserControl}}, Path=xTime, Converter={StaticResource tmMaskConv}}"
                 Grid.Column="1"></TextBox>
             <Button 
                 x:Name="btnCalendar" Click="btnCalendar_Click"
@@ -128,7 +133,7 @@
             <Popup
                 x:Name="mainCalendar" StaysOpen="False"
                 PlacementTarget="{Binding ElementName=btnCalendar}" Placement="Right">
-                <Calendar></Calendar>
+                <Calendar SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
             </Popup>
         </Grid>
     </WrapPanel>
