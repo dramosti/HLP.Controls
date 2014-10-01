@@ -12,4 +12,11 @@ namespace HLP.Controls.Base
         enumRede,
         enumOff
     }
+
+    public enum TipoDateTime
+    {
+        enumDate,
+        enumTime,
+        enumDateTime
+    }
 }

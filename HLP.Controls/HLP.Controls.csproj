@@ -53,14 +53,14 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
-    <Compile Include="Component\ComboBox.xaml.cs">
-      <DependentUpon>ComboBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Component\DatePicker.xaml.cs">
-      <DependentUpon>DatePicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpComboBox.xaml.cs">
+      <DependentUpon>HlpComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpDatePicker.xaml.cs">
+      <DependentUpon>HlpDatePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
@@ -129,6 +129,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\HlpComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\HlpIntellisense.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,14 +157,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Component\ComboBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Component\DatePicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Component\FindFile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

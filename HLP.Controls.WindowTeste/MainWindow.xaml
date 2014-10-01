@@ -1,8 +1,27 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" x:Class="HLP.Controls.WindowTeste.MainWindow"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <CompositeCollection x:Key="colFrutas">
+            <System:String>Banana</System:String>
+            <System:String>Maçã</System:String>
+            <System:String>Mamão</System:String>
+        </CompositeCollection>
+
+        <DataTemplate x:Key="ctxTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0"></CheckBox>
+                <TextBox Grid.Column="1"></TextBox>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <TabControl>
         <TabItem>
             <AdornerDecorator>
@@ -11,6 +30,14 @@
                         <Component:HlpTextBox IsReadOnly="True" TextLabel="Teste de componentes de texto"  WidthStatus="Full" Orientation="Horizontal"/>
                         <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
                         ></Component:HlpIntellisense>
+                        <Component:HlpComboBox WidthStatus="Full" TextLabel="Frutas" 
+                                               ucItemsSource="{StaticResource colFrutas}"
+                                               ucSelectedIndex="{Binding Path=selectedFruta, 
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        </Component:HlpComboBox>
+                        <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

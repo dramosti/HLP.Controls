@@ -28,7 +28,6 @@ namespace HLP.Controls.Component
         {
             InitializeComponent();
             this.CustomViewModel = new HLPTextBoxViewModel();
-            
         }
 
         private HLPTextBoxViewModel  _hlpTextBoxViewModelViewModel;
