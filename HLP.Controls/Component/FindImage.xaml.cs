@@ -28,6 +28,8 @@ namespace HLP.Controls.Component
             InitializeComponent();
         }
 
+        #region Propriedades de Dependencia
+
         public string xPathImage
         {
             get { return (string)GetValue(xPathImageProperty); }
@@ -39,34 +41,6 @@ namespace HLP.Controls.Component
             DependencyProperty.Register("xPathImage", typeof(string), typeof(FindImage), new PropertyMetadata(
                 defaultValue: string.Empty, propertyChangedCallback: new PropertyChangedCallback(pathImgChanged)));
 
-        public static void pathImgChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
-        {
-            if (args.NewValue != null)
-            {
-                if (File.Exists(path: args.NewValue.ToString()))
-                {
-                    BitmapImage bmp = new BitmapImage();
-                    bmp.BeginInit();
-                    bmp.DecodePixelHeight = bmp.DecodePixelWidth = 200;
-                    bmp.UriSource = new Uri(uriString: args.NewValue.ToString());
-
-                    bmp.EndInit();
-
-                    (d as FindImage).img = bmp;
-
-                    if ((d as FindImage).popUpImg.IsOpen == false
-                && File.Exists(path: args.NewValue.ToString())
-                        && (d as FindImage).IsReadOnly == false)
-                    {
-                        (d as FindImage).popUpImg.IsOpen = true;
-                        return;
-                    }
-                }
-            }
-
-            (d as FindImage).popUpImg.IsOpen = false;
-        }
-
         public BitmapImage img
         {
             get { return (BitmapImage)GetValue(imgProperty); }
@@ -77,21 +51,80 @@ namespace HLP.Controls.Component
         public static readonly DependencyProperty imgProperty =
             DependencyProperty.Register("img", typeof(BitmapImage), typeof(FindImage), new PropertyMetadata(null));
 
+        public static void pathImgChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+        {
+            if (args.NewValue != null)
+            {
+                if (File.Exists(path: args.NewValue.ToString()))
+                {
+                    BitmapImage bmp = new BitmapImage();
+                    bmp.BeginInit();
+                    bmp.DecodePixelHeight = bmp.DecodePixelWidth = 200;
+                    bmp.StreamSource = File.OpenRead(path: args.NewValue.ToString());
+
+                    bmp.EndInit();
+
+                    if ((d as FindImage).popUpImg.IsOpen == false
+                && File.Exists(path: args.NewValue.ToString())
+                        && (d as FindImage).IsReadOnly == false)
+                    {
+                        byte[] imageData = new byte[bmp.StreamSource.Length];
+                        // now, you have get the image bytes array, and you can store it to SQl Server
+                        bmp.StreamSource.Seek(0, System.IO.SeekOrigin.Begin);
+                        //very important, it should be set to the start of the stream
+                        bmp.StreamSource.Read(imageData, 0, imageData.Length);
+                        (d as FindImage).imgBytes = imageData;
+
+                        (d as FindImage).popUpImg.IsOpen = true;
+                        (d as FindImage).txtPath.Focus();
+                        return;
+                    }
+                }
+            }
+
+            (d as FindImage).popUpImg.IsOpen = false;
+        }
+
+
+
+        public byte[] imgBytes
+        {
+            get { return (byte[])GetValue(imgBytesProperty); }
+            set { SetValue(imgBytesProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for imgBytes.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty imgBytesProperty =
+            DependencyProperty.Register("imgBytes", typeof(byte[]), typeof(FindImage),
+            new PropertyMetadata(defaultValue: null, propertyChangedCallback: new PropertyChangedCallback(ImgChanged)));
+
+        public static void ImgChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+        {
+            if (args.NewValue != null)
+            {
+                MemoryStream ms = new MemoryStream(buffer: args.NewValue as byte[]);
+
+                ms.Seek(offset: 0, loc: SeekOrigin.Begin);
+                BitmapImage tempImg = new BitmapImage();
+
+                tempImg = new BitmapImage();
+                tempImg.BeginInit();
+                tempImg.DecodePixelHeight =
+                    tempImg.DecodePixelWidth = 200;
+                tempImg.StreamSource = ms;
+                tempImg.EndInit();
+
+                (d as FindImage).img = tempImg;
+            }
+        }
+
+        #endregion
+
+        #region Events
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.SearchImage();
-        }
-
-        private void SearchImage()
-        {
-            OpenFileDialog findImage = new OpenFileDialog();
-
-            findImage.Filter = "Image Files|*.jpg;*.jpeg;*.png; *.bmp;";
-
-            if (findImage.ShowDialog() == true)
-            {
-                this.xPathImage = findImage.FileName;
-            }
         }
 
         private void txtPath_MouseLeave(object sender, MouseEventArgs e)
@@ -135,12 +168,6 @@ namespace HLP.Controls.Component
             this.OpenImg();
         }
 
-        private void OpenImg()
-        {
-            if (File.Exists(path: this.txtPath.Text))
-                System.Diagnostics.Process.Start(this.txtPath.Text);
-        }
-
         private void txtPath_KeyUp(object sender, KeyEventArgs e)
         {
             if ((e.KeyboardDevice.Modifiers == ModifierKeys.Control)
@@ -149,5 +176,30 @@ namespace HLP.Controls.Component
                 this.OpenImg();
             }
         }
+
+        #endregion
+
+        #region Métodos
+
+        private void SearchImage()
+        {
+            OpenFileDialog findImage = new OpenFileDialog();
+
+            findImage.Filter = "Image Files|*.jpg;*.jpeg;*.png; *.bmp;";
+
+            if (findImage.ShowDialog() == true)
+            {
+                this.xPathImage = findImage.FileName;
+            }
+        }
+
+        private void OpenImg()
+        {
+            if (File.Exists(path: this.txtPath.Text))
+                System.Diagnostics.Process.Start(this.txtPath.Text);
+        }
+
+        #endregion
+
     }
 }
