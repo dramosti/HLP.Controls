@@ -5,7 +5,7 @@
              xmlns:converter="clr-namespace:HLP.Controls.Converters.Component"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Loaded="UserControlBase_Loaded"
             Height="Auto" Width="Auto">
     <runtime:UserControlBase.Resources>
         <ResourceDictionary>
@@ -21,8 +21,7 @@
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
         <TextBox  Style="{StaticResource HLP_TextBox}" x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
-                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"
-                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text}"
+                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"                 
                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>       
     </WrapPanel>
 </runtime:UserControlBase>

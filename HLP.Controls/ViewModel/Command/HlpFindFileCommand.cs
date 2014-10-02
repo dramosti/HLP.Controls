@@ -23,7 +23,7 @@ namespace HLP.Controls.ViewModel.Command
         }
 
 
-        void ExecuteAcaoFind(object ctr)
+      public  void ExecuteAcaoFind(object ctr)
         {
             HlpFindFile controle = ctr as HlpFindFile;
             switch (controle.Finder)

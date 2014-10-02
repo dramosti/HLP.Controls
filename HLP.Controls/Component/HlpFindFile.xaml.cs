@@ -1,4 +1,5 @@
 ﻿using HLP.Controls.Base;
+using HLP.Controls.Converters.Component;
 using HLP.Controls.ViewModel.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -28,19 +28,23 @@ namespace HLP.Controls.Component
         {
             InitializeComponent();
             this.CustomViewModel = new HlpFindFileViewModel();
+
         }
 
         public HlpFindFileViewModel CustomViewModel { get; set; }
+
+       
+
+
 
         private HLP.Controls.Enum.EnumControls.stFind _finder = HLP.Controls.Enum.EnumControls.stFind.File;
         public HLP.Controls.Enum.EnumControls.stFind Finder
         {
             get { return _finder; }
-            set { _finder = value; }
+            set { _finder = value; base.NotifyPropertyChanged("Finder"); }
         }
 
         private string _title = "";
-
         public string Title
         {
             get
@@ -58,18 +62,39 @@ namespace HLP.Controls.Component
                 }
                 else return _title;
             }
-            set { _title = value; }
+            set { _title = value; base.NotifyPropertyChanged("Title"); }
         }
 
 
-
-
+        #region Events
         private void compBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             txt.Focus();
         }
 
         private void txt_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            OpenFile();
+        }
+
+        private void txt_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+                this.CustomViewModel.command.ExecuteAcaoFind(this);
+        }
+
+        private void txt_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if ((e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+                && e.Key == Key.O)
+            {
+                this.OpenFile();
+            }
+        }
+        #endregion
+
+        #region Methods
+        private void OpenFile()
         {
             switch (this.Finder)
             {
@@ -83,12 +108,13 @@ namespace HLP.Controls.Component
                     if (Directory.Exists(this.Text))
                     {
                         System.Diagnostics.Process.Start(this.Text);
-                    } 
+                    }
                     break;
                 default:
                     break;
             }
-
         }
+
+        #endregion
     }
 }

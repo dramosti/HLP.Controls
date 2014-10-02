@@ -20,5 +20,14 @@ namespace HLP.Controls.Enum
             File,
             Folder
         }
+
+        public enum stValidacao 
+        {
+            Int,
+            Decimal,
+            Moeda,
+            Porcentagem,
+            Text
+        }
     }
 }
