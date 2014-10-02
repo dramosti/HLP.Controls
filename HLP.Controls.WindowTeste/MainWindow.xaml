@@ -51,7 +51,8 @@
                         <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
                         <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
                         <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Component:FindImage WidthStatus="Full"></Component:FindImage>
+                        <Component:FindImage Orientation="Horizontal" WidthStatus="Full"></Component:FindImage>
+                        <Component:FindImage Orientation="Vertical" WidthStatus="Full"></Component:FindImage>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
