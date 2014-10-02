@@ -189,6 +189,7 @@ namespace HLP.Controls.Component
 
             if (findImage.ShowDialog() == true)
             {
+                this.xPathImage = null;
                 this.xPathImage = findImage.FileName;
             }
         }
