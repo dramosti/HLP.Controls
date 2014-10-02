@@ -40,6 +40,16 @@
                         <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
                         <Button Content="Button" Width="75" Click="Button_Click"/>-->
                         <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
+                        <Component:HlpStatus x:Name="hlpStatus">
+                            <Component:HlpStatus.lStatus>
+                                <System:String>Criado</System:String>
+                                <System:String>Em Cotação</System:String>
+                                <System:String>Confirmado</System:String>                                
+                            </Component:HlpStatus.lStatus>
+                            <Component:HlpStatus.lOptionalStatus>
+                                <System:Byte>2</System:Byte>
+                            </Component:HlpStatus.lOptionalStatus>
+                        </Component:HlpStatus>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

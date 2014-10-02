@@ -24,12 +24,14 @@ namespace HLP.Controls.WindowTeste
         public MainWindow()
         {
             InitializeComponent();
-            
-            
+
+
 
             this.DataContext = new MainWindowDataContext();
 
             (this.DataContext as MainWindowDataContext).selectedFruta = 2;
+
+            this.hlpStatus.selectStatus = 1;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,7 +43,7 @@ namespace HLP.Controls.WindowTeste
     public class MainWindowDataContext : INotifyPropertyChanged
     {
 
-        
+
         private DateTime _dt;
 
         public DateTime dt
@@ -53,7 +55,7 @@ namespace HLP.Controls.WindowTeste
                 this.NotifyPropertyChanged(propertyName: "dt");
             }
         }
-        
+
 
         private int _selectedFruta;
 
