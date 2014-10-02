@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:runtime="clr-namespace:HLP.Controls.Base"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-                xmlns:conv="clr-namespace:HLP.Controls.Component.Converter" 
+                xmlns:conv="clr-namespace:HLP.Controls.Converters.Component" 
              >
     <runtime:UserControlBase.Resources>
         <Style x:Key="Button_HLP_DATE_PICKER" TargetType="{x:Type Button}">

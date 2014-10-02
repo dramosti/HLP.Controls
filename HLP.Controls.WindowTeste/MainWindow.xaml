@@ -26,7 +26,7 @@
         <TabItem>
             <AdornerDecorator>
                 <Expander IsExpanded="True">
-                    <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="50" WidthComp1="200">
+                    <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
                         <!--<Component:HlpTextBox IsReadOnly="False" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
                         <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
                         ></Component:HlpIntellisense>
@@ -39,10 +39,6 @@
                         <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
                         <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
                         <Button Content="Button" Width="75" Click="Button_Click"/>-->
-                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
-                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
-                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
-                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
                         <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
                     </Component:WrapPanel>
                 </Expander>

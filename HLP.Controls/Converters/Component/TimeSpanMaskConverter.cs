@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace HLP.Controls.Component.Converter
+namespace HLP.Controls.Converters.Component
 {
     public class TimeSpanMaskConverter : IValueConverter
     {

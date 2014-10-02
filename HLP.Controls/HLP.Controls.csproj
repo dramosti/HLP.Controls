@@ -77,9 +77,11 @@
       <DependentUpon>HlpTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
+    <Compile Include="Converters\Component\DateTimeMaskConverter.cs" />
     <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
     <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
+    <Compile Include="Converters\Component\TimeSpanMaskConverter.cs" />
     <Compile Include="Enum\EnumControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
