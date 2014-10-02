@@ -24,11 +24,12 @@
     <MetadataSource Address="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="dbFunctionsToComponents1.xsd" MetadataType="Schema" ID="61084da0-c52a-474c-819e-ca13a9b02fb2" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd0" />
+    <MetadataFile FileName="dbFunctionsToComponents2.xsd" MetadataType="Schema" ID="8c72107d-cc6c-41af-ab75-1ce29f7db3a7" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd2" />
     <MetadataFile FileName="dbFunctionsToComponents.xsd" MetadataType="Schema" ID="575ed346-5fd4-4d5b-90eb-10d620315e33" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd1" />
     <MetadataFile FileName="dbFunctionsToComponents.wsdl" MetadataType="Wsdl" ID="a0c0a9bb-fc24-4c72-b66c-58d2fc5891bd" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?wsdl" />
-    <MetadataFile FileName="dbFunctionsToComponents1.xsd" MetadataType="Schema" ID="61084da0-c52a-474c-819e-ca13a9b02fb2" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd0" />
+    <MetadataFile FileName="dbFunctionsToComponents3.xsd" MetadataType="Schema" ID="b2af7810-94ce-4414-8acd-6904ce24a967" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd3" />
     <MetadataFile FileName="dbFunctionsToComponents.disco" MetadataType="Disco" ID="02af5c5d-4a01-45d6-87a0-a5bc62a959ca" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?disco" />
-    <MetadataFile FileName="dbFunctionsToComponents2.xsd" MetadataType="Schema" ID="8c72107d-cc6c-41af-ab75-1ce29f7db3a7" SourceId="1" SourceUrl="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

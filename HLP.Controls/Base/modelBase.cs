@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HLP.Controls.Repository.Model
+namespace HLP.Controls.Base
 {
     public class modelBase : INotifyPropertyChanged
     {

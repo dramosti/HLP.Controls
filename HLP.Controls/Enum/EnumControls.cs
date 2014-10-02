@@ -14,5 +14,11 @@ namespace HLP.Controls.Enum
             startWith,
             contains
         }
+
+        public enum stFind
+        {
+            File,
+            Folder
+        }
     }
 }

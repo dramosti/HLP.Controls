@@ -76,8 +76,6 @@ namespace HLP.Controls.Base
 
         private double _WidthComp2 = 0;
         [Category("HLP.Base")]
-        [Browsable(browsable: false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public double WidthComp2
         {
             get { return _WidthComp2; }

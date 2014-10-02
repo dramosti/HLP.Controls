@@ -10,16 +10,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/HLP.Controls.dll">
-      <publishTime>10/01/2014 07:44:43</publishTime>
+      <publishTime>10/01/2014 15:35:36</publishTime>
     </File>
     <File Include="bin/HLP.Controls.Wcf.dll">
-      <publishTime>10/01/2014 08:00:22</publishTime>
+      <publishTime>10/01/2014 15:35:37</publishTime>
     </File>
     <File Include="dbFunctionsToComponents.svc">
-      <publishTime>09/30/2014 17:12:09</publishTime>
+      <publishTime>01/10/2014 13:51:35</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/01/2014 07:44:44</publishTime>
+      <publishTime>01/10/2014 13:51:36</publishTime>
     </File>
   </ItemGroup>
 </Project>

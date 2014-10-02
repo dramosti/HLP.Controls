@@ -47,14 +47,16 @@ namespace HLP.Controls.ViewModel.ViewModel
                 }
             }
 
-            //if (modelType.GetProperties().Count(i => i.Name == "idEmpresa") > 1)
-            //{
-            //    this.idEmpresa = CompanyData.idEmpresa;
-            //}
-            //else
-            //{
-            //    this.idEmpresa = 0;
-            //}
+            if (modelType.GetProperties().Count(i => i.Name == "idEmpresa") > 1)
+            {
+              //  this.idEmpresa = CompanyData.idEmpresa;
+                this.idEmpresa = 0;
+#warning analisar como será passado o idempresa
+            }
+            else
+            {
+                this.idEmpresa = 0;
+            }
 
             comm = new QuickSearchCommands(objViewModel: this);
         }
@@ -115,13 +117,13 @@ namespace HLP.Controls.ViewModel.ViewModel
             set { _modelType = value; }
         }
 
-        //private int _idEmpresa;
+        private int _idEmpresa;
 
-        //public int idEmpresa
-        //{
-        //    get { return _idEmpresa; }
-        //    set { _idEmpresa = value; }
-        //}
+        public int idEmpresa
+        {
+            get { return _idEmpresa; }
+            set { _idEmpresa = value; }
+        }
 
         private Type _fieldType;
 
