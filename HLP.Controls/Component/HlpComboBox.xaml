@@ -12,6 +12,7 @@
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
             <ComboBox x:Name="cbx"
+                      Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"
                 ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
                 AncestorType={x:Type UserControl}}, Path=ucItemsSource, Mode=OneWay}"
                       SelectedIndex="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
