@@ -3,10 +3,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:runtime="clr-namespace:HLP.Controls.Base"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Name="uc"
+             mc:Ignorable="d">
+    <WrapPanel Orientation="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Orientation}">
+        <TextBlock x:Name="compBlock" TextWrapping="Wrap" 
+                   HorizontalAlignment="Left"
+                   Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
+                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
+        <Grid x:Name="gdContainer"
+            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}">
+            <Grid.Resources>
+                <Style x:Key="Button_PESQUISA_Pesquisa" TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <ControlTemplate.Resources>
+                                    <Storyboard x:Key="Storyboard1">
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                            <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF0072C6"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                            <EasingColorKeyFrame KeyTime="0:0:0.3" Value="White"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                    <Storyboard x:Key="Storyboard2">
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                            <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
+                                            <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#000072C6"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                            <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                                            <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF626262"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </ControlTemplate.Resources>
+                                <Grid>
+                                    <Border x:Name="border" BorderThickness="0.7" CornerRadius="0,4,4,0" BorderBrush="Transparent"  Background="Transparent">
+                                        <Grid>
+                                            <Path x:Name="path" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Width="15" Stretch="Fill" Fill="#FF626262" Data="F1 M 42.5,22C 49.4036,22 55,27.5964 55,34.5C 55,41.4036 49.4036,47 42.5,47C 40.1356,47 37.9245,46.3435 36,45.2426L 26.9749,54.2678C 25.8033,55.4393 23.9038,55.4393 22.7322,54.2678C 21.5607,53.0962 21.5607,51.1967 22.7322,50.0251L 31.7971,40.961C 30.6565,39.0755 30,36.8644 30,34.5C 30,27.5964 35.5964,22 42.5,22 Z M 42.5,26C 37.8056,26 34,29.8056 34,34.5C 34,39.1944 37.8056,43 42.5,43C 47.1944,43 51,39.1944 51,34.5C 51,29.8056 47.1944,26 42.5,26 Z "/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Trigger.ExitActions>
+                                            <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                                        </Trigger.ExitActions>
+                                        <Trigger.EnterActions>
+                                            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                                        </Trigger.EnterActions>
+                                    </Trigger>
+
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="25"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" x:Name="txtPath"                     
+                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type UserControl}}, Path=xPathImage, UpdateSourceTrigger=PropertyChanged}"
+                     MouseEnter="txtPath_MouseEnter"
+                     MouseLeave="txtPath_MouseLeave"
+                     GotKeyboardFocus="txtPath_GotKeyboardFocus"
+                     LostKeyboardFocus="txtPath_LostKeyboardFocus"
+                     KeyDown="txtPath_KeyDown" KeyUp="txtPath_KeyUp"
+                     >
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <ContextMenu.Items>
+                            <MenuItem Click="MenuItem_Click" Header="Abrir Imagem (Ctrl + O)"></MenuItem>
+                        </ContextMenu.Items>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+            <Button x:Name="btnFind" Grid.Column="1" Style="{DynamicResource Button_PESQUISA_Pesquisa}"
+                Click="Button_Click">
+            </Button>
+            <Popup x:Name="popUpImg"
+                   PlacementTarget="{Binding ElementName=txtPath}" Placement="Bottom" VerticalOffset="5"                   
+                >
+                <Image Width="200" Height="200" Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type UserControl}}, Path=img}"></Image>
+            </Popup>
+        </Grid>
+    </WrapPanel>
 </runtime:UserControlBase>

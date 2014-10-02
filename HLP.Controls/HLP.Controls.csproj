@@ -68,9 +68,6 @@
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\WrapPanel.cs" />
-    <Compile Include="Component\FindFile.xaml.cs">
-      <DependentUpon>FindFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Component\FindImage.xaml.cs">
       <DependentUpon>FindImage.xaml</DependentUpon>
     </Compile>
@@ -159,10 +156,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Component\FindFile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Component\FindImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
