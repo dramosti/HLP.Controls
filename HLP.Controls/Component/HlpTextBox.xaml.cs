@@ -36,6 +36,11 @@ namespace HLP.Controls.Component
             get { return _hlpTextBoxViewModelViewModel; }
             set { _hlpTextBoxViewModelViewModel = value; }
         }
+
+        private void compBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            txt.Focus();
+        }
         
 
         

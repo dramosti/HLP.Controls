@@ -71,7 +71,7 @@ namespace HLP.Controls.ViewModel.Command
             string xNameTable = this.objViewModel.modelType.Name.ToUpper()
                 .Replace(oldValue: "MODEL", newValue: "");
 
-            this.objViewModel.returnedId = objService.GetIdRecordToQuickSearch(
+            this.objViewModel.returnedId = this.GetRecord(
                 xNameTable: xNameTable,
                 xCampo: this.objViewModel.xNameBinding,
                 xValue: this.objViewModel.xValue,
@@ -90,5 +90,55 @@ namespace HLP.Controls.ViewModel.Command
         {
             (o as Window).Close();
         }
+
+
+        public int GetRecord(string xNameTable, string xCampo, string xValue, HLP.Controls.Enum.EnumControls.stFilterQuickSearch stFilterQS, int idEmpresa = 0)
+        {
+            string queryGetPkField = string.Format(format: "SELECT COLUMN_NAME FROM " +
+        "INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE " +
+        "where TABLE_NAME = '{0}' and (CONSTRAINT_NAME like '%PK' or CONSTRAINT_NAME like 'PK%')", arg0: xNameTable);
+
+            object nameFieldPk = objService.qrySeekValue("INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE", "COLUMN_NAME",
+                string.Format("TABLE_NAME = '{0}' and (CONSTRAINT_NAME like '%PK' or CONSTRAINT_NAME like 'PK%')", xNameTable));
+
+            string sWhere = string.Empty;
+
+            switch (stFilterQS)
+            {
+                case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.equal:
+                    {
+                        sWhere = string.Format(format: " {0} = '{1}'", arg0: xCampo, arg1: xValue);
+                    }
+                    break;
+                case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.startWith:
+                    {
+                        sWhere = string.Format(format: " {0} LIKE'{1}%'", arg0: xCampo, arg1: xValue);
+                    }
+                    break;
+                case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.contains:
+                    {
+                        sWhere = string.Format(format: " {0} LIKE'%{1}%'", arg0: xCampo, arg1: xValue);
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            string query = string.Format(format: "SELECT {0} FROM {1} {2}",
+                arg0: nameFieldPk, arg1: xNameTable, arg2: sWhere);
+
+            if (idEmpresa > 0)
+            {
+                sWhere += string.Format(format: "{0} and idEmpresa = {1}", arg0: query, arg1: idEmpresa);
+            }
+
+            string record = objService.qrySeekValue(xNameTable, nameFieldPk.ToString(), sWhere);
+            int iRet = 0;
+            int.TryParse(record, out iRet);
+            return iRet;
+        }
+
+
+
     }
 }

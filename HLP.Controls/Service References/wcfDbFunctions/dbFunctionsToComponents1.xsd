@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="GetData">
+  <xs:import schemaLocation="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HLP.Controls.Enum" />
+  <xs:element name="qrySeekRet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="sSelect" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sExpressao" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetDataResponse">
+  <xs:element name="qrySeekRetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetDataResult" nillable="true">
+        <xs:element minOccurs="0" name="qrySeekRetResult" nillable="true">
           <xs:complexType>
             <xs:annotation>
               <xs:appinfo>
@@ -23,6 +24,110 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qrySeekRet2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sTabela" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sCampos" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qrySeekRet2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="qrySeekRet2Result" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qrySeekRet3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sTabela" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sCampos" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sWhere" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qrySeekRet3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="qrySeekRet3Result" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qrySeekValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sTabela" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sCampo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sWhere" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qrySeekValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="qrySeekValueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fExisteCampo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sNomeCampo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sTabela" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fExisteCampoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fExisteCampoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="xNameTable" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xCampo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xValue" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HLP.Controls.Enum" minOccurs="0" name="stFilterQS" type="q1:EnumControls.stFilterQuickSearch" />
+        <xs:element minOccurs="0" name="idEmpresa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRecordResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

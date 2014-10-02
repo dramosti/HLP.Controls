@@ -4,8 +4,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\bin\Release\HLP.Controls.pdb
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\HLP.Controls.csprojResolveAssemblyReference.cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpCheckBox.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpIntellisense.g.cs
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\ComboBox.g.cs
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\DatePicker.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\FindFile.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\FindImage.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpTextBox.g.cs
@@ -15,8 +13,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\HLP.Controls_MarkupCompile.l
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpCheckBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpIntellisense.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Resources\Styles\UserControlStyles.baml
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\ComboBox.baml
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\DatePicker.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\FindFile.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\FindImage.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpTextBox.baml
@@ -25,3 +21,9 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\HLP.Controls.Properties.Reso
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\HLP.Controls.csproj.GenerateResource.Cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\HLP.Controls.dll
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\HLP.Controls.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpComboBox.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpDatePicker.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\ViewWindow_\wdQuickSearch.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpComboBox.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\Component\HlpDatePicker.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Release\ViewWindow_\wdQuickSearch.baml

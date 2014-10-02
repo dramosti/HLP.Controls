@@ -27,32 +27,19 @@
             <AdornerDecorator>
                 <Expander IsExpanded="True">
                     <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                        <Component:HlpTextBox IsReadOnly="True" TextLabel="Teste de componentes de texto"  WidthStatus="Full" Orientation="Horizontal"/>
+                        <!--<Component:HlpTextBox IsReadOnly="False" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
                         <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
                         ></Component:HlpIntellisense>
-                        <Component:HlpComboBox WidthStatus="Full" 
-                                               TextLabel="Frutas"
+                        <Component:HlpComboBox WidthStatus="Full" TextLabel="Frutas" 
                                                ucItemsSource="{StaticResource colFrutas}"
                                                ucSelectedIndex="{Binding Path=selectedFruta, 
                             UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                            <Component:HlpComboBox.ucTemplateCbx>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="20"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <CheckBox Grid.Column="0"></CheckBox>
-                                        <TextBox Grid.Column="1"></TextBox>
-                                    </Grid>
-                                </DataTemplate>
-                            </Component:HlpComboBox.ucTemplateCbx>
                         </Component:HlpComboBox>
                         <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
                         <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
                         <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Component:FindImage Orientation="Horizontal" WidthStatus="Full"></Component:FindImage>
-                        <Component:FindImage Orientation="Vertical" WidthStatus="Full"></Component:FindImage>
+                        <Button Content="Button" Width="75" Click="Button_Click"/>-->
+                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

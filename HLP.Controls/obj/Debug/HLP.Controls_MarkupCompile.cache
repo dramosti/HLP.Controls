@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-71804849008
+91512895884
 
-38-101990328
-14-105585256
-Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpIntellisense.xaml;Resources\Styles\UserControlStyles.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
+41-1692800257
+15-572041890
+Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpIntellisense.xaml;Resources\Styles\UserControlStyles.xaml;ViewWindow_\wdQuickSearch.xaml;Component\HlpFindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
 False
 

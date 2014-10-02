@@ -34,3 +34,8 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpComboBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpComboBox.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpDatePicker.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpDatePicker.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\ViewWindow_\wdQuickSearch.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\ViewWindow_\wdQuickSearch.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpFindFile.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpFindFile.baml

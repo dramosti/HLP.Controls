@@ -1,6 +1,7 @@
 ﻿using HLP.Controls.Base;
 using HLP.Controls.Static;
 using HLP.Controls.ViewModel.ViewModel;
+using HLP.Controls.ViewWindow;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,40 +37,40 @@ namespace HLP.Controls.ViewModel.Command
             {
                 if (o != null)
                     _modelType = _dataContext.GetType().GetProperty(name: "currentModel");
-
-                object[] _params = new object[] { _modelType.PropertyType, o };
-
-                object _return = Util.ExecuteMethodByReflection(xNamespace: "HLP.Components.View.WPF",
-                    xType: "wdQuickSearch", xMethod: "ShowDialogWdQuickSearch",
-                                parameters: _params);
-
-                _dataContext.GetType().GetProperty(name: "currentID").SetValue(obj: _dataContext, value: _return);
-
-
-                if ((int?)_return > 0)
+                if (_modelType != null)
                 {
-                    PropertyInfo currentModelProperty =
-                _dataContext.GetType().GetProperty(name: "currentModel");
+                    object[] _params = new object[] { _modelType.PropertyType, o };
+
+                    var _return = wdQuickSearch.ShowDialogWdQuickSearch(modelType: _modelType.PropertyType, sender: txt);
+
+                    _dataContext.GetType().GetProperty(name: "currentID").SetValue(obj: _dataContext, value: _return);
 
 
-                    if (currentModelProperty != null)
-                        currentModelProperty.SetValue(obj: _dataContext, value: null);
-
-                    PropertyInfo navigatePesquisa =
-                        _dataContext.GetType().GetProperty(name: "navigatePesquisa");
-
-                    if (navigatePesquisa != null)
-                        navigatePesquisa.SetValue(obj: _dataContext, value: null);
-
-                    _dataContext.GetType().GetProperty(name: "bIsEnabled")
-                        .SetValue(obj: _dataContext, value: false);
-
-                    BackgroundWorker bw = _dataContext.GetType().GetProperty(
-                        name: "bWorkerPesquisa").GetValue(obj: _dataContext) as BackgroundWorker;
-
-                    if (bw != null)
+                    if ((int?)_return > 0)
                     {
-                        bw.RunWorkerAsync();
+                        PropertyInfo currentModelProperty =
+                    _dataContext.GetType().GetProperty(name: "currentModel");
+
+
+                        if (currentModelProperty != null)
+                            currentModelProperty.SetValue(obj: _dataContext, value: null);
+
+                        PropertyInfo navigatePesquisa =
+                            _dataContext.GetType().GetProperty(name: "navigatePesquisa");
+
+                        if (navigatePesquisa != null)
+                            navigatePesquisa.SetValue(obj: _dataContext, value: null);
+
+                        _dataContext.GetType().GetProperty(name: "bIsEnabled")
+                            .SetValue(obj: _dataContext, value: false);
+
+                        BackgroundWorker bw = _dataContext.GetType().GetProperty(
+                            name: "bWorkerPesquisa").GetValue(obj: _dataContext) as BackgroundWorker;
+
+                        if (bw != null)
+                        {
+                            bw.RunWorkerAsync();
+                        }
                     }
                 }
             }

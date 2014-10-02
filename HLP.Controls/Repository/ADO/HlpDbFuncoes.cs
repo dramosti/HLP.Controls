@@ -25,21 +25,13 @@ namespace HLP.Controls.Repository.ADO
             return dr;
         }
 
-        public static DataTable qrySeekRet(string sTabela, string sCampos = "", List<ListaCampos> lCampos = null)
+        public static DataTable qrySeekRet(string sTabela, string sCampos = "")
         {
-            if (lCampos != null)
-            {
-                sCampos = MontaStringCampos(lCampos);
-            }
             return (qrySeekRet(sTabela, sCampos, String.Empty, String.Empty));
         }
 
-        public static DataTable qrySeekRet(string sTabela, string sCampos, string sWhere, List<ListaCampos> lCampos = null)
+        public static DataTable qrySeekRet(string sTabela, string sCampos, string sWhere)
         {
-            if (lCampos != null)
-            {
-                sCampos = MontaStringCampos(lCampos);
-            }
             return (qrySeekRet(sTabela, sCampos, sWhere, String.Empty));
         }
 
@@ -86,8 +78,7 @@ namespace HLP.Controls.Repository.ADO
             return qrySeekValue(sTabela, sCampo, sWhere, false);
         }
 
-        private static string qrySeekValue(string sTabela, string sCampo,
-            string sWhere, bool bGeraErroSemRegistros)
+        private static string qrySeekValue(string sTabela, string sCampo, string sWhere, bool bGeraErroSemRegistros)
         {
 
             DataTable dt = qrySeekRet(sTabela, sCampo, sWhere, null);
@@ -239,17 +230,17 @@ namespace HLP.Controls.Repository.ADO
             {
                 case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.equal:
                     {
-                        sWhere = string.Format(format: "WHERE {0} = '{1}'", arg0: xCampo, arg1: xValue);
+                        sWhere = string.Format(format: " {0} = '{1}'", arg0: xCampo, arg1: xValue);
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.startWith:
                     {
-                        sWhere = string.Format(format: "WHERE {0} LIKE'{1}%'", arg0: xCampo, arg1: xValue);
+                        sWhere = string.Format(format: " {0} LIKE'{1}%'", arg0: xCampo, arg1: xValue);
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stFilterQuickSearch.contains:
                     {
-                        sWhere = string.Format(format: "WHERE {0} LIKE'%{1}%'", arg0: xCampo, arg1: xValue);
+                        sWhere = string.Format(format: " {0} LIKE'%{1}%'", arg0: xCampo, arg1: xValue);
                     }
                     break;
                 default:
@@ -264,11 +255,10 @@ namespace HLP.Controls.Repository.ADO
                 sWhere += string.Format(format: "{0} and idEmpresa = {1}", arg0: query, arg1: idEmpresa);
             }
 
-            object record = HlpDbFuncoes.qrySeekValue(xNameTable, nameFieldPk.ToString(), sWhere);
-            if (record != null)
-                return (int)record;
-
-            return 0;
+            string record = HlpDbFuncoes.qrySeekValue(xNameTable, nameFieldPk.ToString(), sWhere);
+            int iRet = 0;
+            int.TryParse(record, out iRet);
+            return iRet;
         }
 
     }

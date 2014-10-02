@@ -24,10 +24,17 @@ namespace HLP.Controls.WindowTeste
         public MainWindow()
         {
             InitializeComponent();
+            
+            
 
             this.DataContext = new MainWindowDataContext();
 
             (this.DataContext as MainWindowDataContext).selectedFruta = 2;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

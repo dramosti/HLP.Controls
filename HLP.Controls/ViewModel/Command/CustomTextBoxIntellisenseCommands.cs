@@ -17,12 +17,12 @@ namespace HLP.Controls.ViewModel.Command
     public class CustomTextBoxIntellisenseCommands
     {
         CustomTextBoxIntellisenseViewModel objViewModel;
-        HlpPesqPadraoService objDataService;
+        OperacoesDataBaseService objDataService;
 
         public CustomTextBoxIntellisenseCommands(CustomTextBoxIntellisenseViewModel objViewModel)
         {
             this.objViewModel = objViewModel;
-            this.objDataService = new HlpPesqPadraoService();
+            this.objDataService = new OperacoesDataBaseService();
 
             this.objViewModel.insertCommand = new RelayCommand(
                 execute: e => this.InsertExecute(o: e),
@@ -41,13 +41,13 @@ namespace HLP.Controls.ViewModel.Command
             DataTable dt = null;
 
             if (this.objViewModel.mainParameter == null) //Está executando uma view Comum
-                dt = objDataService.GetData(sSelect:
+                dt = objDataService.qrySeekRet(sExpressao:
                 string.Format(format: "select * from {0}", arg0: this.objViewModel.xNameView));
             else // Está executando uma Function que retorna uma Sql Table http://technet.microsoft.com/pt-br/library/ms177499(v=sql.105).aspx
             {
                 if (this.objViewModel.lParameters == null)
                 {
-                    dt = objDataService.GetData(sSelect:
+                    dt = objDataService.qrySeekRet(sExpressao:
                         string.Format(format: "select * from {0} ({1})", arg0: this.objViewModel.xNameView, arg1: this.objViewModel.mainParameter));
                 }
                 else
@@ -61,7 +61,7 @@ namespace HLP.Controls.ViewModel.Command
 
                     xSelect += ")";
 
-                    dt = objDataService.GetData(sSelect:
+                    dt = objDataService.qrySeekRet(sExpressao:
                         xSelect);
                 }
             }

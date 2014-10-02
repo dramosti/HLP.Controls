@@ -5,24 +5,120 @@
       <xsd:import schemaLocation="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://hlpsistemas.no-ip.org:8081/wcf_comps/dbFunctionsToComponents.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HLP.Controls.Enum" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IdbFunctionsToComponents_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekRet_InputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekRet" />
   </wsdl:message>
-  <wsdl:message name="IdbFunctionsToComponents_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekRet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekRetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekRet2_InputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekRet2" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekRet2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekRet2Response" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekRet3_InputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekRet3" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekRet3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekRet3Response" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekValue" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_qrySeekValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:qrySeekValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_fExisteCampo_InputMessage">
+    <wsdl:part name="parameters" element="tns:fExisteCampo" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_fExisteCampo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fExisteCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_GetRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecord" />
+  </wsdl:message>
+  <wsdl:message name="IdbFunctionsToComponents_GetRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordResponse" />
   </wsdl:message>
   <wsdl:portType name="IdbFunctionsToComponents">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/GetData" message="tns:IdbFunctionsToComponents_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/GetDataResponse" message="tns:IdbFunctionsToComponents_GetData_OutputMessage" />
+    <wsdl:operation name="qrySeekRet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet" message="tns:IdbFunctionsToComponents_qrySeekRet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekRetResponse" message="tns:IdbFunctionsToComponents_qrySeekRet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="qrySeekRet2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet2" message="tns:IdbFunctionsToComponents_qrySeekRet2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet2Response" message="tns:IdbFunctionsToComponents_qrySeekRet2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="qrySeekRet3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet3" message="tns:IdbFunctionsToComponents_qrySeekRet3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet3Response" message="tns:IdbFunctionsToComponents_qrySeekRet3_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="qrySeekValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekValue" message="tns:IdbFunctionsToComponents_qrySeekValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/qrySeekValueResponse" message="tns:IdbFunctionsToComponents_qrySeekValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fExisteCampo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/fExisteCampo" message="tns:IdbFunctionsToComponents_fExisteCampo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/fExisteCampoResponse" message="tns:IdbFunctionsToComponents_fExisteCampo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/GetRecord" message="tns:IdbFunctionsToComponents_GetRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdbFunctionsToComponents/GetRecordResponse" message="tns:IdbFunctionsToComponents_GetRecord_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IdbFunctionsToComponents" type="tns:IdbFunctionsToComponents">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/GetData" style="document" />
+    <wsdl:operation name="qrySeekRet">
+      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qrySeekRet2">
+      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qrySeekRet3">
+      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/qrySeekRet3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qrySeekValue">
+      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/qrySeekValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fExisteCampo">
+      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/fExisteCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecord">
+      <soap:operation soapAction="http://tempuri.org/IdbFunctionsToComponents/GetRecord" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
