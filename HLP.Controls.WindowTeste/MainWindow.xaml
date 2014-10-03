@@ -40,6 +40,7 @@
                         <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
                         <Button Content="Button" Width="75" Click="Button_Click"/>-->
                         <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
+                        <Component:HlpCheckBox Height="20"></Component:HlpCheckBox>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

@@ -175,166 +175,6 @@
 
     <!--TextBox-->
 
-    <Style x:Key="HLP_FindFile" TargetType="{x:Type TextBox}">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Margin" Value="0,0,0,3"/>
-        <Setter Property="Foreground" Value="#FF626262"/>
-        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="AllowDrop" Value="true"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Grid>
-                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
-                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                            <Button Grid.Column="1" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
-                                    Visibility="Visible"
-                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.ExecFind}"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
-                                    Style="{DynamicResource Button_Search_TextBox}">
-                            </Button>
-                        </Grid>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
-                            <Setter Property="Effect" TargetName="border">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
-                            <Setter Property="Effect" TargetName="border">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="Validation.HasError" Value="True">
-                            <Setter Property="Validation.ErrorTemplate">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <DockPanel LastChildFill="True">
-                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
-                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
-                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
-                                            </Border>
-                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
-                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
-                                            </AdornedElementPlaceholder>
-                                        </DockPanel>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                    <Condition Property="IsSelectionActive" Value="false"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-            </MultiTrigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="HLP_TextBox" TargetType="{x:Type TextBox}">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Margin" Value="0,0,0,3"/>
-        <Setter Property="Foreground" Value="#FF626262"/>
-        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="AllowDrop" Value="true"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Grid>
-                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
-                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                            <Button Grid.Column="1" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
-                                    Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource readyOnluToVisibleConverter}}"
-                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.searchCommand}"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
-                                    Style="{DynamicResource Button_Search_TextBox}">
-                            </Button>
-                        </Grid>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
-                            <Setter Property="Effect" TargetName="border">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
-                            <Setter Property="Effect" TargetName="border">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="Validation.HasError" Value="True">
-                            <Setter Property="Validation.ErrorTemplate">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <DockPanel LastChildFill="True">
-                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
-                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
-                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
-                                            </Border>
-                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
-                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
-                                            </AdornedElementPlaceholder>
-                                        </DockPanel>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                    <Condition Property="IsSelectionActive" Value="false"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-            </MultiTrigger>
-        </Style.Triggers>
-    </Style>
-
     <Style x:Key="Button_Search_TextBox" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -391,6 +231,490 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Height="17.338" Margin="0,-2.666,0,-4.672"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HLP_TextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MaxWidth="20" MinWidth="10"/>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button Grid.Column="2" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
+                                    Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource readyOnluToVisibleConverter}}"
+                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.searchCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                    Style="{StaticResource Button_Search_TextBox}">
+                            </Button>
+                            <Label Content="R$" Style="{StaticResource LabelStyle}" Foreground="#FF626262" FontFamily="Segoe UI Light" FontSize="12" Visibility="Visible"></Label>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>    
+
+    <!--TextBox-->
+    
+    <!--Time-->
+
+    <Style x:Key="Button_HLP_Time" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="Transparent" BorderThickness="0.7" CornerRadius="0,4,4,0" Background="Transparent" SnapsToDevicePixels="true">
+                        <Path Stretch="Fill" Height="10" Width="10" Fill="#FF626262" Data="F1 M38,23.75 C46.7445,23.75 53.8333,30.8388 53.8333,39.5833 53.8333,48.3278 46.7445,55.4167 38,55.4167 29.2555,55.4167 22.1667,48.3278 22.1667,39.5833 22.1667,30.8388 29.2555,23.75 38,23.75 z M38,27.7083 C31.4416,27.7083 26.125,33.025 26.125,39.5833 26.125,46.1417 31.4416,51.4583 38,51.4583 44.5584,51.4583 49.875,46.1417 49.875,39.5833 49.875,33.025 44.5584,27.7083 38,27.7083 z M37.6042,30.875 C38.4786,30.875 39.1875,31.5839 39.1875,32.4583 L39.1875,38.3959 45.125,38.3959 C45.9994,38.3959 46.7083,39.1047 46.7083,39.9792 L46.7083,40.7708 C46.7083,41.6453 45.9994,42.3542 45.125,42.3542 L38,42.3542 C37.2083,42.2222 36.4167,42.0903 35.9548,41.6285 35.493,41.1667 35.3611,40.375 35.2292,39.5833 L35.2292,32.4583 C35.2292,31.5839 35.938,30.875 36.8125,30.875 L37.6042,30.875 z"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HLP_Time" TargetType="{x:Type TextBox}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer Margin="5,0,0,0" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button Grid.Column="1" Width="20" Style="{DynamicResource Button_HLP_Time}"></Button>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Time-->
+    
+    <!--Date-->
+    
+    
+    <!--Date-->
+
+    <!--FindFiles-->
+
+    <Style x:Key="Button_FindFiles" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#000072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#000072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Border x:Name="border" CornerRadius="0,4,4,0" BorderBrush="Transparent" BorderThickness="0.7" Background="Transparent" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <Path x:Name="path" Stretch="Uniform" Fill="#FF626262" Data="F1 M 21,30.0001L 55.9999,30.0001L 55.9999,50L 21,50L 21,30.0001 Z M 52,28L 37,28C 38,25 39.4999,24.0001 39.4999,24.0001L 50.75,24C 51.3023,24 52,24.6977 52,25.25L 52,28 Z M 53.5,52C 54.8807,52 56,53.1193 56,54.5C 56,55.8807 54.8807,57 53.5,57C 52.1193,57 51,55.8807 51,54.5C 51,53.1193 52.1193,52 53.5,52 Z M 46.5,52C 47.8807,52 49,53.1193 49,54.5C 49,55.8807 47.8807,57 46.5,57C 45.1193,57 44,55.8807 44,54.5C 44,53.1193 45.1193,52 46.5,52 Z M 39.5,52C 40.8807,52 42,53.1193 42,54.5C 42,55.8807 40.8807,57 39.5,57C 38.1193,57 37,55.8807 37,54.5C 37,53.1193 38.1193,52 39.5,52 Z " UseLayoutRounding="False" Height="12" Width="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HLP_FindFile" TargetType="{x:Type TextBox}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="22"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button Grid.Column="1" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
+                                    Visibility="Visible"
+                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.ExecFind}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                    Style="{StaticResource Button_FindFiles}">
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--FindFiles-->
+    
+    <!--FindImage-->
+
+    <Style x:Key="Button_FindImage" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#000072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#000072C6"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Border x:Name="border" CornerRadius="0,4,4,0" BorderBrush="Transparent" BorderThickness="0.7" Background="Transparent" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <Path x:Name="path" Stretch="Uniform" Fill="#FF626262" Data="F1 M 21,30.0001L 55.9999,30.0001L 55.9999,50L 21,50L 21,30.0001 Z M 52,28L 37,28C 38,25 39.4999,24.0001 39.4999,24.0001L 50.75,24C 51.3023,24 52,24.6977 52,25.25L 52,28 Z " UseLayoutRounding="False" Height="12" Width="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HLP_FindImage" TargetType="{x:Type TextBox}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="22"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button Grid.Column="1" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
+                                    Visibility="Visible"
+                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.ExecFind}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                    Style="{StaticResource Button_FindImage}">
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--FindImage-->
 
     <!--ComboBox-->
 
@@ -827,10 +1151,10 @@
                             <ColumnDefinition Width="16"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" BorderThickness="0.8" CornerRadius="10" BorderBrush="#FF626262">
+                        <Border Grid.Column="0" BorderThickness="0.7" CornerRadius="10" BorderBrush="#FF626262">
                             <Ellipse x:Name="ellipse" Height="8" Width="8" Fill="#FF0072C6" Opacity="0"></Ellipse>
                         </Border>
-                        <ContentPresenter Grid.Column="1" x:Name="contentPresenter" TextElement.FontFamily="Segoe Ui Symbol" VerticalAlignment="Center" TextElement.Foreground="#FF545454" Focusable="False" HorizontalAlignment="Left" Margin="3.998,-2.674,0,-0.335"/>
+                        <ContentPresenter Grid.Column="1" x:Name="contentPresenter" TextElement.FontFamily="Segoe Ui Light" VerticalAlignment="Center" TextElement.Foreground="#FF545454" Focusable="False" HorizontalAlignment="Left" Margin="3.998,-2.674,0,-0.335"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
@@ -845,32 +1169,178 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>    
 
     <Style x:Key="TextBox_QuickSearch" TargetType="{x:Type TextBox}">
-        <Setter Property="Height" Value="25"/>
-        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="25"/>        
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Grid>
-                        <Border x:Name="border" Background="White" BorderBrush="#FF626262" CornerRadius="0" BorderThickness="1.3"/>
-                        <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" Height="15" Foreground="#FF626262" Margin="2,0,0,0"/>
-                        <Label x:Name="WaterMarkLabel" Content="Insira um valor" Visibility="Collapsed" Foreground="#FF626262" FontFamily="Segoe UI Light"/>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="Label" Grid.Column="0" Content="Insira um valor" FontFamily="Segoe UI Light" Foreground="#FF626262" FontSize="12" Style="{DynamicResource Label}" Visibility="Collapsed"></Label>
+                            <ScrollViewer Margin="5,0,0,0" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF0072C6"/>
-                        </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FF0072C6"/>
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="Text" Value=""/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="Label"/>
                         </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>    
+
+    <Style x:Key="Button_Search_QuickSearch" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard1">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF0072C6"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="Storyboard2">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF0D92F3"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Border x:Name="border" BorderBrush="Transparent" BorderThickness="0" CornerRadius="5" SnapsToDevicePixels="true">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF0072C6" Offset="0"/>
+                                    <GradientStop Color="#FF0072C6" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter x:Name="contentPresenter" TextElement.FontFamily="Segoe Ui" TextElement.Foreground="White" TextElement.FontSize="14" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    <Style x:Key="Button_Close_QuickSearch" TargetType="{x:Type Button}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFAC0707"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FFAC0707"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFE85F5F"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="border">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0.011"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Border x:Name="border" BorderBrush="Transparent" BorderThickness="0" CornerRadius="5" SnapsToDevicePixels="true">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFAC0707" Offset="0.011"/>
+                                <GradientStop Color="#FFAC0707" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter x:Name="contentPresenter" TextElement.FontFamily="Segoe Ui" TextElement.Foreground="White" TextElement.FontSize="14" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
