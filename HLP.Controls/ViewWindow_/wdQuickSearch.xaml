@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converter="clr-namespace:HLP.Controls.Converters.Component"
         Title="wdQuickSearch" Height="190" Width="250" WindowStyle="None" SnapsToDevicePixels="True" AllowsTransparency="True" x:Name="wdQs">
-    <Window.Resources>
+    <!--<Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/HLP.Controls;component/Resources/Styles/UserControlStyles.xaml"/>
@@ -68,5 +68,5 @@
                 </Grid>
             </Border>
         </Grid>
-    </Border>
+    </Border>-->
 </Window>
