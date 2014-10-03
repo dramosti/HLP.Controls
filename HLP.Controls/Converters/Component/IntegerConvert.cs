@@ -19,7 +19,10 @@ namespace HLP.Controls.Converters.Component
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            throw new NotImplementedException();
+            int iValor = 0;
+            if (value != null)
+                Int32.TryParse(value.ToString(), out iValor);
+            return iValor;
         }
     }
 }

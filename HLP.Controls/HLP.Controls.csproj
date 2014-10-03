@@ -87,6 +87,8 @@
     <Compile Include="Converters\Component\PorcentagemConverter.cs" />
     <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
     <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
+    <Compile Include="Converters\Component\TextBoxConverters.cs" />
+    <Compile Include="Converters\Component\TextBoxMaskBehavior.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
     <Compile Include="Converters\Component\TimeSpanMaskConverter.cs" />
     <Compile Include="Enum\EnumControls.cs" />
