@@ -2,10 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:runtime="clr-namespace:HLP.Controls.Base"
-             xmlns:converter="clr-namespace:HLP.Controls.Converters.Component"
+             xmlns:converter="clr-namespace:HLP.Controls.Converters.Component"                            
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Loaded="UserControlBase_Loaded"
             Height="Auto" Width="Auto">
     <runtime:UserControlBase.Resources>
         <ResourceDictionary>
@@ -13,6 +13,8 @@
                 <ResourceDictionary Source="pack://application:,,,/HLP.Controls;component/Resources/Styles/UserControlStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <converter:ReadOnlyToVisibleConverter x:Key="readyOnlyToVisibleConverter"/>
+            <converter:NumericConverter x:Key="myConverter"/>
+            <converter:NumericToValueTypeConverter x:Key="mytypeconverter" />
         </ResourceDictionary>
     </runtime:UserControlBase.Resources>
     <WrapPanel Orientation="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Orientation}">
@@ -21,8 +23,9 @@
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
         <TextBox  Style="{StaticResource HLP_TextBox}" x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
-                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"
-                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text}"
-                 Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>       
+                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"                                  
+                 converter:TextBoxMaskBehavior.Mask="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Mask}"
+                 converter:TextBoxMaskBehavior.ValueType="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text, Converter={StaticResource mytypeconverter}}"                 
+                 Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>
     </WrapPanel>
 </runtime:UserControlBase>

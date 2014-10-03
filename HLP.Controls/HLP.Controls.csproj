@@ -66,6 +66,9 @@
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\HlpStatus.xaml.cs">
+      <DependentUpon>HlpStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\HlpFindFile.xaml.cs">
       <DependentUpon>HlpFindFile.xaml</DependentUpon>
@@ -78,8 +81,14 @@
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
     <Compile Include="Converters\Component\DateTimeMaskConverter.cs" />
+    <Compile Include="Converters\Component\decimalConverter.cs" />
+    <Compile Include="Converters\Component\IntegerConvert.cs" />
+    <Compile Include="Converters\Component\MoedaConverter.cs" />
+    <Compile Include="Converters\Component\PorcentagemConverter.cs" />
     <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
     <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
+    <Compile Include="Converters\Component\TextBoxConverters.cs" />
+    <Compile Include="Converters\Component\TextBoxMaskBehavior.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
     <Compile Include="Converters\Component\TimeSpanMaskConverter.cs" />
     <Compile Include="Enum\EnumControls.cs" />
@@ -145,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpIntellisense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

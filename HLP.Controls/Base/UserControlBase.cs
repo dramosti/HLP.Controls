@@ -15,7 +15,7 @@ namespace HLP.Controls.Base
         }
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(UserControlBase), new PropertyMetadata(""));
+            DependencyProperty.Register("Text", typeof(string), typeof(UserControlBase), new PropertyMetadata(null));
 
         [Category("HLP.Base")]
         public string TextLabel
