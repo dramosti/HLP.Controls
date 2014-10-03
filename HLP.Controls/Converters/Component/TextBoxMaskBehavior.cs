@@ -168,6 +168,7 @@ namespace HLP.Controls.Converters.Component
 
             if (string.Empty != (string)e.NewValue)
             {
+                _this.GotFocus += delegate { _this.SelectAll(); };
                 _this.PreviewTextInput += TextBox_PreviewTextInput;
                 _this.TextChanged += TextBox_TextChanged;
                 _this.PreviewKeyDown += TextBox_PreviewKeyDown;
