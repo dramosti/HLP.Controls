@@ -69,6 +69,9 @@
     <Compile Include="Component\HlpStatus.xaml.cs">
       <DependentUpon>HlpStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\HlpTreeView.xaml.cs">
+      <DependentUpon>HlpTreeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\HlpFindFile.xaml.cs">
       <DependentUpon>HlpFindFile.xaml</DependentUpon>
@@ -106,6 +109,7 @@
     <Compile Include="Base\modelBase.cs" />
     <Compile Include="Repository\Model\PesquisaPadraoModelContract.cs" />
     <Compile Include="Repository\Model\RecordsSqlModel.cs" />
+    <Compile Include="Repository\Model\treeviewModel.cs" />
     <Compile Include="Service References\wcfDbFunctions\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

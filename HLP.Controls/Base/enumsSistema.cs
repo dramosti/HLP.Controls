@@ -19,4 +19,11 @@ namespace HLP.Controls.Base
         enumTime,
         enumDateTime
     }
+
+    public enum StatusOperacaoTreeView
+    {
+        enumNenhum,
+        enumCarregando,
+        enumTerminado
+    }
 }
