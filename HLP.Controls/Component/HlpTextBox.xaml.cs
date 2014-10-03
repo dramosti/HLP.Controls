@@ -29,7 +29,16 @@ namespace HLP.Controls.Component
         {
             InitializeComponent();
             this.CustomViewModel = new HLPTextBoxViewModel();
+            this.GotKeyboardFocus += HlpTextBox_GotFocus;
         }
+
+        void HlpTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.txt.Focus();
+            this.txt.SelectAll();
+        }
+
+
         private void CreateBinding()
         {
             Binding b = new System.Windows.Data.Binding();

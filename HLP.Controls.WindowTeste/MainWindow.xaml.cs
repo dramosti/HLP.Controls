@@ -38,6 +38,10 @@ namespace HLP.Controls.WindowTeste
         {
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+        }
     }
 
     public class MainWindowDataContext : INotifyPropertyChanged
