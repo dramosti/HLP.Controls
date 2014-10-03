@@ -69,7 +69,7 @@ namespace HLP.Controls.Component
         #region Events
         private void compBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            txt.Focus();
+         //   txt.Focus();
         }
 
         private void txt_MouseDoubleClick(object sender, MouseButtonEventArgs e)

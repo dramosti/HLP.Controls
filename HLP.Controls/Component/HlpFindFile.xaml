@@ -7,7 +7,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Height="Auto" Width="Auto">
-    <runtime:UserControlBase.Resources>
+    <!--<runtime:UserControlBase.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/HLP.Controls;component/Resources/Styles/UserControlStyles.xaml"/>
@@ -24,5 +24,5 @@
                  IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"
                  Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text}"
                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>
-    </WrapPanel>
+    </WrapPanel>-->
 </runtime:UserControlBase>

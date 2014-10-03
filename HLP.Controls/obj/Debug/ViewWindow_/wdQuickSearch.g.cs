@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using HLP.Controls.Base;
 using HLP.Controls.Converters.Component;
 using System;
 using System.Diagnostics;
