@@ -6,7 +6,7 @@
 
     <!--Converters-->
     <converter:ReadOnlyToVisibleConverter x:Key="readyOnluToVisibleConverter"/>
-
+    <converter:ContenteTextBoxConverter x:Key="contentVisibleConverter"/>
     <!--Cores-->
     <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
     <!--Linear Gradient Brush-->
@@ -278,8 +278,9 @@
                                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
                                     Style="{StaticResource Button_Search_TextBox}">
                             </Button>
-                            <Label Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=xContentTXT}"
-                                   Visibility="Visible"
+                            <Label
+                                Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=xContentTXT}"
+                                   Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=xContentTXT, Converter={StaticResource contentVisibleConverter}}"
                                    Style="{StaticResource LabelStyle}" Foreground="#FF626262" FontFamily="Segoe UI Light" FontSize="12" ></Label>
                         </Grid>
                     </Grid>
