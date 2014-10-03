@@ -13,12 +13,4 @@
             </ResourceDictionary.MergedDictionaries>            
         </ResourceDictionary>
     </runtime:UserControlBase.Resources>
-    
-    <WrapPanel Orientation="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Orientation}">
-        <TextBlock x:Name="compBlock" TextWrapping="Wrap" 
-                   HorizontalAlignment="Left"
-                   Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
-                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
-        <CheckBox></CheckBox>
-    </WrapPanel>
 </runtime:UserControlBase>

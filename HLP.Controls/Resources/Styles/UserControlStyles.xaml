@@ -271,7 +271,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                             <Button Grid.Column="2" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
                                     Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource readyOnluToVisibleConverter}}"
                                     Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.searchCommand}"
