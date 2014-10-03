@@ -41,6 +41,8 @@
                         <Button Content="Button" Width="75" Click="Button_Click"/>-->
                         <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
                         <Component:HlpTextBox TextLabel="aaaaaa" WidthStatus="Full" Text="20" casasDecimais="2" Validacao="Moeda"/>
+                        <Component:HlpTextBox TextLabel="aaaaaa" WidthStatus="Full" Text="20" casasDecimais="2" Validacao="Porcentagem"/>
+                        <Component:HlpTextBox TextLabel="aaaaaa" WidthStatus="Full" Text="20" casasDecimais="2" Validacao="Text"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

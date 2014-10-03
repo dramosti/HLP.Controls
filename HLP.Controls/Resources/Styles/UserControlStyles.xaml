@@ -114,6 +114,7 @@
     </Style>
 
     <Style x:Key="HLP_Search_TextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Margin" Value="3,0,0,0"/>
@@ -249,6 +250,7 @@
     </Style>
 
     <Style x:Key="HLP_TextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Margin" Value="0,0,0,3"/>
@@ -267,18 +269,18 @@
                         <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" MaxWidth="20" MinWidth="10"/>
+                                <ColumnDefinition Width="Auto" MaxWidth="20" MinWidth="6"/>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="-3,0,0,0" VerticalAlignment="Center" Grid.Column="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                             <Button Grid.Column="2" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
                                     Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource readyOnluToVisibleConverter}}"
                                     Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.searchCommand}"
                                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
                                     Style="{StaticResource Button_Search_TextBox}">
                             </Button>
-                            <Label
+                            <Label Focusable="False"
                                 Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=xContentTXT}"
                                    Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=xContentTXT, Converter={StaticResource contentVisibleConverter}}"
                                    Style="{StaticResource LabelStyle}" Foreground="#FF626262" FontFamily="Segoe UI Light" FontSize="12" ></Label>
@@ -356,6 +358,7 @@
     </Style>
 
     <Style x:Key="HLP_Time" TargetType="{x:Type TextBox}">
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Margin" Value="0,0,0,3"/>
@@ -497,6 +500,7 @@
     </Style>
 
     <Style x:Key="HLP_FindFile" TargetType="{x:Type TextBox}">
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Margin" Value="0,0,0,3"/>
@@ -638,6 +642,7 @@
     </Style>
 
     <Style x:Key="HLP_FindImage" TargetType="{x:Type TextBox}">
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Margin" Value="0,0,0,3"/>
