@@ -42,6 +42,7 @@ namespace HLP.Controls.Component
             b.RelativeSource = r;
             BindingOperations.SetBinding(target: this.txt, dp: TextBox.TextProperty, binding: b);
 
+            this.xContentTXT = "";
             switch (this.Validacao)
             {
                 case HLP.Controls.Enum.EnumControls.stValidacao.Int:
@@ -52,7 +53,6 @@ namespace HLP.Controls.Component
                 case HLP.Controls.Enum.EnumControls.stValidacao.Decimal:
                     {
                         this.Mask = string.Format("0:#,0.{0}##", "0".PadLeft(this.casasDecimais, '0'));
-                        this.xContentTXT = "";
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stValidacao.Moeda:
@@ -70,7 +70,6 @@ namespace HLP.Controls.Component
                 case HLP.Controls.Enum.EnumControls.stValidacao.Text:
                     {
                         this.Mask = "";
-                        this.xContentTXT = "";
                     }
                     break;
                 default:
