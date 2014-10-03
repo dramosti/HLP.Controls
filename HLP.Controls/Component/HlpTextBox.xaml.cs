@@ -52,21 +52,25 @@ namespace HLP.Controls.Component
                 case HLP.Controls.Enum.EnumControls.stValidacao.Decimal:
                     {
                         this.Mask = string.Format("0:#,0.{0}##", "0".PadLeft(this.casasDecimais, '0'));
+                        this.xContentTXT = "";
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stValidacao.Moeda:
                     {
                         this.Mask = string.Format("0:#,0.{0}##", "0".PadLeft(this.casasDecimais, '0'));
+                        this.xContentTXT = "R$";
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stValidacao.Porcentagem:
                     {
                         this.Mask = string.Format("0:#,0.{0}##", "0".PadLeft(this.casasDecimais, '0'));
+                        this.xContentTXT = "%";
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stValidacao.Text:
                     {
                         this.Mask = "";
+                        this.xContentTXT = "";
                     }
                     break;
                 default:
@@ -137,7 +141,7 @@ namespace HLP.Controls.Component
         public HLP.Controls.Enum.EnumControls.stValidacao Validacao
         {
             get { return _validacao; }
-            set { _validacao = value; base.NotifyPropertyChanged("Validacao"); }
+            set { _validacao = value; base.NotifyPropertyChanged("Validacao"); this.CreateBinding(); }
         }
 
         public int casasDecimais
@@ -159,6 +163,20 @@ namespace HLP.Controls.Component
         // Using a DependencyProperty as the backing store for Mask.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MaskProperty =
             DependencyProperty.Register("Mask", typeof(string), typeof(HlpTextBox), new PropertyMetadata(""));
+
+
+
+        public string xContentTXT
+        {
+            get { return (string)GetValue(xContentTXTProperty); }
+            set { SetValue(xContentTXTProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for xContentTXT.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty xContentTXTProperty =
+            DependencyProperty.Register("xContentTXT", typeof(string), typeof(HlpTextBox), new PropertyMetadata(""));
+
+
 
 
 

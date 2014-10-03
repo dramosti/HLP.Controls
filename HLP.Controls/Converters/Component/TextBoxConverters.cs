@@ -133,4 +133,32 @@ namespace HLP.Controls.Converters.Component
             throw new NotSupportedException();
         }
     }
+
+    public class ContenteTextBoxConverter : IValueConverter
+    {
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value != null)
+            {
+                if (value.ToString() != "")
+                {
+                    return System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    return System.Windows.Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                return System.Windows.Visibility.Collapsed;
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
