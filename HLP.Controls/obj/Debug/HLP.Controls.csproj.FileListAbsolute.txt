@@ -41,3 +41,4 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTextBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.g.resources
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.Properties.Resources.resources
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csproj.GenerateResource.Cache
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
