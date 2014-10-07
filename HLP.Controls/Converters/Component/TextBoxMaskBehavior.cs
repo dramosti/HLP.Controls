@@ -443,35 +443,41 @@ namespace HLP.Controls.Converters.Component
         {
             TextBox _this = sender as TextBox;
 
-            string text = _this.Text.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-
-            string mask = GetMask(_this);
-            ValueTypes vt = GetValueType(_this);
-
-            if (0 != mask.Length)
+            if (!_this.IsReadOnly)
             {
-                if (0 < _this.Text.Length)
+                string text = _this.Text.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+
+                string mask = GetMask(_this);
+                ValueTypes vt = GetValueType(_this);
+
+                if (0 != mask.Length)
                 {
-                    if (vt.Equals(ValueTypes.Integer))
+                    if (0 < _this.Text.Length)
                     {
-                        //todo: TryParse/try-catch
-                        _this.Text = String.Format("{" + mask + "}", Int32.Parse(text));
-                        e.Handled = true;
+                        if (vt.Equals(ValueTypes.Integer))
+                        {
+                            //todo: TryParse/try-catch
+                            _this.Text = String.Format("{" + mask + "}", Int32.Parse(text));
+                            e.Handled = true;
+                        }
+                        else
+                        {
+                            _this.Text = String.Format("{" + mask + "}", Double.Parse(text));
+                            e.Handled = true;
+                        }
                     }
                     else
                     {
-                        _this.Text = String.Format("{" + mask + "}", Double.Parse(text));
+                        _this.Text = "0";
                         e.Handled = true;
                     }
-                }
-                else
-                {
-                    _this.Text = "0";
-                    e.Handled = true;
-                }
 
+                }
             }
-
+            else
+            {
+                e.Handled = false;
+            }
         }
 
         private static void ValidateTextBox(TextBox _this)
@@ -503,160 +509,163 @@ namespace HLP.Controls.Converters.Component
                                                      System.Windows.Input.TextCompositionEventArgs e)
         {
             TextBox _this = (sender as TextBox);
-            bool isValid = IsSymbolValid(GetMask(_this), e.Text, GetValueType(_this));
-            bool textInserted = false;
-            bool toNDS = false;
-
-            if (isValid)
+            if (!_this.IsReadOnly)
             {
-                //Current content
-                string txtOld = _this.Text.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-                //New content
-                string txtNew = String.Empty;
-                bool handled = false;
-                int caret = _this.CaretIndex;
-                int rcaret = 0;
+                bool isValid = IsSymbolValid(GetMask(_this), e.Text, GetValueType(_this));
+                bool textInserted = false;
+                bool toNDS = false;
 
-                if (e.Text == NumberFormatInfo.CurrentInfo.NumberDecimalSeparator)
+                if (isValid)
                 {
-                    //If we entered a decimal separator.
-                    int ind = _this.Text.IndexOf(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator) + 1;
-                    rcaret = _this.Text.Length - ind;
-                    //The text doesn't change.
-                    txtNew = txtOld;
-                    handled = true;
-                }
+                    //Current content
+                    string txtOld = _this.Text.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+                    //New content
+                    string txtNew = String.Empty;
+                    bool handled = false;
+                    int caret = _this.CaretIndex;
+                    int rcaret = 0;
 
-                if ((!handled) && (e.Text == NumberFormatInfo.CurrentInfo.NegativeSign))
-                {
-                    //We entered a negative symbol.
-                    if (_this.Text.Contains(NumberFormatInfo.CurrentInfo.NegativeSign))
+                    if (e.Text == NumberFormatInfo.CurrentInfo.NumberDecimalSeparator)
                     {
-                        //A negative symbol is already in the text.
-                        //As overriding the text initializes the cursor, the present position is remembered.
-                        rcaret = _this.Text.Length - caret;
-                        txtNew = txtOld.Replace(NumberFormatInfo.CurrentInfo.NegativeSign, string.Empty);
-                    }
-                    else
-                    {
-                        //There is no negative symbol in the text.
-                        //As overriding the text initializes the cursor, the present position is remembered.
-                        rcaret = _this.Text.Length - caret;
-                        txtNew = NumberFormatInfo.CurrentInfo.NegativeSign + txtOld;
-                    }
-                    handled = true;
-                }
-
-                if (!handled)
-                {
-                    textInserted = true;
-                    if (0 < _this.SelectionLength)
-                    {
-                        //We delete the highlighted text and insert what we have just written.
-                        int ind = _this.SelectionStart;
-                        rcaret = _this.Text.Length - ind - _this.SelectionLength;
-
-                        string txtWS = _this.Text.Substring(0, ind);
-                        string txtWOS = txtWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-
-                        string txtSWS = _this.Text.Substring(ind, _this.SelectionLength);
-                        string txtSWOS = txtSWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-
-                        string txtNWS = e.Text;
-                        string txtNWOS = txtNWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-
-                        txtNew = txtOld.Substring(0, ind - (txtWS.Length - txtWOS.Length)) + txtNWOS +
-                                (txtSWOS.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator) ? NumberFormatInfo.CurrentInfo.NumberDecimalSeparator : String.Empty) +
-                                txtOld.Substring(ind - (txtWS.Length - txtWOS.Length) + _this.SelectionLength - (txtSWS.Length - txtSWOS.Length));
-
-                        if (txtSWOS.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator))
-                        {
-                            //If the decimal separator was also highlighted, then the cursor is put in front of the decimal separator.
-                            toNDS = true;
-                        }
-
-                    }
-                    else
-                    {
-                        //We insert the character to the right of the cursor.
-                        int ind = _this.CaretIndex;
+                        //If we entered a decimal separator.
+                        int ind = _this.Text.IndexOf(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator) + 1;
                         rcaret = _this.Text.Length - ind;
-
-                        if ((0 < rcaret) &&
-                            (NumberFormatInfo.CurrentInfo.NumberGroupSeparator == _this.Text.Substring(ind, 1)))
-                            rcaret -= 1;
-
-                        string txtWS = _this.Text.Substring(0, ind);
-                        string txtWOS = txtWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-
-                        string txtNWS = e.Text;
-                        string txtNWOS = txtNWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
-
-                        txtNew = txtOld.Substring(0, ind - (txtWS.Length - txtWOS.Length)) + txtNWOS +
-                                txtOld.Substring(ind - (txtWS.Length - txtWOS.Length));
+                        //The text doesn't change.
+                        txtNew = txtOld;
+                        handled = true;
                     }
-                }
 
-                try
-                {
-                    double val = Double.Parse(txtNew);
-                    double newVal = ValidateLimits(GetMinimumValue(_this), GetMaximumValue(_this), val, GetValueType(_this));
-                    if (val != newVal)
+                    if ((!handled) && (e.Text == NumberFormatInfo.CurrentInfo.NegativeSign))
                     {
-                        txtNew = newVal.ToString();
-                    }
-                    else if (val == 0)
-                    {
-                        if (!txtNew.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator))
+                        //We entered a negative symbol.
+                        if (_this.Text.Contains(NumberFormatInfo.CurrentInfo.NegativeSign))
                         {
-                            txtNew = "0";
-                        }
-                    }
-                }
-                catch
-                {
-                    txtNew = "0";
-                }
-
-                _this.Text = txtNew;
-
-                if ((true == _this.Text.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator)) &&
-                    (caret > _this.Text.IndexOf(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator)))
-                {
-                    //If the cursor is at the decimal value, then it moves to the right of the decimal separator, if possible.
-                    if (caret < _this.Text.Length)
-                    {
-                        if (textInserted)
-                        {
-                            caret += 1;
+                            //A negative symbol is already in the text.
+                            //As overriding the text initializes the cursor, the present position is remembered.
                             rcaret = _this.Text.Length - caret;
+                            txtNew = txtOld.Replace(NumberFormatInfo.CurrentInfo.NegativeSign, string.Empty);
                         }
+                        else
+                        {
+                            //There is no negative symbol in the text.
+                            //As overriding the text initializes the cursor, the present position is remembered.
+                            rcaret = _this.Text.Length - caret;
+                            txtNew = NumberFormatInfo.CurrentInfo.NegativeSign + txtOld;
+                        }
+                        handled = true;
+                    }
+
+                    if (!handled)
+                    {
+                        textInserted = true;
+                        if (0 < _this.SelectionLength)
+                        {
+                            //We delete the highlighted text and insert what we have just written.
+                            int ind = _this.SelectionStart;
+                            rcaret = _this.Text.Length - ind - _this.SelectionLength;
+
+                            string txtWS = _this.Text.Substring(0, ind);
+                            string txtWOS = txtWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+
+                            string txtSWS = _this.Text.Substring(ind, _this.SelectionLength);
+                            string txtSWOS = txtSWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+
+                            string txtNWS = e.Text;
+                            string txtNWOS = txtNWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+
+                            txtNew = txtOld.Substring(0, ind - (txtWS.Length - txtWOS.Length)) + txtNWOS +
+                                    (txtSWOS.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator) ? NumberFormatInfo.CurrentInfo.NumberDecimalSeparator : String.Empty) +
+                                    txtOld.Substring(ind - (txtWS.Length - txtWOS.Length) + _this.SelectionLength - (txtSWS.Length - txtSWOS.Length));
+
+                            if (txtSWOS.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator))
+                            {
+                                //If the decimal separator was also highlighted, then the cursor is put in front of the decimal separator.
+                                toNDS = true;
+                            }
+
+                        }
+                        else
+                        {
+                            //We insert the character to the right of the cursor.
+                            int ind = _this.CaretIndex;
+                            rcaret = _this.Text.Length - ind;
+
+                            if ((0 < rcaret) &&
+                                (NumberFormatInfo.CurrentInfo.NumberGroupSeparator == _this.Text.Substring(ind, 1)))
+                                rcaret -= 1;
+
+                            string txtWS = _this.Text.Substring(0, ind);
+                            string txtWOS = txtWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+
+                            string txtNWS = e.Text;
+                            string txtNWOS = txtNWS.Replace(NumberFormatInfo.CurrentInfo.NumberGroupSeparator, String.Empty);
+
+                            txtNew = txtOld.Substring(0, ind - (txtWS.Length - txtWOS.Length)) + txtNWOS +
+                                    txtOld.Substring(ind - (txtWS.Length - txtWOS.Length));
+                        }
+                    }
+
+                    try
+                    {
+                        double val = Double.Parse(txtNew);
+                        double newVal = ValidateLimits(GetMinimumValue(_this), GetMaximumValue(_this), val, GetValueType(_this));
+                        if (val != newVal)
+                        {
+                            txtNew = newVal.ToString();
+                        }
+                        else if (val == 0)
+                        {
+                            if (!txtNew.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator))
+                            {
+                                txtNew = "0";
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        txtNew = "0";
+                    }
+
+                    _this.Text = txtNew;
+
+                    if ((true == _this.Text.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator)) &&
+                        (caret > _this.Text.IndexOf(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator)))
+                    {
+                        //If the cursor is at the decimal value, then it moves to the right of the decimal separator, if possible.
+                        if (caret < _this.Text.Length)
+                        {
+                            if (textInserted)
+                            {
+                                caret += 1;
+                                rcaret = _this.Text.Length - caret;
+                            }
+                        }
+                        else
+                        {
+                            //We are at the very end; it's not possible to enter more characters.
+                            if (textInserted)
+                                _this.Text = txtOld;
+                        }
+                    }
+
+                    caret = _this.Text.Length - rcaret;
+
+                    if (caret < 0)
+                        caret = 0;
+
+                    if (toNDS)
+                    {
+                        _this.CaretIndex = _this.Text.IndexOf(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator);
                     }
                     else
                     {
-                        //We are at the very end; it's not possible to enter more characters.
-                        if (textInserted)
-                            _this.Text = txtOld;
+                        _this.CaretIndex = caret;
                     }
+
                 }
 
-                caret = _this.Text.Length - rcaret;
-
-                if (caret < 0)
-                    caret = 0;
-
-                if (toNDS)
-                {
-                    _this.CaretIndex = _this.Text.IndexOf(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator);
-                }
-                else
-                {
-                    _this.CaretIndex = caret;
-                }
-
+                e.Handled = true;
             }
-
-            e.Handled = true;
         }
 
         private static string ValidateValue(string mask, ValueTypes vt, string value, double min, double max)

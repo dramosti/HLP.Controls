@@ -27,7 +27,7 @@
             <AdornerDecorator>
                 <Expander IsExpanded="True">
                     <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                        <Component:HlpTextBox TextLabel="aaaaaaaaa" Text="dsada"  IsReadOnly="False"/>
+                        <Component:HlpTextBox TextLabel="aaaaaaaaa" Validacao="Int"  IsReadOnly="True"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
