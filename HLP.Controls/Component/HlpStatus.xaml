@@ -6,6 +6,56 @@
              mc:Ignorable="d" 
              >
     <UserControl.Resources>
+
+        <Storyboard x:Key="OnLoaded1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Offset)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.001"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.75"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="0.999"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF02FFBC"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF02FFBC"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF5DC7AB"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style x:Key="Button_Status" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Border x:Name="border" Background="White" BorderThickness="1" CornerRadius="20" BorderBrush="#FF626262" Margin="-0.672,0,0.672,0">
+                                <Grid>
+                                    <Path x:Name="path" Width="18" Height="18" Stretch="Fill" Fill="#FF626262" Data="F1 M 23.7501,33.25L 34.8334,44.3333L 52.2499,22.1668L 56.9999,26.9168L 34.8334,53.8333L 19.0001,38L 23.7501,33.25 Z "/>
+                                </Grid>
+                            </Border>
+                            <ContentPresenter Grid.Row="1" TextElement.FontFamily="Segoe UI" TextElement.FontSize="11" TextElement.Foreground="#FF626262"></ContentPresenter>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="1">
+                                <Setter Property="Background" TargetName="border" Value="#FF5DC7AB"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF5DC7AB"/>
+                                <Setter Property="Fill" TargetName="path" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="statusEnabled" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#4169E1"/>
             <Setter Property="Foreground" Value="#F5F5F5"/>
