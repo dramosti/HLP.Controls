@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Magnificus2014\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
     <Compile Include="Converters\Component\DateTimeMaskConverter.cs" />
+    <Compile Include="Converters\Component\IsReadyOnlyInverterConverter.cs" />
     <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
     <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
     <Compile Include="Converters\Component\TextBoxConverters.cs" />
