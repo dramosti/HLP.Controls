@@ -5,8 +5,107 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+              Height="Auto" Width="Auto">
     <runtime:UserControlBase.Resources>
-       
+        <Style x:Key="HLP_CheckBox" TargetType="{x:Type CheckBox}">
+            <Setter Property="FocusVisualStyle"	 Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard1">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="19.994"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="border">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="Storyboard2">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="20.01"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-0.01"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                                    <EasingColorKeyFrame KeyTime="0" Value="WhiteSmoke"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="WhiteSmoke"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Grid Background="Transparent" SnapsToDevicePixels="True">
+                            <Border x:Name="border" BorderThickness="0.7" CornerRadius="10.7" BorderBrush="#FF626262">
+                                <Border.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="White" Offset="0"/>
+                                        <GradientStop Color="White" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Border.Background>
+                                <Ellipse x:Name="ellipse" Height="20" Width="20" Stroke="#FF626262" StrokeThickness="0.7" Margin="-0.7,-0.689,19.299,-0.712" RenderTransformOrigin="0.5,0.5" Fill="WhiteSmoke">
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </runtime:UserControlBase.Resources>
+    <WrapPanel Orientation="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Orientation}">
+        <TextBlock x:Name="compBlock" TextWrapping="Wrap" 
+                   HorizontalAlignment="Left"
+                   Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
+                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
+        <CheckBox Width="40" Style="{StaticResource HLP_CheckBox}"  Height="20" HorizontalAlignment="Left"
+                x:Name="chk" 
+                IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsChecked}"/>
+    </WrapPanel>
 </runtime:UserControlBase>

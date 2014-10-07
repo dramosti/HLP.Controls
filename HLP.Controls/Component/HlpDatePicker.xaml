@@ -9,7 +9,6 @@
              Height="Auto" Width="Auto">
     <runtime:UserControlBase.Resources>
         <conv:DateTimeMaskConverter x:Key="dtMaskConv"/>
-        <conv:TimeSpanMaskConverter x:Key="tmMaskConv"/>
 
         <Style x:Key="Button_HLP_DatePicker" TargetType="{x:Type Button}">
             <Setter Property="Cursor" Value="Hand"></Setter>
@@ -157,7 +156,9 @@
                    HorizontalAlignment="Left"
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
-        <TextBox Width="100" Height="20" HorizontalAlignment="Left"
+        <TextBox 
+                Width="95"
+                Height="20" HorizontalAlignment="Left"
                 x:Name="txtDate" Style="{StaticResource HLP_TextBox}"
                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=xDate, Converter={StaticResource dtMaskConv}}"/>
         <Popup 

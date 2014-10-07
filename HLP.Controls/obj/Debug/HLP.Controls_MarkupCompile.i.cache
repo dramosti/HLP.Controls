@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-101075248531
+11-889960831
 
-53783735233
+54-578281304
 15-572041890
-Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpIntellisense.xaml;Component\HlpStatus.xaml;Component\HlpTreeView.xaml;ViewWindow_\wdQuickSearch.xaml;Component\HlpFindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
+Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpIntellisense.xaml;Component\HlpStatus.xaml;Component\HlpTimePicker.xaml;Component\HlpTreeView.xaml;ViewWindow_\wdQuickSearch.xaml;Component\HlpFindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
-True
+False
 

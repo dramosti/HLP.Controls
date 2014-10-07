@@ -69,6 +69,9 @@
     <Compile Include="Component\HlpStatus.xaml.cs">
       <DependentUpon>HlpStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\HlpTimePicker.xaml.cs">
+      <DependentUpon>HlpTimePicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\HlpTreeView.xaml.cs">
       <DependentUpon>HlpTreeView.xaml</DependentUpon>
     </Compile>
@@ -90,7 +93,7 @@
     <Compile Include="Converters\Component\TextBoxConverters.cs" />
     <Compile Include="Converters\Component\TextBoxMaskBehavior.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
-    <Compile Include="Converters\Component\TimeSpanMaskConverter.cs" />
+    <Compile Include="Converters\Component\TimeSpanToString.cs" />
     <Compile Include="Enum\EnumControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpTimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

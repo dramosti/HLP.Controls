@@ -27,8 +27,11 @@
             <AdornerDecorator>
                 <Expander IsExpanded="True">
                     <Component:WrapPanel WidthComp1="150" Orientation="Vertical">
-                        <Component:HlpDatePicker Orientation="Vertical" TextLabel="data de nascimento adsd asdad asd as" />
-                        <Component:HlpTextBox TextLabel="asasads" Validacao="Int" IsReadOnly="True"/>
+                        <Component:HlpTextBox  TextLabel="texto" Validacao="Int" Orientation="Vertical" IsReadOnly="True"/>
+                        <Component:HlpDatePicker Orientation="Vertical"  TextLabel="data de nascimento"  />
+                        
+                        <Component:HlpTimePicker TextLabel="time" Orientation="Vertical"/>
+                        <Component:HlpCheckBox TextLabel="checkbox" IsChecked="True"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
