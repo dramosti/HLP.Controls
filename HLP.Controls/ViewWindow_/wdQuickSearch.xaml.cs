@@ -58,5 +58,10 @@ namespace HLP.Controls.ViewWindow
                     this.ViewModel.searchCommad.Execute(parameter: this);
             }
         }
+
+        private void Border_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

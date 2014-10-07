@@ -33,13 +33,20 @@ namespace HLP.Controls.Converters.Component
                 int month = 0;
                 int year = 0;
 
-                v = value.ToString().PadRight(totalWidth: 8, paddingChar: '0').ToArray();
+                v = value.ToString().ToArray();
 
                 if (v.Count() > 0)
                 {
-                    month = int.Parse(s: (v[2].ToString() + v[3].ToString()).ToString());
                     day = int.Parse(s: (v[0].ToString() + v[1].ToString()).ToString());
-                    year = int.Parse(s: (v[4].ToString() + v[5].ToString() + v[6].ToString() + v[7].ToString()).ToString());
+                    month = int.Parse(s: (v[2].ToString() + v[3].ToString()).ToString());
+
+                    if (v.Count() == 6)
+                        year = int.Parse(s: (v[4].ToString() + v[5].ToString()));
+                    else
+                    {
+                        v = value.ToString().PadRight(8,'0').ToArray();
+                        year = int.Parse(s: (v[4].ToString() + v[5].ToString() + v[6].ToString() + v[7].ToString()).ToString());
+                    }
                 }
 
                 DateTime dt = new DateTime();
