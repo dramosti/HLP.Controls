@@ -72,6 +72,9 @@
     <Compile Include="Component\HlpTreeView.xaml.cs">
       <DependentUpon>HlpTreeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\TESTE.xaml.cs">
+      <DependentUpon>TESTE.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\HlpFindFile.xaml.cs">
       <DependentUpon>HlpFindFile.xaml</DependentUpon>
@@ -176,6 +179,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Page Include="Component\TESTE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewWindow_\wdQuickSearch.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
