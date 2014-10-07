@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HLP.Controls.Base;
+using System.ComponentModel;
+using HLP.Controls.ViewModel.ViewModel;
 
 namespace HLP.Controls.Component
 {
@@ -25,40 +27,23 @@ namespace HLP.Controls.Component
         public HlpDatePicker()
         {
             InitializeComponent();
-            this.btnCalendar.Content = DateTime.Now.Day;
+            CustomViewModel = new HlpDatePickerViewModel();
         }
 
-        public TipoDateTime stDateTime
+        public HlpDatePickerViewModel CustomViewModel { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public int day
         {
-            get { return (TipoDateTime)GetValue(stDateTimeProperty); }
-            set { SetValue(stDateTimeProperty, value); }
+            get { return (int)GetValue(dayProperty); }
+            set { SetValue(dayProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for stDateTime.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty stDateTimeProperty =
-            DependencyProperty.Register("stDateTime", typeof(TipoDateTime),
-            typeof(HlpDatePicker), new PropertyMetadata(defaultValue: TipoDateTime.enumDateTime,
-                propertyChangedCallback: new PropertyChangedCallback(StDateTimeChanged)));
+        // Using a DependencyProperty as the backing store for day.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty dayProperty =
+            DependencyProperty.Register("day", typeof(int), typeof(HlpDatePicker), new PropertyMetadata(DateTime.Now.Day));
 
-        public static void StDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
-        {
-            if (args.NewValue != null)
-            {
-                TipoDateTime stDateTime = (TipoDateTime)args.NewValue;
-                (d as HlpDatePicker).btnCalendar.Visibility = (d as HlpDatePicker).txtDate.Visibility =
-                    (d as HlpDatePicker).txtTime.Visibility = Visibility.Collapsed;
-
-                if (stDateTime == Base.TipoDateTime.enumDate || stDateTime == Base.TipoDateTime.enumDateTime)
-                {
-                    (d as HlpDatePicker).btnCalendar.Visibility = (d as HlpDatePicker).txtDate.Visibility = Visibility.Visible;
-                }
-
-                if (stDateTime == Base.TipoDateTime.enumTime || stDateTime == Base.TipoDateTime.enumDateTime)
-                {
-                    (d as HlpDatePicker).txtTime.Visibility = Visibility.Visible;
-                }
-            }
-        }
+        
 
         public Nullable<DateTime> xDate
         {
@@ -70,16 +55,6 @@ namespace HLP.Controls.Component
         public static readonly DependencyProperty xDateProperty =
             DependencyProperty.Register("xDate", typeof(Nullable<DateTime>), typeof(HlpDatePicker), new PropertyMetadata(null));
 
-        public Nullable<TimeSpan> xTime
-        {
-            get { return (Nullable<TimeSpan>)GetValue(xTimeProperty); }
-            set { SetValue(xTimeProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for xTime.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty xTimeProperty =
-            DependencyProperty.Register("xTime", typeof(Nullable<TimeSpan>), typeof(HlpDatePicker), new PropertyMetadata(null));
-
         private void btnCalendar_Click(object sender, RoutedEventArgs e)
         {
             this.mainCalendar.IsOpen = true;
@@ -88,13 +63,10 @@ namespace HLP.Controls.Component
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             this.txtDate.Text = (sender as Calendar).SelectedDate.Value.Date.ToShortDateString();
-            this.txtTime.Text = (sender as Calendar).SelectedDate.Value.Date.ToLongTimeString();
             this.mainCalendar.IsOpen = false;
 
             if (txtDate.Visibility == System.Windows.Visibility.Visible)
                 this.txtDate.Focus();
-            else if (txtTime.Visibility == System.Windows.Visibility.Visible)
-                this.txtTime.Focus();
         }
 
 

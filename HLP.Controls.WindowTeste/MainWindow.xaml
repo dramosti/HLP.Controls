@@ -26,8 +26,9 @@
         <TabItem>
             <AdornerDecorator>
                 <Expander IsExpanded="True">
-                    <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                        <Component:HlpTextBox TextLabel="aaaaaaaaa" Text="dsada"  IsReadOnly="False"/>
+                    <Component:WrapPanel WidthComp1="150" Orientation="Vertical">
+                        <Component:HlpDatePicker Orientation="Vertical" TextLabel="data de nascimento adsd asdad asd as" />
+                        <Component:HlpTextBox TextLabel="asasads" Validacao="Int" IsReadOnly="True"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
