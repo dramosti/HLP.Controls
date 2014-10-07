@@ -125,6 +125,7 @@ namespace HLP.Controls.Component
             string xFields = string.Empty;
             string xQuery = string.Empty;
             int currentId = this.selectedId ?? 0;
+            treeviewModel tvAux = new treeviewModel();
 
             foreach (querySql qrSql in this.lQuerySql)
             {
@@ -134,8 +135,14 @@ namespace HLP.Controls.Component
                     {
                         xFields += string.IsNullOrEmpty(value: item) ?
                             xFields : item == fieldsDisplay.Split(separator: ';').Last()
-                            ? item : string.Format(format: "{0}, ' - '");
+                            ? item : string.Format(format: "{0}, ' - '", arg0: item);
                     }
+                }
+
+
+                while (true)
+                {
+                    var retBD = HlpDbFuncoes.qrySeekRet(sExpressao: xQuery);
 
                     xQuery = string.Format(format: "select {0} as id, {1} as display, {3} as fieldHierarquia from {2} "
                         + " where {3} = {4}", args: new object[]
@@ -147,12 +154,14 @@ namespace HLP.Controls.Component
                             currentId
                         });
 
-                    var retBD = HlpDbFuncoes.qrySeekRet(sExpressao: xQuery);
-
                     currentId = (retBD.AsEnumerable().FirstOrDefault()[columnName: "fieldHierarquia"] as int?)
                         ?? 0;
-                }
 
+                    if (currentId == 0)
+                    {
+                        break;
+                    }
+                }
                 xFields = string.Empty;
             }
         }
