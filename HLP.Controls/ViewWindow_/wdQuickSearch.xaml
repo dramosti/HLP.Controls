@@ -5,6 +5,22 @@
         Title="wdQuickSearch" Height="190" Width="250" WindowStyle="None" SnapsToDevicePixels="True" WindowStartupLocation="CenterScreen" AllowsTransparency="True" x:Name="wdQs">
     <Window.Resources>
 
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Height="17.338" Margin="0,-2.666,0,-4.672"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="RadioButton_QuickSearch" TargetType="{x:Type RadioButton}">
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -70,8 +86,8 @@
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label x:Name="Label" Grid.Column="0" Content="Insira um valor" FontFamily="Segoe UI Light" Foreground="#FF626262" FontSize="12" Style="{DynamicResource Label}" Visibility="Collapsed"></Label>
-                                <ScrollViewer Margin="5,0,0,0" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                <Label x:Name="Label" Grid.Column="0" Content="Insira um valor" FontFamily="Segoe UI Light" Foreground="#FF626262" FontSize="12" Style="{StaticResource LabelStyle}" Visibility="Collapsed"></Label>
+                                <ScrollViewer Margin="5,0,0,0" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Center" VerticalScrollBarVisibility="Hidden"/>
                             </Grid>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -228,7 +244,7 @@
         <converter:RadioButtonCheckedButtonQuickSearchConverter x:Key="radioBtnCheckedButtonQSConv"/>
     </Window.Resources>
     
-    <Border BorderThickness="0.8" BorderBrush="#FF0072C6">
+    <Border BorderThickness="0.8" BorderBrush="#FF0072C6" MouseLeftButtonDown="Border_MouseLeftButtonDown_1">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"></ColumnDefinition>
