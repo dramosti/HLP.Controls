@@ -27,20 +27,7 @@
             <AdornerDecorator>
                 <Expander IsExpanded="True">
                     <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                        
-                        <Component:TESTE Width="100" IsReadyOnly="False"/>
-                        <!--<Component:HlpTextBox IsReadOnly="False" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
-                        <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
-                        ></Component:HlpIntellisense>
-                        <Component:HlpComboBox WidthStatus="Full" TextLabel="Frutas" 
-                                               ucItemsSource="{StaticResource colFrutas}"
-                                               ucSelectedIndex="{Binding Path=selectedFruta, 
-                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                        </Component:HlpComboBox>
-                        <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Button Content="Button" Width="75" Click="Button_Click"/>-->
+                        <Component:HlpTextBox TextLabel="aaaaaaaaa" Text="dsada"  IsReadOnly="False"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

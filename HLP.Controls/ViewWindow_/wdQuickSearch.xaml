@@ -224,7 +224,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <converter:RadioButtonCheckedButtonQuickSearchConverter x:Key="radioBtnCheckedButtonQSConv"/>
     </Window.Resources>
     
     <Border BorderThickness="0.8" BorderBrush="#FF0072C6">

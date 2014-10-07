@@ -31,9 +31,6 @@ namespace HLP.Controls.WindowTeste
 
             (this.DataContext as MainWindowDataContext).selectedFruta = 2;
 
-            //this.hlpStatus.selectStatus = 1;
-
-            //this.tvMains.BeginLoad();           
 
 
         }
