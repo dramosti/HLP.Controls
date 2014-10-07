@@ -27,35 +27,7 @@
             <AdornerDecorator>
                 <Expander IsExpanded="True">
                     <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                        <!--<Component:HlpTextBox IsReadOnly="False" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
-                        <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
-                        ></Component:HlpIntellisense>
-                        <Component:HlpComboBox WidthStatus="Full" TextLabel="Frutas" 
-                                               ucItemsSource="{StaticResource colFrutas}"
-                                               ucSelectedIndex="{Binding Path=selectedFruta, 
-                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                        </Component:HlpComboBox>
-                        <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
-                        <Button Content="Button" Width="75" Click="Button_Click"/>-->
-                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
-                        <Component:HlpStatus x:Name="hlpStatus">
-                            <Component:HlpStatus.lStatus>
-                                <System:String>Criado</System:String>
-                                <System:String>Em Cotação</System:String>
-                                <System:String>Confirmado</System:String>                                
-                            </Component:HlpStatus.lStatus>
-                            <Component:HlpStatus.lOptionalStatus>
-                                <System:Byte>2</System:Byte>
-                            </Component:HlpStatus.lOptionalStatus>
-                        </Component:HlpStatus>
-                        <Component:HlpTreeView x:Name="tvMains" Width="400" Height="200">
-                            <Component:HlpTreeView.lQuerySql>
-                                <Component:querySql propPk="idListaPrecoPai" propHierarquia="idListaPrecoOrigem"
-                                                    ></Component:querySql>
-                            </Component:HlpTreeView.lQuerySql>
-                        </Component:HlpTreeView>
+                        <Component:HlpTextBox TextLabel="aaaaaaaaa" Text="dsada"  IsReadOnly="False"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>

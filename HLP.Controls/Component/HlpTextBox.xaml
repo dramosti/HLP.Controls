@@ -115,6 +115,7 @@
                                 <Button Grid.Column="2" Height="20" Width="20" Focusable="False" BorderBrush="Black" 
                                     Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource readyOnlyToVisibleConverter}}"
                                     Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.searchCommand}"
+                                    IsEnabled="True"    
                                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
                                     Style="{StaticResource Button_Search_TextBox}">
                                 </Button>
@@ -181,8 +182,7 @@
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
         <TextBox  Style="{StaticResource HLP_TextBox}" x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
-                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource isReadyOnlyInverterConverter}}"                                  
-                  
+                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource isReadyOnlyInverterConverter}}"
                  converter:TextBoxMaskBehavior.Mask="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Mask}"
                  converter:TextBoxMaskBehavior.ValueType="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text, Converter={StaticResource mytypeconverter}}"                 
                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>
