@@ -8,6 +8,7 @@
              mc:Ignorable="d"  Loaded="UserControlBase_Loaded"
             Height="Auto" Width="Auto">
     <runtime:UserControlBase.Resources>
+        <converter:IsReadyOnlyInverterConverter x:Key="isReadyOnlyInverterConverter"/>
 
         <converter:ReadOnlyToVisibleConverter x:Key="readyOnlyToVisibleConverter"/>
         <converter:NumericConverter x:Key="myConverter"/>
@@ -180,7 +181,8 @@
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
         <TextBox  Style="{StaticResource HLP_TextBox}" x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
-                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly}"                                  
+                 IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource isReadyOnlyInverterConverter}}"                                  
+                  
                  converter:TextBoxMaskBehavior.Mask="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Mask}"
                  converter:TextBoxMaskBehavior.ValueType="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Text, Converter={StaticResource mytypeconverter}}"                 
                  Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"/>

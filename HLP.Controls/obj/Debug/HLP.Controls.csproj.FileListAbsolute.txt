@@ -42,3 +42,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.g.resources
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.Properties.Resources.resources
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csproj.GenerateResource.Cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
+D:\GitHub\HLP\Magnificus2014\bin\HLP.Controls.dll.config
+D:\GitHub\HLP\Magnificus2014\bin\HLP.Controls.dll
+D:\GitHub\HLP\Magnificus2014\bin\HLP.Controls.pdb
