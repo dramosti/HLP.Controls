@@ -180,7 +180,8 @@
         <TextBlock x:Name="compBlock" TextWrapping="Wrap" 
                    HorizontalAlignment="Left"
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
-                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
+                   Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}" 
+                   MouseLeftButtonDown="compBlock_MouseLeftButtonDown"/>
         <TextBox  Style="{StaticResource HLP_TextBox}" x:Name="txt" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left"
                  IsReadOnly="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=IsReadOnly, Converter={StaticResource isReadyOnlyInverterConverter}}"
                  converter:TextBoxMaskBehavior.Mask="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Mask}"

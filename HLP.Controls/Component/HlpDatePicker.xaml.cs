@@ -53,7 +53,7 @@ namespace HLP.Controls.Component
 
         // Using a DependencyProperty as the backing store for xDate.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty xDateProperty =
-            DependencyProperty.Register("xDate", typeof(Nullable<DateTime>), typeof(HlpDatePicker), new PropertyMetadata(null));
+            DependencyProperty.Register("xDate", typeof(Nullable<DateTime>), typeof(HlpDatePicker), new PropertyMetadata(DateTime.Today));
 
         private void btnCalendar_Click(object sender, RoutedEventArgs e)
         {
