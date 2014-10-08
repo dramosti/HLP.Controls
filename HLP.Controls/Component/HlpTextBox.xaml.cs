@@ -56,7 +56,7 @@ namespace HLP.Controls.Component
             {
                 case HLP.Controls.Enum.EnumControls.stValidacao.Int:
                     {
-                        this.Mask = "0:#,0.";
+                        this.Mask = "0:#,0.";                        
                     }
                     break;
                 case HLP.Controls.Enum.EnumControls.stValidacao.Decimal:
@@ -78,7 +78,7 @@ namespace HLP.Controls.Component
                     break;
                 case HLP.Controls.Enum.EnumControls.stValidacao.Text:
                     {
-                        this.Mask = "";
+                        this.Mask = "";                        
                     }
                     break;
                 default:

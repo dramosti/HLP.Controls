@@ -13,12 +13,7 @@ namespace HLP.Controls.Base
         enumOff
     }
 
-    public enum TipoDateTime
-    {
-        enumDate,
-        enumTime,
-        enumDateTime
-    }
+    
 
     public enum StatusOperacaoTreeView
     {

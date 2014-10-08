@@ -25,6 +25,8 @@ namespace HLP.Controls.ViewModel.Command
                 execute: e => this.SearchExecute(o: e), canExecute: eC => this.SearchCanExecute(eC));
         }
 
+        
+
         private void SearchExecute(object o)
         {
             Controls.Component.HlpTextBox txt = (o as Controls.Component.HlpTextBox);
@@ -83,7 +85,7 @@ namespace HLP.Controls.ViewModel.Command
 
             if (txt != null)
             {
-                if (txt.IsReadOnly)
+                if (txt.txt.IsReadOnly)
                     return true;
                 else
                     return false;

@@ -25,9 +25,21 @@ namespace HLP.Controls.Component
     {
         public HlpCheckBox()
         {
-            InitializeComponent();
-
-         
+            InitializeComponent();        
         }
+
+        public bool IsChecked
+        {
+            get { return (bool)GetValue(IsCheckedProperty); }
+            set { SetValue(IsCheckedProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsChecked.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsCheckedProperty =
+            DependencyProperty.Register("IsChecked", typeof(bool), typeof(HlpCheckBox), new PropertyMetadata(false));
+
+        
+
+        
     }
 }

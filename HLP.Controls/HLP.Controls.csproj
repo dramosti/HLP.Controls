@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Magnificus2014\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -69,6 +69,9 @@
     <Compile Include="Component\HlpStatus.xaml.cs">
       <DependentUpon>HlpStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\HlpTimePicker.xaml.cs">
+      <DependentUpon>HlpTimePicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\HlpTreeView.xaml.cs">
       <DependentUpon>HlpTreeView.xaml</DependentUpon>
     </Compile>
@@ -84,12 +87,13 @@
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
     <Compile Include="Converters\Component\DateTimeMaskConverter.cs" />
+    <Compile Include="Converters\Component\IsReadyOnlyInverterConverter.cs" />
     <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
     <Compile Include="Converters\Component\ReadOnlyToVisibleConverter.cs" />
     <Compile Include="Converters\Component\TextBoxConverters.cs" />
     <Compile Include="Converters\Component\TextBoxMaskBehavior.cs" />
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
-    <Compile Include="Converters\Component\TimeSpanMaskConverter.cs" />
+    <Compile Include="Converters\Component\TimeSpanToString.cs" />
     <Compile Include="Enum\EnumControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -120,10 +124,12 @@
     <Compile Include="Services\OperacoesDataBaseService.cs" />
     <Compile Include="Static\Util.cs" />
     <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
+    <Compile Include="ViewModel\Command\HlpDatePickerCommand.cs" />
     <Compile Include="ViewModel\Command\HlpFindFileCommand.cs" />
     <Compile Include="ViewModel\Command\HLPTextBoxCommands.cs" />
     <Compile Include="ViewModel\Command\QuickSearchCommands.cs" />
     <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\HlpDatePickerViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HlpFindFileViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\QuickSearchViewModel.cs" />
@@ -158,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\HlpStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpTimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

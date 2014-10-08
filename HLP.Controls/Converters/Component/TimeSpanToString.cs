@@ -7,7 +7,8 @@ using System.Windows.Data;
 
 namespace HLP.Controls.Converters.Component
 {
-    public class TimeSpanMaskConverter : IValueConverter
+    [ValueConversion(sourceType: typeof(TimeSpan), targetType: typeof(string))]
+    public class TimeSpanToString : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
