@@ -31,7 +31,7 @@
                         <Component:HlpDatePicker Orientation="Vertical"  TextLabel="data de nascimento"  />
                         
                         <Component:HlpTimePicker TextLabel="time" Orientation="Vertical"/>
-                        <Component:HlpCheckBox TextLabel="checkbox" IsChecked="True" Orientation="Vertical"/>
+                        <Component:HlpCheckBox TextLabel="checkbox" Orientation="Horizontal" IsChecked="True"/>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
