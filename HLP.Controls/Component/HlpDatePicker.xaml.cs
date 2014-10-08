@@ -24,6 +24,10 @@ namespace HLP.Controls.Component
     /// </summary>
     public partial class HlpDatePicker : UserControlBase
     {
+
+      
+        
+
         public HlpDatePicker()
         {
             InitializeComponent();
@@ -43,7 +47,6 @@ namespace HLP.Controls.Component
         public static readonly DependencyProperty dayProperty =
             DependencyProperty.Register("day", typeof(int), typeof(HlpDatePicker), new PropertyMetadata(DateTime.Now.Day));
 
-        
 
         public Nullable<DateTime> xDate
         {
@@ -54,12 +57,6 @@ namespace HLP.Controls.Component
         // Using a DependencyProperty as the backing store for xDate.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty xDateProperty =
             DependencyProperty.Register("xDate", typeof(Nullable<DateTime>), typeof(HlpDatePicker), new PropertyMetadata(DateTime.Today));
-
-        private void btnCalendar_Click(object sender, RoutedEventArgs e)
-        {
-            this.mainCalendar.IsOpen = true;
-        }
-
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             this.txtDate.Text = (sender as Calendar).SelectedDate.Value.Date.ToShortDateString();

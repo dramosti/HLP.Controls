@@ -10,7 +10,6 @@
              Height="Auto" Width="Auto">
     <runtime:UserControlBase.Resources>
         <conv:TimeSpanToString x:Key="tmMaskConv"/>
-
         <Style x:Key="Button_HLP_TimePicker" TargetType="{x:Type Button}">            
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -28,7 +27,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="HLP_TextBox" TargetType="{x:Type TextBox}">
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
@@ -96,6 +94,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
     </runtime:UserControlBase.Resources>
 
 

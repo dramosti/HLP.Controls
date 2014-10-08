@@ -26,7 +26,10 @@ namespace HLP.Controls.ViewModel.Command
 
         public void OpenPopup(object popup)
         {
-            (popup as HlpDatePicker).mainCalendar.IsOpen = true;
+            if (popup.GetType() == typeof(HlpDatePicker))
+                (popup as HlpDatePicker).mainCalendar.IsOpen = true;
+            else
+                (popup as CustomDatePicker).popup.IsOpen = true;
         }
     }
 }
