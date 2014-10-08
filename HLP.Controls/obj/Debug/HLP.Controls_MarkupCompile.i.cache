@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-11-889960831
+13-160401608
 
-561224880753
-15-572041890
-Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpIntellisense.xaml;Component\HlpStatus.xaml;Component\HlpTimePicker.xaml;Component\HlpTreeView.xaml;ViewWindow_\wdQuickSearch.xaml;Component\HlpFindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
+621199118712
+16-1986604591
+Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpEndereco.xaml;Component\HlpIntellisense.xaml;Component\HlpStatus.xaml;Component\HlpTimePicker.xaml;Component\HlpTreeView.xaml;Themes\Generic.xaml;ViewWindow_\wdQuickSearch.xaml;Component\HlpFindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
 False
 

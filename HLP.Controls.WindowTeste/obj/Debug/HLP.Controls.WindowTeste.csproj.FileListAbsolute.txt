@@ -28,3 +28,5 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls.WindowTeste\obj\Debug\HLP.Controls.Windo
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.WindowTeste\obj\Debug\HLP.Controls.WindowTeste.csproj.GenerateResource.Cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.WindowTeste\obj\Debug\HLP.Controls.WindowTeste.exe
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.WindowTeste\obj\Debug\HLP.Controls.WindowTeste.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.WindowTeste\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.WindowTeste\obj\Debug\HLP.Controls.WindowTeste_MarkupCompile.lref

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HLP.Controls.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,9 +25,7 @@ namespace HLP.Controls.WindowTeste
     {
         public MainWindow()
         {
-            InitializeComponent();
-            this.DataContext = new MainWindowDataContext();
-            (this.DataContext as MainWindowDataContext).selectedFruta = 2;
+            InitializeComponent();           
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
@@ -39,6 +39,18 @@ namespace HLP.Controls.WindowTeste
 
     public class MainWindowDataContext : INotifyPropertyChanged
     {
+
+        private ObservableCollection<TesteModel> _ItemsIteste = new ObservableCollection<TesteModel>();
+        public ObservableCollection<TesteModel> ItemsIteste
+        {
+            get { return _ItemsIteste; }
+            set { _ItemsIteste = value; NotifyPropertyChanged("ItemsIteste"); }
+        }
+        
+
+
+
+
         private DateTime _dt;
 
         public DateTime dt

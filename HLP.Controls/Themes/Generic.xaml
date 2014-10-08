@@ -1,0 +1,161 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="clr-namespace:HLP.Controls.Base"      
+    xmlns:local="clr-namespace:HLP.Controls.Component">
+
+
+    <!--<Style TargetType="{x:Type local:CustomDatePicker}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CustomDatePicker}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+    
+    <Style x:Key="Button_HLP_DatePicker" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Content">
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF4774B5"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF4774B5"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="White"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF4774B5"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#004774B5"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                <EasingColorKeyFrame KeyTime="0" Value="#FF4774B5"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#008C8C8C"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Path">
+                                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF545454"/>
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Content">
+                                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF545454"/>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Border x:Name="border" BorderThickness="0.7" CornerRadius="0,4,4,0" BorderBrush="Transparent" Background="Transparent"></Border>
+                        <Path Height="Auto" Width="Auto" x:Name="Path" Grid.Column="0" Grid.Row="0" Stretch="Fill" StrokeThickness="0" StrokeLineJoin="Round" Fill="#FF626262" Data="F1 M1.00296,6.68751 L1.01308,6.6875 7.04463,6.68751 7.04463,6.69268 15.6801,6.7001 C15.6784,5.14477 15.9805,3.0207759 16.5863,1.9838859 17.7946,-0.084298078 20.2113,-0.084298042 21.4196,1.983886 22.0262,3.022036 22.3283,5.14858 22.3259,6.7058 L55.003,6.73385 C54.997,5.16732 55.299,3.0282871 55.9092,1.9838971 57.1175,-0.084284856 59.5342,-0.084284856 60.7425,1.9838971 61.3535,3.0295571 61.6555,5.17114 61.6487,6.73956 L70.9613,6.74755 70.9613,6.68751 77.003,6.68751 77.003,6.75274 77.0131,6.75276 77.003,18.5198 77.003,76.6458 77.003,82.6875 70.9613,82.6875 7.04463,82.6834 7.04463,82.6875 1.00296,82.6875 1.0026,82.683 1.00295,76.6414 1.00296,21.9266 1,21.9266 1.00296,18.4768 1.00296,6.68751 z M70.9613,18.01578 L7.04463,17.96088 7.04463,76.6417 70.9613,76.6455 70.9613,18.01578 z" Margin="4,3.916,4,4"/>
+                        <ContentPresenter x:Name="Content"               
+                                                      Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" TextElement.FontSize="8" TextElement.FontFamily="Segoe Ui SemiBold" TextElement.Foreground="#FF626262" Margin="6,5,6,0" ></ContentPresenter>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:CustomDatePicker}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CustomDatePicker}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer Margin="5,0,0,0" VerticalAlignment="Center" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button x:Name="btnCalendar" Grid.Column="1" 
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.openPopupCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=day}" Width="20" Style="{StaticResource Button_HLP_DatePicker}"></Button>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+   
+
+   
+</ResourceDictionary>

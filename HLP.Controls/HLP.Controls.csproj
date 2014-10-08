@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
@@ -52,8 +53,12 @@
   <ItemGroup>
     <Compile Include="Base\AutoSelectTextBoxAttachedProperty.cs" />
     <Compile Include="Base\enumsSistema.cs" />
+    <Compile Include="Base\Extensions.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
+    <Compile Include="Component\CustomDataGrid.cs" />
+    <Compile Include="Component\CustomDataGridDateColumn.cs" />
+    <Compile Include="Component\CustomDatePicker.cs" />
     <Compile Include="Component\CustomGridBase.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
@@ -63,6 +68,9 @@
     </Compile>
     <Compile Include="Component\HlpDatePicker.xaml.cs">
       <DependentUpon>HlpDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpEndereco.xaml.cs">
+      <DependentUpon>HlpEndereco.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
@@ -97,6 +105,7 @@
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
     <Compile Include="Converters\Component\TimeSpanToString.cs" />
     <Compile Include="Enum\EnumControls.cs" />
+    <Compile Include="Model\TesteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -161,6 +170,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\HlpEndereco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\HlpIntellisense.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +200,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ViewWindow_\wdQuickSearch.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -208,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />
-    <Folder Include="Model\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Styles\" />
   </ItemGroup>
