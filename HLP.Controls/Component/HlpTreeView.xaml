@@ -5,32 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Name="ucTreeView"             
              >
     <UserControl.Resources>
-        <DataTemplate x:Key="tvItemItem">
-            <TreeViewItem Header="{Binding Path=xDisplay}"></TreeViewItem>
-        </DataTemplate>
-        <DataTemplate x:Key="tvItem">
-            <TreeViewItem ItemsSource="{Binding Path=lItens}" 
-                          ItemTemplate="{StaticResource tvItemItem}">
-                <TreeViewItem.Header>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Path=idPk}" Grid.Column="0"></TextBlock>
-                        <TextBlock Text="{Binding Path=xDisplay}" Grid.Column="1"></TextBlock>
-                    </Grid>                    
-                </TreeViewItem.Header>
-            </TreeViewItem>
-        </DataTemplate>
     </UserControl.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"></TextBlock>
-        <TreeView Grid.Row="1" ItemsSource="{Binding ElementName=ucTreeView, Path=lNodes}"
-                  ItemTemplate="{StaticResource tvItem}"></TreeView>
+        <Button Click="Button_Click" Grid.Column="1"></Button>
+        <TextBlock Grid.Row="0" Text="{Binding ElementName=ucTreeView, Path=labelText}"></TextBlock>
+        <TreeView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding ElementName=ucTreeView, Path=items}"
+                  ItemTemplate="{Binding ElementName=ucTreeView, Path=templateItems}">
+        </TreeView>
     </Grid>
 </UserControl>

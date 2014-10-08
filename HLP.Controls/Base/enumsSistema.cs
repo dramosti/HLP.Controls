@@ -26,4 +26,11 @@ namespace HLP.Controls.Base
         enumCarregando,
         enumTerminado
     }
+
+    public enum TipoOperacaoTreeView
+    {
+        enumCarregando,
+        enumLivre,
+        enumFinalizado
+    }
 }

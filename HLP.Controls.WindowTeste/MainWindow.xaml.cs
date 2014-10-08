@@ -32,22 +32,19 @@ namespace HLP.Controls.WindowTeste
             (this.DataContext as MainWindowDataContext).selectedFruta = 2;
 
             this.hlpStatus.selectStatus = 1;
-
-            this.tvMains.BeginLoad();           
-
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.F6)
+            {
 
+            }
         }
     }
 
     public class MainWindowDataContext : INotifyPropertyChanged
     {
-
-
         private DateTime _dt;
 
         public DateTime dt

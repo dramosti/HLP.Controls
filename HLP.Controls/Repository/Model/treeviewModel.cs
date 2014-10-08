@@ -39,6 +39,20 @@ namespace HLP.Controls.Repository.Model
             }
         }
 
+        
+        private int _idFk;
+
+        public int idFk
+        {
+            get { return _idFk; }
+            set
+            {
+                _idFk = value;
+                base.NotifyPropertyChanged(propertyName: "idFk");
+            }
+        }
+        
+
         private ObservableCollection<treeviewModel> _lItens;
 
         public ObservableCollection<treeviewModel> lItens
