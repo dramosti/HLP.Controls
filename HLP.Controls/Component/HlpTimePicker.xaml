@@ -11,8 +11,7 @@
     <runtime:UserControlBase.Resources>
         <conv:TimeSpanToString x:Key="tmMaskConv"/>
 
-        <Style x:Key="Button_HLP_TimePicker" TargetType="{x:Type Button}">
-            <Setter Property="Cursor" Value="Hand"></Setter>
+        <Style x:Key="Button_HLP_TimePicker" TargetType="{x:Type Button}">            
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -106,7 +105,7 @@
                    HorizontalAlignment="Left"
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
-        <TextBox Width="75" Height="20" HorizontalAlignment="Left"
+        <TextBox Width="75" Height="20" HorizontalAlignment="Left" IsEnabled="False"
                 x:Name="txtTime" Style="{StaticResource HLP_TextBox}"
                 Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=time, Converter={StaticResource tmMaskConv}}"/>       
     </WrapPanel>

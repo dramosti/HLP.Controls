@@ -3,7 +3,7 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" x:Class="HLP.Controls.WindowTeste.MainWindow"
-        Title="MainWindow" Height="500" Width="525">
+        Title="MainWindow" Height="500" Width="525" KeyUp="Window_KeyUp">
     <Window.Resources>
         <CompositeCollection x:Key="colFrutas">
             <System:String>Banana</System:String>
@@ -21,20 +21,97 @@
                 <TextBox Grid.Column="1"></TextBox>
             </Grid>
         </DataTemplate>
+
+        <DataTemplate x:Key="tvItemChields">
+            <TreeViewItem>
+                <TreeViewItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>                        
+                        <TextBlock Text="{Binding Path=idPk}" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding Path=xDisplay}" Grid.Column="1"></TextBlock>
+                    </Grid>
+                </TreeViewItem.Header>
+            </TreeViewItem>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="tvItem">
+            <TreeViewItem ItemTemplate="{DynamicResource tvItem}" ItemsSource="{Binding Path=lItens}">
+                <TreeViewItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=idPk}" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding Path=xDisplay}" Grid.Column="1"></TextBlock>
+                    </Grid>
+                </TreeViewItem.Header>
+            </TreeViewItem>
+        </DataTemplate>
+
     </Window.Resources>
     <TabControl>
         <TabItem>
             <AdornerDecorator>
                 <Expander IsExpanded="True">
-                    <Component:WrapPanel WidthComp1="150" Orientation="Vertical">
-                        <Component:HlpTextBox  TextLabel="texto" Validacao="Int" Orientation="Vertical" IsReadOnly="True"/>
-                        <Component:HlpDatePicker Orientation="Vertical"  TextLabel="data de nascimento"  />
-                        
-                        <Component:HlpTimePicker TextLabel="time" Orientation="Vertical"/>
-                        <Component:HlpCheckBox TextLabel="checkbox" Orientation="Horizontal" IsChecked="True"/>
+                    <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
+                        <!--<Component:HlpTextBox IsReadOnly="False" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
+                        <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
+                        ></Component:HlpIntellisense>
+                        <Component:HlpComboBox WidthStatus="Full" TextLabel="Frutas" 
+                                               ucItemsSource="{StaticResource colFrutas}"
+                                               ucSelectedIndex="{Binding Path=selectedFruta, 
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        </Component:HlpComboBox>
+                        <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Button Content="Button" Width="75" Click="Button_Click"/>-->
+                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
+                        <Component:HlpStatus x:Name="hlpStatus">
+                            <Component:HlpStatus.lStatus>
+                                <System:String>Criado</System:String>
+                                <System:String>Em Cotação</System:String>
+                                <System:String>Confirmado</System:String>
+                            </Component:HlpStatus.lStatus>
+                            <Component:HlpStatus.lOptionalStatus>
+                                <System:Byte>2</System:Byte>
+                            </Component:HlpStatus.lOptionalStatus>
+                        </Component:HlpStatus>                                                
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
+        </TabItem>
+        <TabItem>
+            <Component:HlpTreeView x:Name="tvMains" Width="400" Height="200" selectedId="1007" templateItems="{StaticResource tvItem}" 
+                                   labelText="Hierarquia de Site"
+                                               selectSearchNodeBase="select idDeposito as idPk, idSite as idFk, xDeposito as xDisplay from Deposito where idSite = {0}">
+                <Component:HlpTreeView.lSelectSearchParent>
+                    <System:String>select idSite as idPk, xSite as xDisplay from Site where idSite = {0}</System:String>
+                </Component:HlpTreeView.lSelectSearchParent>
+            </Component:HlpTreeView>
+
+        </TabItem>
+        <TabItem>
+            <Component:HlpTreeView x:Name="tvMains2" Width="400" Height="200" selectedId="4151" templateItems="{StaticResource tvItem}"                                               
+                                               selectSearchNodeBase="select idBanco as idPk, xBanco as xDisplay from Banco where idBanco = {0}">
+                <Component:HlpTreeView.lSelectSearchChields>
+                    <System:String>select idAgencia as idPk, idBanco as idFk, xAgencia as xDisplay from Agencia where idBanco = {0}</System:String>
+                    <System:String>select idContaBancaria as idPk, idAgencia as idFk, xNumeroConta as xDisplay from Conta_bancaria where idAgencia = {0}</System:String>
+                </Component:HlpTreeView.lSelectSearchChields>
+            </Component:HlpTreeView>
+        </TabItem>
+        <TabItem>
+            <Component:HlpTreeView x:Name="tvMains3" Width="400" Height="200" selectedId="1" templateItems="{StaticResource tvItem}"                                               
+                                               selectSearchNodeBase="select idSite as idPk, xSite as xDisplay from Site where idSite = {0}">
+                <Component:HlpTreeView.lSelectSearchChields>
+                    <System:String>select idDeposito as idPk, xDeposito as xDisplay from Deposito where idSite = {0}</System:String>
+                </Component:HlpTreeView.lSelectSearchChields>
+            </Component:HlpTreeView>
         </TabItem>
     </TabControl>
 </Window>

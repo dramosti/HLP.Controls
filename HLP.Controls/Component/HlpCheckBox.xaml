@@ -18,21 +18,21 @@
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="19.994"/>
                                 </DoubleAnimationUsingKeyFrames>
                                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
-                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
-                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border2">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
-                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border2">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
                                 </ColorAnimationUsingKeyFrames>
                                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
                                     <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
-                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF64C1AD"/>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border2">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF0072C6"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="border">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="border2">
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
                                 </DoubleAnimationUsingKeyFrames>
                             </Storyboard>
@@ -42,19 +42,19 @@
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-0.01"/>
                                 </DoubleAnimationUsingKeyFrames>
                                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
-                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
                                     <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
-                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border2">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
                                     <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
-                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border2">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
                                     <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
                                 </ColorAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
-                                    <EasingColorKeyFrame KeyTime="0" Value="#FF64C1AD"/>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border2">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FF0072C6"/>
                                     <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF626262"/>
                                 </ColorAnimationUsingKeyFrames>
                                 <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
@@ -63,24 +63,27 @@
                                 </ColorAnimationUsingKeyFrames>
                             </Storyboard>
                         </ControlTemplate.Resources>
-                        <Grid Background="Transparent" SnapsToDevicePixels="True">
-                            <Border x:Name="border" BorderThickness="0.7" CornerRadius="10.7" BorderBrush="#FF626262">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="Transparent" CornerRadius="10.7" BorderThickness="0.9" Background="White" SnapsToDevicePixels="True"/>
+                            <Border x:Name="border2" BorderThickness="0.7" CornerRadius="10.7" BorderBrush="#FF626262">
                                 <Border.Background>
                                     <RadialGradientBrush>
                                         <GradientStop Color="White" Offset="0"/>
                                         <GradientStop Color="White" Offset="1"/>
                                     </RadialGradientBrush>
                                 </Border.Background>
-                                <Ellipse x:Name="ellipse" Height="20" Width="20" Stroke="#FF626262" StrokeThickness="0.7" Margin="-0.7,-0.689,19.299,-0.712" RenderTransformOrigin="0.5,0.5" Fill="WhiteSmoke">
-                                    <Ellipse.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Ellipse.RenderTransform>
-                                </Ellipse>
+                                <Grid>
+                                    <Ellipse x:Name="ellipse" Height="20" Width="20" Stroke="#FF626262" StrokeThickness="0.7" Margin="-0.7,-0.689,19.299,-0.712" RenderTransformOrigin="0.5,0.5" Fill="WhiteSmoke">
+                                        <Ellipse.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Ellipse.RenderTransform>
+                                    </Ellipse>
+                                </Grid>
                             </Border>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -91,6 +94,15 @@
                                 <Trigger.EnterActions>
                                     <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
                                 </Trigger.EnterActions>
+                            </Trigger>
+
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                                <Setter Property="Effect" TargetName="border">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                    </Setter.Value>
+                                </Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
