@@ -329,7 +329,7 @@
                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=TextLabel}"
                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp1}"/>
             <ComboBox x:Name="cbx" Style="{StaticResource HLP_ComboBox}" ItemContainerStyle="{StaticResource HLP_ComboBox_Item}"
-                      Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=WidthComp2}"
+                      Width="110"
                 ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
                 AncestorType={x:Type UserControl}}, Path=ucItemsSource, Mode=OneWay}"
                       SelectedIndex="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
