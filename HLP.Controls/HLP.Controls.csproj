@@ -54,6 +54,7 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
+    <Compile Include="Component\CustomDataGrid.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
     </Compile>
@@ -125,6 +126,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\OperacoesDataBaseService.cs" />
+    <Compile Include="Static\Extensions.cs" />
     <Compile Include="Static\Util.cs" />
     <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
     <Compile Include="ViewModel\Command\HlpDatePickerCommand.cs" />
