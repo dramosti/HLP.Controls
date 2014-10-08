@@ -33,6 +33,7 @@ namespace HLP.Controls.Component
         public HlpTreeView()
         {
             InitializeComponent();
+
             this.lSelectSearchChields = new ObservableCollection<string>();
             this.lSelectSearchParent = new ObservableCollection<string>();
 
@@ -93,12 +94,18 @@ namespace HLP.Controls.Component
 
         public static void SelectIdChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
-            if (args.NewValue != null)
+            bool designTime = System.ComponentModel.DesignerProperties.GetIsInDesignMode(
+    new DependencyObject());
+
+            if (!designTime)
             {
-                (d as HlpTreeView).BeginLoad();
+                if (args.NewValue != null)
+                {
+                    (d as HlpTreeView).BeginLoad();
+                }
+                else
+                    (d as HlpTreeView).stOperacaoTreeView = TipoOperacaoTreeView.enumLivre;
             }
-            else
-                (d as HlpTreeView).stOperacaoTreeView = TipoOperacaoTreeView.enumLivre;
         }
 
         public ObservableCollection<treeviewModel> items

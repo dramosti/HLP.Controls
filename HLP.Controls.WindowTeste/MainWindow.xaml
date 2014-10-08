@@ -5,6 +5,7 @@
         xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" x:Class="HLP.Controls.WindowTeste.MainWindow"
         Title="MainWindow" Height="500" Width="525" KeyUp="Window_KeyUp">
     <Window.Resources>
+
         <CompositeCollection x:Key="colFrutas">
             <System:String>Banana</System:String>
             <System:String>Maçã</System:String>
@@ -81,7 +82,12 @@
                             <Component:HlpStatus.lOptionalStatus>
                                 <System:Byte>2</System:Byte>
                             </Component:HlpStatus.lOptionalStatus>
-                        </Component:HlpStatus>                                                
+                        </Component:HlpStatus>
+                        <Component:HlpVersoes
+                           propTable="Lista_Preco_Pai" propPk="idListaPrecoPai" propHierarquia="idListaPrecoOrigem" selectedId="3014"
+                            maxScrollWidth="200">
+
+                        </Component:HlpVersoes>
                     </Component:WrapPanel>
                 </Expander>
             </AdornerDecorator>
@@ -111,7 +117,41 @@
                 <Component:HlpTreeView.lSelectSearchChields>
                     <System:String>select idDeposito as idPk, xDeposito as xDisplay from Deposito where idSite = {0}</System:String>
                 </Component:HlpTreeView.lSelectSearchChields>
-            </Component:HlpTreeView>
+            </Component:HlpTreeView>            
         </TabItem>
+        <TabItem>
+            <AdornerDecorator>
+                <Expander IsExpanded="True">
+                    <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
+                        <!--<Component:HlpTextBox IsReadOnly="False" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
+                        <Component:HlpIntellisense xNameView="vwClienteqs" WidthStatus="Full" Orientation="Vertical" TextLabel="Cliente"
+                        ></Component:HlpIntellisense>
+                        <Component:HlpComboBox WidthStatus="Full" TextLabel="Frutas" 
+                                               ucItemsSource="{StaticResource colFrutas}"
+                                               ucSelectedIndex="{Binding Path=selectedFruta, 
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        </Component:HlpComboBox>
+                        <Component:HlpDatePicker stDateTime="enumDate" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Component:HlpDatePicker stDateTime="enumDateTime" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Component:HlpDatePicker stDateTime="enumTime" WidthStatus="Full"></Component:HlpDatePicker>
+                        <Button Content="Button" Width="75" Click="Button_Click"/>-->
+                        <Component:HlpFindFile Finder="File" TextLabel="Find File" WidthStatus="Full" Orientation="Vertical"/>
+                        <Component:HlpVersoes
+                           propTable="Lista_Preco_Pai" propPk="idListaPrecoPai" propHierarquia="idListaPrecoOrigem" selectedId="3014">
+                        </Component:HlpVersoes>
+                        <Component:HlpVersoes
+                           propTable="Lista_Preco_Pai" propPk="idListaPrecoPai" propHierarquia="idListaPrecoOrigem" selectedId="9062">
+                        </Component:HlpVersoes>
+                        <Component:HlpVersoes
+                           propTable="Orcamento_ide" propPk="idOrcamento" propHierarquia="idOrcamentoOrigem" selectedId="46">
+                        </Component:HlpVersoes>
+                        <Component:HlpVersoes
+                           propTable="Orcamento_ide" propPk="idOrcamento" propHierarquia="idOrcamentoOrigem" selectedId="52">
+                        </Component:HlpVersoes>
+                    </Component:WrapPanel>
+                </Expander>
+            </AdornerDecorator>
+        </TabItem>
+
     </TabControl>
 </Window>
