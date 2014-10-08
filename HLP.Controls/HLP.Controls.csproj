@@ -58,8 +58,10 @@
     <Compile Include="Base\RelayCommand.cs" />
     <Compile Include="Component\CustomDataGrid.cs" />
     <Compile Include="Component\CustomDataGridDateColumn.cs" />
+    <Compile Include="Component\CustomDataGridTimeColumn.cs" />
     <Compile Include="Component\CustomDatePicker.cs" />
     <Compile Include="Component\CustomGridBase.cs" />
+    <Compile Include="Component\CustomTimePicker.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
     </Compile>

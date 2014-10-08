@@ -15,6 +15,9 @@
         <local:MainWindowDataContext x:Name="viewModel"/>
     </Window.DataContext>
     <Grid>
+        <Component:CustomDatePicker Width="100"/>
+    </Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -32,8 +35,13 @@
                                 <Component:CustomDataGridDateColumn
                                     Header="Data Nascimento"
                                     Width="150"
-                                    Binding="{Binding dtNascimento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                    Binding="{Binding dtNascimento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                <Component:CustomDataGridTimeColumn 
+                                    Header="Horas"
+                                    Width="150"
+                                    Binding="{Binding time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                                     />
+                                    
                             </Component:CustomDataGrid.Columns>
                         </Component:CustomDataGrid>
                     </AdornerDecorator>
@@ -71,8 +79,10 @@
             <Button Content="DRAMOS" />
             <Button Content="DRAMOS" />
             <Component:CustomDatePicker Margin="0" Width="97"/>
+            <Component:CustomTimePicker Margin="0" TextWrapping="Wrap" Width="91"/>
+            <DatePicker/>
         </WrapPanel>
-    </Grid>
+    </Grid>-->
 
 
 </Window>

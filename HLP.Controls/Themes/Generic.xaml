@@ -110,9 +110,9 @@
                             </Grid.ColumnDefinitions>
                             <ScrollViewer Margin="5,0,0,0" VerticalAlignment="Center" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                             <Button x:Name="btnCalendar" Grid.Column="1" 
-                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=CustomViewModel.openPopupCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
-                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=day}" Width="20" Style="{StaticResource Button_HLP_DatePicker}"></Button>
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CustomDatePicker}}, Path=CustomViewModel.openPopupCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CustomDatePicker}}}"
+                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CustomDatePicker}}, Path=day}" Width="20" Style="{StaticResource Button_HLP_DatePicker}"/>
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -155,7 +155,91 @@
         </Setter>
     </Style>
 
-   
 
-   
+    <Style x:Key="CustomButton_TimePicker" TargetType="{x:Type Button}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border" BorderThickness="0.7" CornerRadius="0,4,4,0" BorderBrush="Transparent" Background="Transparent"></Border>
+                        <Path Height="Auto" Width="Auto" x:Name="Path" Grid.Column="0" Grid.Row="0" Stretch="Fill" StrokeThickness="0" StrokeLineJoin="Round" Fill="#FF626262" Data="F1 M38,23.75 C46.7445,23.75 53.8333,30.8388 53.8333,39.5833 53.8333,48.3278 46.7445,55.4167 38,55.4167 29.2555,55.4167 22.1667,48.3278 22.1667,39.5833 22.1667,30.8388 29.2555,23.75 38,23.75 z M38,27.7083 C31.4416,27.7083 26.125,33.025 26.125,39.5833 26.125,46.1417 31.4416,51.4583 38,51.4583 44.5584,51.4583 49.875,46.1417 49.875,39.5833 49.875,33.025 44.5584,27.7083 38,27.7083 z M38.148424,30.244405 C39.022824,30.244405 39.731724,30.953305 39.731724,31.827705 L39.731724,39.206665 45.669224,39.206665 C46.543624,39.206665 47.252524,39.915465 47.252524,40.789965 L47.252524,41.581565 C47.252524,42.456065 46.543624,43.164965 45.669224,43.164965 L38.544224,43.164965 C37.752524,43.032965 36.960924,42.901065 36.499024,42.439265 36.037224,41.977465 35.905324,41.185765 35.773424,40.394065 L35.773424,31.827705 C35.773424,30.953305 36.482224,30.244405 37.356724,30.244405 L38.148424,30.244405 z" Margin="4.545,5.015,4.545,4"/>
+                        <ContentPresenter x:Name="Content" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.FontSize="8" TextElement.FontFamily="Segoe Ui SemiBold" TextElement.Foreground="#FF626262" Margin="2.88,2.305,2.88,1.055"></ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:CustomTimePicker}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="base:AutoSelectTextBoxAttachedProperty.AutoSelect" Value="True"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="Foreground" Value="#FF626262"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="Transparent" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Border x:Name="border2" BorderBrush="#FF9C9C9C" CornerRadius="4" BorderThickness="0.7" Background="White" SnapsToDevicePixels="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="20"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer Margin="5,0,0,0" VerticalAlignment="Center" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button x:Name="btnCalendar" Grid.Column="1" 
+                                        Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=day}" 
+                                        Width="20" Style="{StaticResource CustomButton_TimePicker}"></Button>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF1C669C" TargetName="border2"/>
+                            <Setter Property="Effect" TargetName="border">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FF6BB5F0" BlurRadius="7" Direction="0" Opacity="1" ShadowDepth="0" RenderingBias="Performance"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <DockPanel LastChildFill="True">
+                                            <Border Background="#FFC82F2F" DockPanel.Dock="Right" Margin="5,0,0,0" Width="12" Height="12" CornerRadius="7"
+                                                ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white"/>
+                                            </Border>
+                                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center">
+                                                <Border BorderBrush="Transparent" BorderThickness="1"></Border>
+                                            </AdornedElementPlaceholder>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

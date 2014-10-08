@@ -1,6 +1,8 @@
 ﻿using HLP.Controls.Converters.Component;
+using HLP.Controls.ViewModel.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +49,9 @@ namespace HLP.Controls.Component
     /// </summary>
     public class CustomDatePicker : TextBox
     {
+
+        public System.Windows.Controls.Primitives.Popup popup { get; set; }
+
         public CustomDatePicker()
         {
             Binding b = new Binding();
@@ -58,12 +63,54 @@ namespace HLP.Controls.Component
             DateTimeMaskConverter conv = new DateTimeMaskConverter();
             b.Converter = conv;
             BindingOperations.SetBinding(target: this, dp: CustomDatePicker.TextProperty, binding: b);
+
+            popup = new System.Windows.Controls.Primitives.Popup();
+            
+            popup.Placement = System.Windows.Controls.Primitives.PlacementMode.MousePoint;
+            Calendar c = new Calendar();
+            c.SelectedDatesChanged += c_SelectedDatesChanged;
+            popup.Child = c;
+            this.KeyDown += CustomDatePicker_KeyDown;
+            CustomViewModel = new HlpDatePickerViewModel();
         }
+
+        void CustomDatePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                this.popup.IsOpen = true;
+            }
+        }
+
+        void c_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.Text = (sender as Calendar).SelectedDate.Value.Date.ToShortDateString();
+            this.popup.IsOpen = false;
+
+            if (this.Visibility == System.Windows.Visibility.Visible)
+                this.Focus();
+        }
+
+        public HlpDatePickerViewModel CustomViewModel { get; set; }
 
         static CustomDatePicker()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomDatePicker), new FrameworkPropertyMetadata(typeof(CustomDatePicker)));
         }
+
+
+
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public int day
+        {
+            get { return (int)GetValue(dayProperty); }
+            set { SetValue(dayProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for day.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty dayProperty =
+            DependencyProperty.Register("day", typeof(int), typeof(CustomDatePicker), new PropertyMetadata(DateTime.Now.Day));
 
 
 

@@ -47,14 +47,21 @@ namespace HLP.Controls.Model
             set { _xArquivo = value; NotifyPropertyChanged("xArquivo"); }
         }
 
-        private DateTime _dtNascimento;
+        private DateTime _dtNascimento = DateTime.Now;
 
         public DateTime dtNascimento
         {
             get { return _dtNascimento; }
             set { _dtNascimento = value; NotifyPropertyChanged("dtNascimento"); }
         }
-        
-        
+
+        private TimeSpan _time = new TimeSpan(0, 0, 0);
+
+        public TimeSpan time
+        {
+            get { return _time ; }
+            set { _time =  value; NotifyPropertyChanged("time"); }
+        }
+
     }
 }

@@ -44,9 +44,7 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csproj.GenerateRe
 D:\GitHub\HLP\Magnificus2014\bin\HLP.Controls.dll.config
 D:\GitHub\HLP\Magnificus2014\bin\HLP.Controls.dll
 D:\GitHub\HLP\Magnificus2014\bin\HLP.Controls.pdb
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpVersoes.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTimePicker.g.cs
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpVersoes.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTimePicker.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpEndereco.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpEndereco.g.cs
