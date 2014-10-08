@@ -24,14 +24,8 @@ namespace HLP.Controls.WindowTeste
         public MainWindow()
         {
             InitializeComponent();
-
-
-
             this.DataContext = new MainWindowDataContext();
-
             (this.DataContext as MainWindowDataContext).selectedFruta = 2;
-
-            this.hlpStatus.selectStatus = 1;
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)

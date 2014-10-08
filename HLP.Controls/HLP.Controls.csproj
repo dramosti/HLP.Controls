@@ -54,6 +54,7 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
+    <Compile Include="Component\CustomGridBase.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
     </Compile>
@@ -75,6 +76,7 @@
     <Compile Include="Component\HlpTreeView.xaml.cs">
       <DependentUpon>HlpTreeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\WindowsBase.cs" />
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\HlpFindFile.xaml.cs">
       <DependentUpon>HlpFindFile.xaml</DependentUpon>
