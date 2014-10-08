@@ -28,10 +28,6 @@ namespace HLP.Controls.Component
             InitializeComponent();        
         }
 
-
-
-
-
         public bool IsChecked
         {
             get { return (bool)GetValue(IsCheckedProperty); }
