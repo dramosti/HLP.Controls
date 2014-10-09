@@ -54,7 +54,11 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
-    <Compile Include="Component\CustomGridBase.cs" />
+    <Compile Include="Component\CustomComboboxColumn.cs" />
+    <Compile Include="Component\CustomDataGrid.cs" />
+    <Compile Include="Component\CustomDatePicker.cs" />
+    <Compile Include="Component\CustomIntellisenseColumn.cs" />
+    <Compile Include="Component\CustomTimePicker.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
     </Compile>
@@ -76,7 +80,9 @@
     <Compile Include="Component\HlpTreeView.xaml.cs">
       <DependentUpon>HlpTreeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Component\WindowsBase.cs" />
+    <Compile Include="Component\HlpVersoes.xaml.cs">
+      <DependentUpon>HlpVersoes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\HlpFindFile.xaml.cs">
       <DependentUpon>HlpFindFile.xaml</DependentUpon>
@@ -97,6 +103,7 @@
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
     <Compile Include="Converters\Component\TimeSpanToString.cs" />
     <Compile Include="Enum\EnumControls.cs" />
+    <Compile Include="Model\TesteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -124,6 +131,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\OperacoesDataBaseService.cs" />
+    <Compile Include="Static\Extensions.cs" />
     <Compile Include="Static\Util.cs" />
     <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
     <Compile Include="ViewModel\Command\HlpDatePickerCommand.cs" />
@@ -187,6 +195,14 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Page Include="Component\HlpVersoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ViewWindow_\wdQuickSearch.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -208,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dependencies\" />
-    <Folder Include="Model\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Styles\" />
   </ItemGroup>

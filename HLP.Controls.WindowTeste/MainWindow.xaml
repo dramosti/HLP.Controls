@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" x:Class="HLP.Controls.WindowTeste.MainWindow"
+        xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" xmlns:local="clr-namespace:HLP.Controls.WindowTeste" x:Class="HLP.Controls.WindowTeste.MainWindow"
         Title="MainWindow" Height="500" Width="525" KeyUp="Window_KeyUp">
     <Window.Resources>
         <CompositeCollection x:Key="colFrutas">
@@ -11,7 +11,18 @@
             <System:String>Mamão</System:String>
         </CompositeCollection>
     </Window.Resources>
+    <Window.DataContext>
+        <local:MainWindowDataContext x:Name="viewModel"/>
+    </Window.DataContext>
     <Grid>
+        <Component:CustomDataGrid ItemsSource="{Binding Path=ItemsIteste}" AutoGenerateColumns="False" SelectionUnit="Cell">
+            <Component:CustomDataGrid.Columns>
+                <Component:CustomComboboxColumn ucItemSource="{StaticResource colFrutas}"></Component:CustomComboboxColumn>
+                <Component:CustomIntellisenseColumn Width="300"></Component:CustomIntellisenseColumn>
+            </Component:CustomDataGrid.Columns>
+        </Component:CustomDataGrid>
+    </Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -20,14 +31,31 @@
             <TabControl >
                 <TabItem Header="tab 1">
                     <AdornerDecorator>
-                        
+                        <Component:CustomDataGrid
+							AutoGenerateColumns="False"
+							SelectionUnit="CellOrRowHeader"
+							CanUserReorderColumns="True"           
+                            ItemsSource="{Binding ItemsIteste}">
+                            <Component:CustomDataGrid.Columns>
+                                <Component:CustomDataGridDateColumn
+                                    Header="Data Nascimento"
+                                    Width="150"
+                                    Binding="{Binding dtNascimento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                <Component:CustomDataGridTimeColumn 
+                                    Header="Horas"
+                                    Width="150"
+                                    Binding="{Binding time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                    />
+                                    
+                            </Component:CustomDataGrid.Columns>
+                        </Component:CustomDataGrid>
                     </AdornerDecorator>
                 </TabItem>
                 <TabItem Header="tab 1">
                     <AdornerDecorator>
                         <Expander IsExpanded="True">
                             <Component:WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" WidthComp1="200">
-                                <Component:HlpTextBox IsReadOnly="True" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
+                                <Component:HlpTextBox  IsReadOnly="True" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
                                 <Component:HlpTextBox IsReadOnly="True" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
                                 <Component:HlpTextBox IsReadOnly="True" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
                                 <Component:HlpTextBox IsReadOnly="True" TextLabel="Teste de componentes de texto" WidthStatus="Codigo"   Orientation="Vertical"/>
@@ -55,8 +83,11 @@
             <Button Content="DRAMOS" />
             <Button Content="DRAMOS" />
             <Button Content="DRAMOS" />
+            <Component:CustomDatePicker Margin="0" Width="97"/>
+            <Component:CustomTimePicker Margin="0" TextWrapping="Wrap" Width="91"/>
+            <DatePicker/>
         </WrapPanel>
-    </Grid>
+    </Grid>-->
 
 
 </Window>
