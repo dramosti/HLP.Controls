@@ -13,11 +13,15 @@ namespace HLP.Controls.Component
 {
     public class CustomDataGridCheckBox : DataGridBoundColumn
     {
+        CustomCheckBox chk = null;
+
+        public CustomDataGridCheckBox()
+        {
+            chk = new CustomCheckBox();
+        }
 
         protected override System.Windows.FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
         {
-            CustomCheckBox chk = new CustomCheckBox();
-
             Binding b = new Binding();
             b.Path = (this.Binding as Binding).Path;
             b.Mode = BindingMode.TwoWay;
@@ -38,13 +42,11 @@ namespace HLP.Controls.Component
 
         protected override System.Windows.FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
         {
-            CustomCheckBox chk = new CustomCheckBox();
-            Binding b = new Binding();
-            b.Path = (this.Binding as Binding).Path;
-            b.Mode = BindingMode.TwoWay;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            chk.SetBinding(dp: CustomCheckBox.IsCheckedProperty, binding: b);
-            return chk;
+            CustomCheckBox chkLbl = new CustomCheckBox();
+
+            chkLbl.IsChecked = this.chk.IsChecked;
+
+            return chkLbl;
         }
     }
 }
