@@ -375,4 +375,8 @@
         </Setter>
     </Style>
     
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockStyle">
+        <Setter Property="Height" Value="20"/>
+    </Style>
+    
 </ResourceDictionary>
