@@ -1,10 +1,13 @@
-﻿using System;
+﻿using HLP.Controls.Static;
+using HLP.Controls.ViewModel.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -41,49 +44,42 @@ namespace HLP.Controls.Component
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:CustomComboboxColumn/>
+    ///     <MyNamespace:CustomIntellisenseColumn/>
     ///
     /// </summary>
-    public class CustomComboboxColumn : DataGridBoundColumn
+    public class CustomIntellisenseColumn : DataGridBoundColumn
     {
-        ComboBox cbx = null;
 
-        public System.Collections.IEnumerable ucItemSource
-        {
-            get { return (System.Collections.IEnumerable)GetValue(ucItemSourceProperty); }
-            set { SetValue(ucItemSourceProperty, value); }
+        TextBox txt;
+        Popup pup;
+        //<Popup 
+        //       MaxHeight="200" Name="popUp" Placement="Bottom" PlacementTarget="{Binding ElementName=txt}">
+        //    <DataGrid Style="{x:Null}" GridLinesVisibility="None" IsReadOnly="True" 
+        //              SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, 
+        //        Path=customViewModel.selectedItem}"
+        //        ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, 
+        //        Path=customViewModel.cvs}"></DataGrid>
+        //</Popup>
+
+        public CustomIntellisenseColumn()
+        {   
         }
 
-        // Using a DependencyProperty as the backing store for ucItemSource.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ucItemSourceProperty =
-            DependencyProperty.Register("ucItemSource", typeof(System.Collections.IEnumerable), typeof(CustomComboboxColumn), new PropertyMetadata(null));
+        
+
 
         protected override FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
-        {
-            if (cbx == null)
-            {
-                this.cbx = new ComboBox();
-                this.cbx.ItemsSource = ucItemSource;
-
-                if (this.Binding != null)
-                    this.cbx.SetBinding(dp: ComboBox.SelectedIndexProperty, binding: this.Binding);
-            }
-            return cbx;
+        {    
+            return txt;
         }
 
         protected override FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
         {
-            TextBlock txt = new TextBlock();
+            TextBlock lbl = new TextBlock();
 
-            if (this.cbx != null)
-            {
-                if (this.cbx.SelectedIndex >= 0)
-                {
-                    var text = ucItemSource.Cast<object>().ToArray()[this.cbx.SelectedIndex];
-                    txt.Text = text.ToString();
-                }
-            }
-            return txt;
+            lbl.Text = txt.Text;
+
+            return lbl;
         }
     }
 }

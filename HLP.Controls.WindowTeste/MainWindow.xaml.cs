@@ -46,10 +46,6 @@ namespace HLP.Controls.WindowTeste
             get { return _ItemsIteste; }
             set { _ItemsIteste = value; NotifyPropertyChanged("ItemsIteste"); }
         }
-        
-
-
-
 
         private DateTime _dt;
 
@@ -63,7 +59,6 @@ namespace HLP.Controls.WindowTeste
             }
         }
 
-
         private int _selectedFruta;
 
         public int selectedFruta
@@ -75,7 +70,6 @@ namespace HLP.Controls.WindowTeste
                 this.NotifyPropertyChanged(propertyName: "selectedFruta");
             }
         }
-
 
         #region NotifyPropertyChanged
 
