@@ -38,6 +38,11 @@
                                     Width="150"
                                     Binding="{Binding time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                                     />
+                                <Component:CustomDataGridCheckBox 
+                                    Header="Ativo ?"
+                                    
+                                    Binding="{Binding bAtivo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                    />
 
                             </Component:CustomDataGrid.Columns>
                         </Component:CustomDataGrid>

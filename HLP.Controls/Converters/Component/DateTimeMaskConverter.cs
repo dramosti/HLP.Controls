@@ -35,7 +35,7 @@ namespace HLP.Controls.Converters.Component
 
                 v = value.ToString().ToArray();
 
-                if (v.Count() > 0)
+                if (v.Count() > 6)
                 {
                     day = int.Parse(s: (v[0].ToString() + v[1].ToString()).ToString());
                     month = int.Parse(s: (v[2].ToString() + v[3].ToString()).ToString());
