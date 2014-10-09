@@ -44,7 +44,7 @@ namespace HLP.Controls.Component
     ///     <MyNamespace:CustomCheckBox/>
     ///
     /// </summary>
-    public class CustomCheckBox : Control
+    public class CustomCheckBox : CheckBox
     {
         static CustomCheckBox()
         {
