@@ -1,4 +1,5 @@
 ﻿using HLP.Controls.Converters.Component;
+using HLP.Controls.Static;
 using HLP.Controls.ViewModel.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -18,42 +19,16 @@ using System.Windows.Shapes;
 
 namespace HLP.Controls.Component
 {
-    /// <summary>
-    /// Follow steps 1a or 1b and then 2 to use this custom control in a XAML file.
-    ///
-    /// Step 1a) Using this custom control in a XAML file that exists in the current project.
-    /// Add this XmlNamespace attribute to the root element of the markup file where it is 
-    /// to be used:
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:HLP.Controls.Component"
-    ///
-    ///
-    /// Step 1b) Using this custom control in a XAML file that exists in a different project.
-    /// Add this XmlNamespace attribute to the root element of the markup file where it is 
-    /// to be used:
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls.Component"
-    ///
-    /// You will also need to add a project reference from the project where the XAML file lives
-    /// to this project and Rebuild to avoid compilation errors:
-    ///
-    ///     Right click on the target project in the Solution Explorer and
-    ///     "Add Reference"->"Projects"->[Browse to and select this project]
-    ///
-    ///
-    /// Step 2)
-    /// Go ahead and use your control in the XAML file.
-    ///
-    ///     <MyNamespace:CustomDatePicker/>
-    ///
-    /// </summary>
     public class CustomDatePicker : TextBox
     {
 
-        public System.Windows.Controls.Primitives.Popup popup { get; set; }
-
+        static CustomDatePicker()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomDatePicker), new FrameworkPropertyMetadata(typeof(CustomDatePicker)));
+        }
         public CustomDatePicker()
         {
+            this.ApplyTemplate();
             Binding b = new Binding();
             RelativeSource r = new RelativeSource();
             r.Mode = RelativeSourceMode.Self;
@@ -64,68 +39,77 @@ namespace HLP.Controls.Component
             b.Converter = conv;
             BindingOperations.SetBinding(target: this, dp: CustomDatePicker.TextProperty, binding: b);
             Binding bt = new Binding();
-                        
-            popup = new System.Windows.Controls.Primitives.Popup();
-            
-            popup.Placement = System.Windows.Controls.Primitives.PlacementMode.MousePoint;
-            Calendar c = new Calendar();
-            c.SelectedDatesChanged += c_SelectedDatesChanged;
-            popup.Child = c;
-            this.KeyDown += CustomDatePicker_KeyDown;
+
+            this.popup = new System.Windows.Controls.Primitives.Popup();
+            this.calendar = new Calendar();
+            this.calendar.PreviewKeyDown += calendar_PreviewKeyDown;
+            this.calendar.MouseDoubleClick += calendar_MouseDoubleClick;
+            this.GotFocus += CustomDatePicker_GotFocus;
+            this.popup.Child = calendar;
+
             CustomViewModel = new HlpDatePickerViewModel();
+            var gesture = new KeyGesture(Key.F5, ModifierKeys.None);
+            InputBinding ib = new InputBinding(this.CustomViewModel.openPopupCommand, gesture);
+            ib.CommandParameter = this;
+            this.InputBindings.Add(ib);
         }
 
-        void CustomDatePicker_KeyDown(object sender, KeyEventArgs e)
+
+        #region Events
+        void CustomDatePicker_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.F5)
+            this.popup.IsOpen = false;
+        }
+
+        void calendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ClosePopup();
+        }
+
+        void calendar_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
             {
-                this.popup.IsOpen = true;
+                ClosePopup();
+                e.Handled = true;
             }
         }
+        #endregion
 
-        void c_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        #region Methods
+        private void ClosePopup()
         {
-            this.Text = (sender as Calendar).SelectedDate.Value.Date.ToShortDateString();
+            this.Text = this.calendar.SelectedDate.Value.Date.ToShortDateString();
             this.popup.IsOpen = false;
-
             if (this.Visibility == System.Windows.Visibility.Visible)
                 this.Focus();
         }
+        #endregion
 
+        #region properties
         public HlpDatePickerViewModel CustomViewModel { get; set; }
-
-        static CustomDatePicker()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomDatePicker), new FrameworkPropertyMetadata(typeof(CustomDatePicker)));
-        }
-
-
-
-
+        public System.Windows.Controls.Primitives.Popup popup { get; set; }
+        public Calendar calendar { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public int day
         {
             get { return (int)GetValue(dayProperty); }
             set { SetValue(dayProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for day.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty dayProperty =
             DependencyProperty.Register("day", typeof(int), typeof(CustomDatePicker), new PropertyMetadata(DateTime.Now.Day));
-
-
-
 
         public DateTime date
         {
             get { return (DateTime)GetValue(dateProperty); }
             set { SetValue(dateProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for date.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty dateProperty =
             DependencyProperty.Register("date", typeof(DateTime), typeof(CustomDatePicker), new PropertyMetadata(DateTime.Today));
 
+        #endregion
 
     }
 }

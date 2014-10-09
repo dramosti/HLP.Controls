@@ -164,7 +164,6 @@
         <Popup 
                 x:Name="mainCalendar" StaysOpen="False"
                 PlacementTarget="{Binding ElementName=btnCalendar}" Placement="MousePoint">
-            <Calendar SelectedDatesChanged="Calendar_SelectedDatesChanged"></Calendar>
         </Popup>
     </WrapPanel>
 </runtime:UserControlBase>
