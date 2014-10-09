@@ -8,7 +8,7 @@
              >
     <runtime:UserControlBase.Resources>
         <Style x:Key="Button_PESQUISA_Pesquisa" TargetType="{x:Type Button}">
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="1"/>            
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -39,7 +39,7 @@
                         <Grid>
                             <Border x:Name="border" BorderThickness="0.7" CornerRadius="0,4,4,0" BorderBrush="Transparent"  Background="Transparent">
                                 <Grid>
-                                    <Path x:Name="path" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Width="15" Stretch="Fill" Fill="#FF626262" Data="F1 M 42.5,22C 49.4036,22 55,27.5964 55,34.5C 55,41.4036 49.4036,47 42.5,47C 40.1356,47 37.9245,46.3435 36,45.2426L 26.9749,54.2678C 25.8033,55.4393 23.9038,55.4393 22.7322,54.2678C 21.5607,53.0962 21.5607,51.1967 22.7322,50.0251L 31.7971,40.961C 30.6565,39.0755 30,36.8644 30,34.5C 30,27.5964 35.5964,22 42.5,22 Z M 42.5,26C 37.8056,26 34,29.8056 34,34.5C 34,39.1944 37.8056,43 42.5,43C 47.1944,43 51,39.1944 51,34.5C 51,29.8056 47.1944,26 42.5,26 Z "/>
+                                    <Path x:Name="path" VerticalAlignment="Center" HorizontalAlignment="Center" Height="12" Width="12" Stretch="Fill" Fill="#FF626262" Data="F1 M 42.5,22C 49.4036,22 55,27.5964 55,34.5C 55,41.4036 49.4036,47 42.5,47C 40.1356,47 37.9245,46.3435 36,45.2426L 26.9749,54.2678C 25.8033,55.4393 23.9038,55.4393 22.7322,54.2678C 21.5607,53.0962 21.5607,51.1967 22.7322,50.0251L 31.7971,40.961C 30.6565,39.0755 30,36.8644 30,34.5C 30,27.5964 35.5964,22 42.5,22 Z M 42.5,26C 37.8056,26 34,29.8056 34,34.5C 34,39.1944 37.8056,43 42.5,43C 47.1944,43 51,39.1944 51,34.5C 51,29.8056 47.1944,26 42.5,26 Z "/>
                                 </Grid>
                             </Border>
                         </Grid>
@@ -58,9 +58,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <Style x:Key="TextBox_PESQUISA" TargetType="{x:Type TextBox}">
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="0,0,0,3"/>
             <Setter Property="Foreground" Value="#FF626262"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
