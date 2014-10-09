@@ -15,9 +15,10 @@
         <local:MainWindowDataContext x:Name="viewModel"/>
     </Window.DataContext>
     <Grid>
-        <Component:CustomDataGrid ItemsSource="{Binding Path=ItemsIteste}" AutoGenerateColumns="False">
+        <Component:CustomDataGrid ItemsSource="{Binding Path=ItemsIteste}" AutoGenerateColumns="False" SelectionUnit="Cell">
             <Component:CustomDataGrid.Columns>
                 <Component:CustomComboboxColumn ucItemSource="{StaticResource colFrutas}"></Component:CustomComboboxColumn>
+                <Component:CustomIntellisenseColumn Width="300"></Component:CustomIntellisenseColumn>
             </Component:CustomDataGrid.Columns>
         </Component:CustomDataGrid>
     </Grid>

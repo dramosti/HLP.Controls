@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace HLP.Controls.Component
 {
@@ -115,71 +116,96 @@ namespace HLP.Controls.Component
                 }
                 else
                 {
-                    var lastMethods = typeof(System.Linq.Enumerable)
-                        .GetMethods(BindingFlags.Static | BindingFlags.Public)
-                        .Where(ext => ext.Name == "Last");
-                    object lastItem = null;
-                    Type typeItens = null;
-
-                    foreach (MethodInfo extLast in lastMethods)
+                    if (this.CurrentCell.Column.GetType() == typeof(CustomIntellisenseColumn))
                     {
-                        if (extLast.GetParameters().Count() == 1)
-                        {
-                            if (this.ItemsSource.GetType() == typeof(CollectionViewSource) || this.ItemsSource.GetType().BaseType == typeof(CollectionView))
-                            {
-                                typeItens = (this.ItemsSource as CollectionView).SourceCollection.GetType();
-
-                                PropertyInfo piItensCount = (this.ItemsSource as System.Windows.Data.CollectionView).SourceCollection.GetType().GetProperty("Count");
-
-                                if (piItensCount != null)
-                                {
-                                    int? itensCount = piItensCount.GetValue(
-                                    (this.ItemsSource as System.Windows.Data.CollectionView).SourceCollection) as int?;
-
-                                    if (itensCount != null)
-                                        if (itensCount > 0)
-                                            lastItem = (this.ItemsSource as CollectionView).GetItemAt(index: (int)itensCount - 1);
-                                }
-                            }
-                            else
-                            {
-                                typeItens = this.ItemsSource.GetType().GetGenericArguments()[0];
-
-                                lastItem = extLast.MakeGenericMethod(typeArguments: typeItens)
-                                .Invoke(obj: this.ItemsSource, parameters: new object[] { this.ItemsSource });
-                            }
-
-                            break;
-                        }
-                    }
-                    if (lastItem == this.CurrentItem)
-                    {
-                        if (e.Key == System.Windows.Input.Key.Enter)
-                        {
-                            this.ValidateModel(bPermiteKeyDown: out bPermiteKeyDown);
-                        }
-                        else if (e.Key == System.Windows.Input.Key.Up ||
-                            e.Key == System.Windows.Input.Key.Down)
+                        if (e.Key == System.Windows.Input.Key.Down)
                         {
                             DataGridRow r = this.ItemContainerGenerator.ContainerFromItem(item: this.CurrentItem) as DataGridRow;
 
-                            DataGridCell c = Util.GetCell(grid: this, row: r,
-                                    column: this.Columns.IndexOf(item: this.CurrentColumn));
+                            DataGridCell c = Util.GetCell(grid: this, row: r, column: this.CurrentCell.Column.DisplayIndex);
 
-                            if (this.IsComboBoxColumn(c: c))
-                                bPermiteKeyDown = true;
-                            else
-                                this.ValidateModel(bPermiteKeyDown: out bPermiteKeyDown);
-                        }
-                        else if (e.Key == System.Windows.Input.Key.Tab)
-                        {
-                            if (this.CurrentColumn == this.Columns.LastOrDefault(i => i.Visibility == System.Windows.Visibility.Visible))
+                            if (c.IsEditing && c.Content.GetType() == typeof(HlpIntellisense))
                             {
+                                (c.Content as HlpIntellisense).popUp.IsOpen = true;
+
+                                if (r != null)
+                                    r.MoveFocus(request: new TraversalRequest(focusNavigationDirection: FocusNavigationDirection.Next));
+
+                                //((c.Content as HlpIntellisense).popUp.Child as DataGrid).SelectedIndex =
+                                //    (c.Content as HlpIntellisense).customViewModel.cvs.Count > 0 ? 0 : -1;
+
                                 bPermiteKeyDown = false;
                             }
                         }
                     }
+                    else
+                    {
 
+                        var lastMethods = typeof(System.Linq.Enumerable)
+                            .GetMethods(BindingFlags.Static | BindingFlags.Public)
+                            .Where(ext => ext.Name == "Last");
+                        object lastItem = null;
+                        Type typeItens = null;
+
+                        foreach (MethodInfo extLast in lastMethods)
+                        {
+                            if (extLast.GetParameters().Count() == 1)
+                            {
+                                if (this.ItemsSource.GetType() == typeof(CollectionViewSource) || this.ItemsSource.GetType().BaseType == typeof(CollectionView))
+                                {
+                                    typeItens = (this.ItemsSource as CollectionView).SourceCollection.GetType();
+
+                                    PropertyInfo piItensCount = (this.ItemsSource as System.Windows.Data.CollectionView).SourceCollection.GetType().GetProperty("Count");
+
+                                    if (piItensCount != null)
+                                    {
+                                        int? itensCount = piItensCount.GetValue(
+                                        (this.ItemsSource as System.Windows.Data.CollectionView).SourceCollection) as int?;
+
+                                        if (itensCount != null)
+                                            if (itensCount > 0)
+                                                lastItem = (this.ItemsSource as CollectionView).GetItemAt(index: (int)itensCount - 1);
+                                    }
+                                }
+                                else
+                                {
+                                    typeItens = this.ItemsSource.GetType().GetGenericArguments()[0];
+
+                                    lastItem = extLast.MakeGenericMethod(typeArguments: typeItens)
+                                    .Invoke(obj: this.ItemsSource, parameters: new object[] { this.ItemsSource });
+                                }
+
+                                break;
+                            }
+                        }
+                        if (lastItem == this.CurrentItem)
+                        {
+                            if (e.Key == System.Windows.Input.Key.Enter)
+                            {
+                                this.ValidateModel(bPermiteKeyDown: out bPermiteKeyDown);
+                            }
+                            else if (e.Key == System.Windows.Input.Key.Up ||
+                                e.Key == System.Windows.Input.Key.Down)
+                            {
+                                DataGridRow r = this.ItemContainerGenerator.ContainerFromItem(item: this.CurrentItem) as DataGridRow;
+
+                                DataGridCell c = Util.GetCell(grid: this, row: r,
+                                        column: this.Columns.IndexOf(item: this.CurrentColumn));
+
+                                if (this.IsComboBoxColumn(c: c))
+                                    bPermiteKeyDown = true;
+                                else
+                                    this.ValidateModel(bPermiteKeyDown: out bPermiteKeyDown);
+                            }
+                            else if (e.Key == System.Windows.Input.Key.Tab)
+                            {
+                                if (this.CurrentColumn == this.Columns.LastOrDefault(i => i.Visibility == System.Windows.Visibility.Visible))
+                                {
+                                    bPermiteKeyDown = false;
+                                }
+                            }
+                        }
+                    }
                 }
 
             if (bPermiteKeyDown)

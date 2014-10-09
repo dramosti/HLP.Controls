@@ -57,6 +57,7 @@
     <Compile Include="Component\CustomComboboxColumn.cs" />
     <Compile Include="Component\CustomDataGrid.cs" />
     <Compile Include="Component\CustomDatePicker.cs" />
+    <Compile Include="Component\CustomIntellisenseColumn.cs" />
     <Compile Include="Component\CustomTimePicker.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
