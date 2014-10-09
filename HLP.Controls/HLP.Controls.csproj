@@ -62,6 +62,7 @@
     <Compile Include="Component\CustomDataGridDateColumn.cs" />
     <Compile Include="Component\CustomDataGridTimeColumn.cs" />
     <Compile Include="Component\CustomDatePicker.cs" />
+    <Compile Include="Component\CustomFindFile.cs" />
     <Compile Include="Component\CustomIntellisenseColumn.cs" />
     <Compile Include="Component\CustomTimePicker.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
