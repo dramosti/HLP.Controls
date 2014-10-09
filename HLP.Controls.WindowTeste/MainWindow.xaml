@@ -15,7 +15,11 @@
         <local:MainWindowDataContext x:Name="viewModel"/>
     </Window.DataContext>
     <Grid>
-        <Component:CustomDatePicker Width="100"/>
+        <Component:CustomDataGrid ItemsSource="{Binding Path=ItemsIteste}" AutoGenerateColumns="False">
+            <Component:CustomDataGrid.Columns>
+                <Component:CustomComboboxColumn ucItemSource="{StaticResource colFrutas}"></Component:CustomComboboxColumn>
+            </Component:CustomDataGrid.Columns>
+        </Component:CustomDataGrid>
     </Grid>
     <!--<Grid>
         <Grid.RowDefinitions>

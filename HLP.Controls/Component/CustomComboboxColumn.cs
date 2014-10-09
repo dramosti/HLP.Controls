@@ -45,15 +45,41 @@ namespace HLP.Controls.Component
     ///
     /// </summary>
     public class CustomComboboxColumn : DataGridBoundColumn
-    {      
+    {
+        ComboBox cbx = null;
+
+        public System.Collections.IEnumerable ucItemSource
+        {
+            get { return (System.Collections.IEnumerable)GetValue(ucItemSourceProperty); }
+            set { SetValue(ucItemSourceProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ucItemSource.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ucItemSourceProperty =
+            DependencyProperty.Register("ucItemSource", typeof(System.Collections.IEnumerable), typeof(CustomComboboxColumn), new PropertyMetadata(null));
+
         protected override FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
         {
-            throw new NotImplementedException();
+            if (cbx == null)
+            {
+                this.cbx = new ComboBox();
+                this.cbx.ItemsSource = ucItemSource;
+
+                this.cbx.SetBinding(dp: ComboBox.SelectedIndexProperty, binding: this.Binding);
+            }
+            return cbx;
         }
 
         protected override FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
         {
-            throw new NotImplementedException();
+            TextBlock txt = new TextBlock();
+
+            if (this.cbx != null)
+            {
+                var text = ucItemSource.Cast<object>().ToArray()[this.cbx.SelectedIndex];
+                txt.Text = text.ToString();
+            }
+            return txt;
         }
     }
 }
