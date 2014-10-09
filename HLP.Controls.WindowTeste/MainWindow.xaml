@@ -15,19 +15,11 @@
         <local:MainWindowDataContext x:Name="viewModel"/>
     </Window.DataContext>
     <Grid>
-        <Component:CustomDataGrid ItemsSource="{Binding Path=ItemsIteste}" AutoGenerateColumns="False" SelectionUnit="Cell">
-            <Component:CustomDataGrid.Columns>
-                <Component:CustomComboboxColumn ucItemSource="{StaticResource colFrutas}"></Component:CustomComboboxColumn>
-                <Component:CustomIntellisenseColumn Width="300"></Component:CustomIntellisenseColumn>
-            </Component:CustomDataGrid.Columns>
-        </Component:CustomDataGrid>
-    </Grid>
-    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Component:CustomGridBase Grid.Row="2">
+        <Grid Grid.Row="2">
             <TabControl >
                 <TabItem Header="tab 1">
                     <AdornerDecorator>
@@ -46,7 +38,7 @@
                                     Width="150"
                                     Binding="{Binding time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                                     />
-                                    
+
                             </Component:CustomDataGrid.Columns>
                         </Component:CustomDataGrid>
                     </AdornerDecorator>
@@ -77,7 +69,7 @@
                     </AdornerDecorator>
                 </TabItem>
             </TabControl>
-        </Component:CustomGridBase>
+        </Grid>
         <WrapPanel >
             <Button Content="DRAMOS" />
             <Button Content="DRAMOS" />
@@ -87,7 +79,7 @@
             <Component:CustomTimePicker Margin="0" TextWrapping="Wrap" Width="91"/>
             <DatePicker/>
         </WrapPanel>
-    </Grid>-->
+    </Grid>
 
 
 </Window>
