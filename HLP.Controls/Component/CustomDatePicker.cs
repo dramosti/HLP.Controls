@@ -63,7 +63,8 @@ namespace HLP.Controls.Component
             DateTimeMaskConverter conv = new DateTimeMaskConverter();
             b.Converter = conv;
             BindingOperations.SetBinding(target: this, dp: CustomDatePicker.TextProperty, binding: b);
-
+            Binding bt = new Binding();
+                        
             popup = new System.Windows.Controls.Primitives.Popup();
             
             popup.Placement = System.Windows.Controls.Primitives.PlacementMode.MousePoint;
