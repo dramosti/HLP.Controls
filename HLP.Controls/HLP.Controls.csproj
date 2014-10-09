@@ -54,6 +54,7 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
+    <Compile Include="Component\CustomCheckBox.cs" />
     <Compile Include="Component\CustomComboBox.cs" />
     <Compile Include="Component\CustomDataGridComboboxColumn.cs" />
     <Compile Include="Component\CustomDataGrid.cs" />
