@@ -40,7 +40,7 @@
                                     />
                                 <Component:CustomDataGridCheckBox 
                                     Header="Ativo ?"
-                                    
+                                    Width="*"
                                     Binding="{Binding bAtivo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
                                     />
 

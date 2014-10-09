@@ -13,21 +13,19 @@ namespace HLP.Controls.Component
 {
     public class CustomDataGridCheckBox : DataGridBoundColumn
     {
-        CustomCheckBox chk = null;
-
-        public CustomDataGridCheckBox()
-        {
-            chk = new CustomCheckBox();
-        }
+        public CustomCheckBox chk{ get; set; }
 
         protected override System.Windows.FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
         {
-            Binding b = new Binding();
-            b.Path = (this.Binding as Binding).Path;
-            b.Mode = BindingMode.TwoWay;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            chk.SetBinding(dp: CustomCheckBox.IsCheckedProperty, binding: b);
-
+            if (chk == null)
+            {
+                chk = new CustomCheckBox();
+                Binding b = new Binding();
+                b.Path = (this.Binding as Binding).Path;
+                b.Mode = BindingMode.TwoWay;
+                b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                chk.SetBinding(dp: CustomCheckBox.IsCheckedProperty, binding: b);
+            }
             return chk;
         }
 
@@ -42,11 +40,16 @@ namespace HLP.Controls.Component
 
         protected override System.Windows.FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
         {
-            CustomCheckBox chkLbl = new CustomCheckBox();
-
-            chkLbl.IsChecked = this.chk.IsChecked;
-
-            return chkLbl;
+            TextBlock txt = new TextBlock();
+            txt.HorizontalAlignment = HorizontalAlignment.Center;
+            Binding b = new Binding();
+            b.Path = (this.Binding as Binding).Path;
+            b.Mode = BindingMode.OneWay;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            BoolToTextConverter conv = new BoolToTextConverter();
+            b.Converter = conv;
+            txt.SetBinding(dp: TextBlock.TextProperty, binding: b);
+            return txt;
         }
     }
 }

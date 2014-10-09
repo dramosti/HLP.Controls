@@ -99,6 +99,7 @@
       <DependentUpon>HlpTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Base\UserControlBase.cs" />
+    <Compile Include="Converters\Component\BoolToTextConverter.cs" />
     <Compile Include="Converters\Component\DateTimeMaskConverter.cs" />
     <Compile Include="Converters\Component\IsReadyOnlyInverterConverter.cs" />
     <Compile Include="Converters\Component\RadioButtonCheckedButtonQuickSearchConverter.cs" />
