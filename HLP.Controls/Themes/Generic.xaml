@@ -315,14 +315,14 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Border Background="#FFE7E7E7" Grid.ColumnSpan="2" CornerRadius="2.5" BorderThickness="1" BorderBrush="#FF52565B">
+                        <Border Background="#FFE7E7E7" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="#FF52565B">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition Width="0"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Rectangle x:Name="rectangle" Grid.Column="1" Width="29" Height="18" HorizontalAlignment="Left" Fill="#FF5B7083" StrokeThickness="0.1" Stroke="#FF626262" RadiusY="0.75" RadiusX="0.75" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle x:Name="rectangle" Grid.Column="1" Width="29" Height="18" HorizontalAlignment="Left" Fill="#FF5B7083" StrokeThickness="0.1" Stroke="#FF626262"  RenderTransformOrigin="0.5,0.5">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>

@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 131129330045
 
-661173752592
+67-1618204077
 15-572041890
 Component\HlpCheckBox.xaml;Component\HlpComboBox.xaml;Component\HlpDatePicker.xaml;Component\HlpIntellisense.xaml;Component\HlpStatus.xaml;Component\HlpTimePicker.xaml;Component\HlpTreeView.xaml;Component\HlpVersoes.xaml;Themes\Generic.xaml;ViewWindow_\wdQuickSearch.xaml;Component\HlpFindFile.xaml;Component\FindImage.xaml;Component\HlpTextBox.xaml;
 
-False
+True
 
