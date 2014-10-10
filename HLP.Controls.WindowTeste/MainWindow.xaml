@@ -17,7 +17,6 @@
     <Grid>
         <Component:CustomDataGrid ItemsSource="{Binding Path=ItemsIteste}" AutoGenerateColumns="False" SelectionUnit="Cell">
             <Component:CustomDataGrid.Columns>
-                <Component:CustomComboboxColumn ucItemSource="{StaticResource colFrutas}"></Component:CustomComboboxColumn>
                 <Component:CustomIntellisenseColumn Width="300" xNameView="vwUfqs"></Component:CustomIntellisenseColumn>
             </Component:CustomDataGrid.Columns>
         </Component:CustomDataGrid>

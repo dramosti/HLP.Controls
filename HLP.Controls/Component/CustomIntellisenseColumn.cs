@@ -74,10 +74,20 @@ namespace HLP.Controls.Component
             });
 
             this.pup.Child = dg;
+            this.pup.PreviewKeyDown += pup_PreviewKeyDown;
 
             this.customViewModel = new CustomTextBoxIntellisenseViewModel(popUp: pup);
 
             this.pup.DataContext = this.customViewModel;
+        }
+
+        void pup_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.SelectItem();
+                e.Handled = true;
+            }
         }
 
         void dg_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -232,6 +242,8 @@ namespace HLP.Controls.Component
                     {
                         if (_cell.Content.GetType() == typeof(TextBlock))
                             (_cell.Content as TextBlock).Text = String.Empty;
+                        else if (_cell.Content.GetType() == typeof(TextBox))
+                            (_cell.Content as TextBox).Text = string.Empty;
                     }
                     //(d as HlpIntellisense).txt.Text = String.Empty;
 
@@ -259,6 +271,8 @@ namespace HLP.Controls.Component
                             {
                                 if (_cell.Content.GetType() == typeof(TextBlock))
                                     (_cell.Content as TextBlock).Text = xText;
+                                else if (_cell.Content.GetType() == typeof(TextBox))
+                                    (_cell.Content as TextBox).Text = xText;
                             }
 
                             //if ((d as CustomIntellisenseColumn).DataGridOwner.DataContext != null)

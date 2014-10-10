@@ -49,3 +49,4 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTimePicker.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Themes\Generic.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpVersoes.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpVersoes.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.csprojResolveAssemblyReference.cache
