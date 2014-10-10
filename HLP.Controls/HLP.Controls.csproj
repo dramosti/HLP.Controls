@@ -54,8 +54,13 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
-    <Compile Include="Component\CustomComboboxColumn.cs" />
+    <Compile Include="Component\CustomCheckBox.cs" />
+    <Compile Include="Component\CustomComboBox.cs" />
+    <Compile Include="Component\CustomDataGridCheckBox.cs" />
+    <Compile Include="Component\CustomDataGridComboboxColumn.cs" />
     <Compile Include="Component\CustomDataGrid.cs" />
+    <Compile Include="Component\CustomDataGridDateColumn.cs" />
+    <Compile Include="Component\CustomDataGridTimeColumn.cs" />
     <Compile Include="Component\CustomDatePicker.cs" />
     <Compile Include="Component\CustomIntellisenseColumn.cs" />
     <Compile Include="Component\CustomTimePicker.cs" />

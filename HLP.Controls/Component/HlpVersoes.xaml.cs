@@ -51,10 +51,10 @@ namespace HLP.Controls.Component
                     });
 
                 this.stk.Children.Add(element: new Button
-                    {
-                        Content = id,
-                        Style = this.styleBtnHierarquia == null ? this.defStyleButton : this.styleBtnHierarquia
-                    });
+                {
+                    Content = id,
+                    Style = this.styleBtnHierarquia == null ? this.defStyleButton : this.styleBtnHierarquia
+                });
             }
         }
 
@@ -104,7 +104,7 @@ namespace HLP.Controls.Component
                         {
                             currentValue = ret.AsEnumerable().FirstOrDefault()[columnName: "_valueHier"] as int?;
 
-                            lHierarquias.Insert(index: 0, item: (int)ret.AsEnumerable().FirstOrDefault()[columnName: "_value"]);                            
+                            lHierarquias.Insert(index: 0, item: (int)ret.AsEnumerable().FirstOrDefault()[columnName: "_value"]);
                         }
                     }
                 }

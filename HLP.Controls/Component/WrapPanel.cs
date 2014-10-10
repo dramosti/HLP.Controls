@@ -11,7 +11,11 @@ using System.Windows.Controls;
 namespace HLP.Controls.Component
 {
     public class WrapPanel : System.Windows.Controls.WrapPanel, INotifyPropertyChanged
-    {        
+    {
+        public WrapPanel() 
+        {
+            this.Margin = new Thickness(10, 10, 0, 0);
+        }
 
         #region Property
         private double _WidthComp1 = 0;

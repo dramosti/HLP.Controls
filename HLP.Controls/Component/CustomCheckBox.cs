@@ -41,49 +41,14 @@ namespace HLP.Controls.Component
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:CustomComboboxColumn/>
+    ///     <MyNamespace:CustomCheckBox/>
     ///
     /// </summary>
-    public class CustomComboboxColumn : DataGridBoundColumn
+    public class CustomCheckBox : CheckBox
     {
-        ComboBox cbx = null;
-
-        public System.Collections.IEnumerable ucItemSource
+        static CustomCheckBox()
         {
-            get { return (System.Collections.IEnumerable)GetValue(ucItemSourceProperty); }
-            set { SetValue(ucItemSourceProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ucItemSource.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ucItemSourceProperty =
-            DependencyProperty.Register("ucItemSource", typeof(System.Collections.IEnumerable), typeof(CustomComboboxColumn), new PropertyMetadata(null));
-
-        protected override FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
-        {
-            if (cbx == null)
-            {
-                this.cbx = new ComboBox();
-                this.cbx.ItemsSource = ucItemSource;
-
-                if (this.Binding != null)
-                    this.cbx.SetBinding(dp: ComboBox.SelectedIndexProperty, binding: this.Binding);
-            }
-            return cbx;
-        }
-
-        protected override FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
-        {
-            TextBlock txt = new TextBlock();
-
-            if (this.cbx != null)
-            {
-                if (this.cbx.SelectedIndex >= 0)
-                {
-                    var text = ucItemSource.Cast<object>().ToArray()[this.cbx.SelectedIndex];
-                    txt.Text = text.ToString();
-                }
-            }
-            return txt;
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomCheckBox), new FrameworkPropertyMetadata(typeof(CustomCheckBox)));
         }
     }
 }

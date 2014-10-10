@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HLP.Controls.Base;
 using System.ComponentModel;
 using HLP.Controls.ViewModel.ViewModel;
 
@@ -24,15 +23,58 @@ namespace HLP.Controls.Component
     /// </summary>
     public partial class HlpDatePicker : UserControlBase
     {
-
-      
-        
-
         public HlpDatePicker()
         {
             InitializeComponent();
+            
             CustomViewModel = new HlpDatePickerViewModel();
+            calendar = new Calendar();
+            calendar.PreviewKeyDown += Calendar_PreviewKeyDown;
+            calendar.MouseDoubleClick += Calendar_MouseDoubleClick;
+            this.txtDate.GotFocus += HlpDatePicker_GotFocus;
+            this.txtDate.KeyDown += txtDate_KeyDown;
+            this.mainCalendar.Child = calendar;
+        
         }
+
+        public Calendar calendar { get; set; }
+
+        void txtDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                this.mainCalendar.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                this.mainCalendar.IsOpen = true;
+                this.calendar.SelectedDate = DateTime.Today;
+                this.calendar.Focus();
+            }
+        }
+        private void Calendar_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                this.ClosePopup();
+            }
+        }
+
+        private void Calendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            this.ClosePopup();
+        }
+
+        void HlpDatePicker_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.mainCalendar.IsOpen = false;
+        }
+
+        private void ClosePopup()
+        {
+            this.txtDate.Text = this.calendar.SelectedDate.Value.Date.ToShortDateString();
+            this.mainCalendar.IsOpen = false;
+            if (this.Visibility == System.Windows.Visibility.Visible)
+                this.txtDate.Focus();
+        }
+
 
         public HlpDatePickerViewModel CustomViewModel { get; set; }
 
@@ -65,6 +107,8 @@ namespace HLP.Controls.Component
             if (txtDate.Visibility == System.Windows.Visibility.Visible)
                 this.txtDate.Focus();
         }
+
+       
 
 
     }
