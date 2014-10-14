@@ -176,5 +176,23 @@ namespace HLP.Controls.Static
                 }
             }
         }
+
+        public static Point GetBottomPositionComponentInMainWindow(FrameworkElement comp, double addHeight = 0)
+        {
+            Point relativePoint = comp.TransformToAncestor(Application.Current.MainWindow)
+                .Transform(new Point(0, 0));
+
+            double titleHeight = SystemParameters.WindowCaptionHeight + SystemParameters.ResizeFrameHorizontalBorderHeight;
+            double verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
+
+            double newY = relativePoint.Y + (Application.Current.MainWindow.WindowState == WindowState.Maximized ? 0 : Application.Current.MainWindow.Top)
+                + titleHeight + verticalBorderWidth + (Double.IsNaN(comp.Height) ? addHeight : comp.Height);
+
+            double newX = relativePoint.X +
+                (Application.Current.MainWindow.WindowState == WindowState.Maximized ? 0 : Application.Current.MainWindow.Left)
+                + verticalBorderWidth;
+
+            return new Point(x: newX, y: newY);
+        }
     }
 }

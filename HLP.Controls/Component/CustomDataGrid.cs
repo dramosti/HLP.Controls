@@ -21,6 +21,27 @@ namespace HLP.Controls.Component
             this.CanUserAddRows = true;
         }
 
+        //private DataGridCell oldDataGridCell = null;
+
+        //protected override void OnCurrentCellChanged(EventArgs e)
+        //{
+        //    base.OnCurrentCellChanged(e);
+
+        //    //if (this.oldDataGridCell != null)
+        //    //    if (this.oldDataGridCell.Column.GetType() ==
+        //    //         typeof(CustomIntellisenseColumn))
+        //    //    {
+        //    //        (this.oldDataGridCell.Column as CustomIntellisenseColumn).pup.IsOpen = false;
+        //    //    }
+
+        //    //DataGridRow r = this.ItemContainerGenerator.ContainerFromItem(item: this.CurrentCell.Item) as DataGridRow;
+
+        //    //if (r != null)
+        //    //{
+        //    //    oldDataGridCell = Util.GetCell(grid: this, row: r, column: this.CurrentCell.Column.DisplayIndex);
+        //    //}
+        //}
+
         protected override void OnCellEditEnding(DataGridCellEditEndingEventArgs e)
         {
             base.OnCellEditEnding(e);
@@ -82,68 +103,71 @@ namespace HLP.Controls.Component
 
         protected override void OnPreviewKeyDown(System.Windows.Input.KeyEventArgs e)
         {
-            if (this.Items.Count == 0)
-                this.BeginEdit();
+            // Tratamento de teclas especiais 
+
+            #region Validações especiais
 
             bool bPermiteKeyDown = true;
 
-            if (e.Key == System.Windows.Input.Key.Escape)
+            // Neste caso, é validado se a célula corrente é uma célula intellisense, para que caso seja apertada a tecla (DOWN)
+            // não seja feito o comportamento padrão do framework, e sim dado foco ao popup do intellisense
+
+            if (e.Key == Key.Down &&
+                this.CurrentCell.Column.GetType() == typeof(CustomIntellisenseColumn))
             {
-                this.CancelEdit();
-            }
-            else
-                if (this.CurrentItem.ToString().Contains(value: "NewItemPlaceholder"))
+                Popup _pup = (this.CurrentCell.Column as CustomIntellisenseColumn).pup;
+
+                _pup.StaysOpen = true;
+
+                DataGridRow r = (_pup.Child as DataGrid).ItemContainerGenerator
+                    .ContainerFromItem(item: (_pup.Child as DataGrid).SelectedItem) as DataGridRow;
+
+                if (r != null)
                 {
-                    DataGridRow r = this.ItemContainerGenerator.ContainerFromItem(item: this.CurrentItem) as DataGridRow;
-
-                    DataGridCell c = null;
-
-                    for (int i = 0; i < this.Columns.Count; i++)
-                    {
-                        c = Util.GetCell(grid: this, row: r,
-                            column: i);
-
-                        if (c != null)
-                            if (c.IsReadOnly == false && c.Visibility == System.Windows.Visibility.Visible)
-                                break;
-                    }
-
-
-                    this.SelectedCells.Clear();
-                    c.Focus();
-                    this.BeginEdit();
+                    r.MoveFocus(request: new TraversalRequest(focusNavigationDirection: FocusNavigationDirection.Next));
                     bPermiteKeyDown = false;
                 }
-                else
+            }
+
+            #endregion
+
+            else
+            {
+                if (this.Items.Count == 0)
+                    this.BeginEdit();
+
+                if (e.Key == System.Windows.Input.Key.Escape)
                 {
-                    if (this.CurrentCell.Column.GetType() == typeof(CustomIntellisenseColumn))
+                    this.CancelEdit();
+                }
+                else
+                    if (this.CurrentItem.ToString().Contains(value: "NewItemPlaceholder"))
                     {
-                        if (e.Key == System.Windows.Input.Key.Down)
+                        DataGridRow r = this.ItemContainerGenerator.ContainerFromItem(item: this.CurrentItem) as DataGridRow;
+
+                        DataGridCell c = null;
+
+                        for (int i = 0; i < this.Columns.Count; i++)
                         {
-                            DataGridRow r = this.ItemContainerGenerator.ContainerFromItem(item: this.CurrentItem) as DataGridRow;
+                            c = Util.GetCell(grid: this, row: r,
+                                column: i);
 
-                            DataGridCell c = Util.GetCell(grid: this, row: r, column: this.CurrentCell.Column.DisplayIndex);
-
-                            if (c.IsEditing && c.Content.GetType() == typeof(HlpIntellisense))
-                            {
-                                (c.Content as HlpIntellisense).popUp.IsOpen = true;
-
-                                if (r != null)
-                                    r.MoveFocus(request: new TraversalRequest(focusNavigationDirection: FocusNavigationDirection.Next));
-
-                                //((c.Content as HlpIntellisense).popUp.Child as DataGrid).SelectedIndex =
-                                //    (c.Content as HlpIntellisense).customViewModel.cvs.Count > 0 ? 0 : -1;
-
-                                bPermiteKeyDown = false;
-                            }
+                            if (c != null)
+                                if (c.IsReadOnly == false && c.Visibility == System.Windows.Visibility.Visible)
+                                    break;
                         }
+
+
+                        this.SelectedCells.Clear();
+                        c.Focus();
+                        this.BeginEdit();
+                        bPermiteKeyDown = false;
                     }
                     else
                     {
-
                         var lastMethods = typeof(System.Linq.Enumerable)
-                            .GetMethods(BindingFlags.Static | BindingFlags.Public)
-                            .Where(ext => ext.Name == "Last");
+                                .GetMethods(BindingFlags.Static | BindingFlags.Public)
+                                .Where(ext => ext.Name == "Last");
                         object lastItem = null;
                         Type typeItens = null;
 
@@ -206,7 +230,7 @@ namespace HLP.Controls.Component
                             }
                         }
                     }
-                }
+            }
 
             if (bPermiteKeyDown)
             {
