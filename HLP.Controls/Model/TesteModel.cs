@@ -63,5 +63,14 @@ namespace HLP.Controls.Model
             set { _time =  value; NotifyPropertyChanged("time"); }
         }
 
+
+        private int _tpEnd;
+        public int tpEnd
+        {
+            get { return _tpEnd; }
+            set { _tpEnd = value; NotifyPropertyChanged("tpEnd"); }
+        }
+        
+
     }
 }

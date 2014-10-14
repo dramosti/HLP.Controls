@@ -13,7 +13,7 @@ namespace HLP.Controls.Component
 {
     public class CustomDataGridCheckBox : DataGridBoundColumn
     {
-        public CustomCheckBox chk{ get; set; }
+         CustomCheckBox chk{ get; set; }
 
         protected override System.Windows.FrameworkElement GenerateEditingElement(DataGridCell cell, object dataItem)
         {
@@ -40,7 +40,7 @@ namespace HLP.Controls.Component
 
         protected override System.Windows.FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
         {
-            TextBlock txt = new TextBlock();
+            CustomTextBlock txt = new CustomTextBlock();
             txt.HorizontalAlignment = HorizontalAlignment.Center;
             Binding b = new Binding();
             b.Path = (this.Binding as Binding).Path;
@@ -48,8 +48,16 @@ namespace HLP.Controls.Component
             b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             BoolToTextConverter conv = new BoolToTextConverter();
             b.Converter = conv;
-            txt.SetBinding(dp: TextBlock.TextProperty, binding: b);
+            txt.SetBinding(dp: CustomTextBlock.TextProperty, binding: b);
             return txt;
+        }
+    }
+
+    class CustomCheckBox : CheckBox
+    {
+        static CustomCheckBox()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomCheckBox), new FrameworkPropertyMetadata(typeof(CustomCheckBox)));
         }
     }
 }

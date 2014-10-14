@@ -36,6 +36,7 @@ namespace HLP.Controls.Component
             this.mainCalendar.Child = calendar;
         
         }
+      
 
         public Calendar calendar { get; set; }
 

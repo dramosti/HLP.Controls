@@ -54,17 +54,16 @@
     <Compile Include="Base\enumsSistema.cs" />
     <Compile Include="Base\InternetCS.cs" />
     <Compile Include="Base\RelayCommand.cs" />
-    <Compile Include="Component\CustomCheckBox.cs" />
     <Compile Include="Component\CustomComboBox.cs" />
     <Compile Include="Component\CustomDataGridCheckBox.cs" />
     <Compile Include="Component\CustomDataGridComboboxColumn.cs" />
     <Compile Include="Component\CustomDataGrid.cs" />
     <Compile Include="Component\CustomDataGridDateColumn.cs" />
+    <Compile Include="Component\CustomDataGridFindFileColumn.cs" />
     <Compile Include="Component\CustomDataGridTimeColumn.cs" />
-    <Compile Include="Component\CustomDatePicker.cs" />
-    <Compile Include="Component\CustomFindFile.cs" />
     <Compile Include="Component\CustomIntellisenseColumn.cs" />
-    <Compile Include="Component\CustomTimePicker.cs" />
+    <Compile Include="Component\CustomTextBlock.cs" />
+    <Compile Include="Component\CustomTexto.cs" />
     <Compile Include="Component\HlpCheckBox.xaml.cs">
       <DependentUpon>HlpCheckBox.xaml</DependentUpon>
     </Compile>
@@ -73,6 +72,9 @@
     </Compile>
     <Compile Include="Component\HlpDatePicker.xaml.cs">
       <DependentUpon>HlpDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\HlpEndereco.xaml.cs">
+      <DependentUpon>HlpEndereco.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\HlpIntellisense.xaml.cs">
       <DependentUpon>HlpIntellisense.xaml</DependentUpon>
@@ -88,6 +90,9 @@
     </Compile>
     <Compile Include="Component\HlpVersoes.xaml.cs">
       <DependentUpon>HlpVersoes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\UserControTexto.xaml.cs">
+      <DependentUpon>UserControTexto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\WrapPanel.cs" />
     <Compile Include="Component\HlpFindFile.xaml.cs">
@@ -110,6 +115,7 @@
     <Compile Include="Converters\Component\TextboxStyleSelectorConverter.cs" />
     <Compile Include="Converters\Component\TimeSpanToString.cs" />
     <Compile Include="Enum\EnumControls.cs" />
+    <Compile Include="Model\ItemsComboBoxModel.cs" />
     <Compile Include="Model\TesteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -138,6 +144,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\OperacoesDataBaseService.cs" />
+    <Compile Include="Static\ComboboxList.cs" />
     <Compile Include="Static\Extensions.cs" />
     <Compile Include="Static\Util.cs" />
     <Compile Include="ViewModel\Command\CustomTextBoxIntellisenseCommands.cs" />
@@ -145,12 +152,13 @@
     <Compile Include="ViewModel\Command\HlpFindFileCommand.cs" />
     <Compile Include="ViewModel\Command\HLPTextBoxCommands.cs" />
     <Compile Include="ViewModel\Command\QuickSearchCommands.cs" />
+    <Compile Include="ViewModel\ViewModel\CustomComboBoxViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\CustomTextBoxIntellisenseViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HlpDatePickerViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HlpFindFileViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\HLPTextBoxViewModel.cs" />
     <Compile Include="ViewModel\ViewModel\QuickSearchViewModel.cs" />
-    <Compile Include="ViewWindow_\wdQuickSearch.xaml.cs">
+    <Compile Include="View\wdQuickSearch.xaml.cs">
       <DependentUpon>wdQuickSearch.xaml</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
@@ -175,6 +183,10 @@
     <Page Include="Component\HlpDatePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\HlpEndereco.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Component\HlpIntellisense.xaml">
       <SubType>Designer</SubType>
@@ -206,11 +218,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\UserControTexto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ViewWindow_\wdQuickSearch.xaml">
+    <Page Include="View\wdQuickSearch.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

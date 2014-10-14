@@ -1,6 +1,9 @@
 ﻿using HLP.Controls.Base;
+using HLP.Controls.Model;
+using HLP.Controls.Static;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +29,16 @@ namespace HLP.Controls.Component
             InitializeComponent();
         }
 
-
+        private string _xItemsList = "";
+        public string xItemsList
+        {
+            get { return _xItemsList; }
+            set
+            {
+                _xItemsList = value;
+                this.cbx.xItemsList = value;
+            }
+        }
 
         public Nullable<int> ucSelectedIndex
         {
@@ -44,11 +56,9 @@ namespace HLP.Controls.Component
             get { return (object)GetValue(ucSelectedValueProperty); }
             set { SetValue(ucSelectedValueProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for ucSelectedValue.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ucSelectedValueProperty =
             DependencyProperty.Register("ucSelectedValue", typeof(object), typeof(HlpComboBox), new PropertyMetadata(null));
-
 
 
         public string ucSelectedValuePath
@@ -90,5 +100,15 @@ namespace HLP.Controls.Component
             }
         }
 
+
+        private ObservableCollection<ItemsComboBoxModel> _listItems = new ObservableCollection<ItemsComboBoxModel>();
+        public ObservableCollection<ItemsComboBoxModel> listItems
+        {
+            get { return _listItems; }
+            set { _listItems = value; base.NotifyPropertyChanged("listItems"); }
+        }
+
+
     }
+
 }

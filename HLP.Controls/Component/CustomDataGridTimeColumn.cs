@@ -37,15 +37,47 @@ namespace HLP.Controls.Component
 
         protected override System.Windows.FrameworkElement GenerateElement(DataGridCell cell, object dataItem)
         {
-            TextBlock txt = new TextBlock();
+            CustomTextBlock txt = new CustomTextBlock();
             Binding b = new Binding();
             b.Path = (this.Binding as Binding).Path;
             b.Mode = BindingMode.OneWay;
             b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             TimeSpanToString conv = new TimeSpanToString();
             b.Converter = conv;
-            txt.SetBinding(dp: TextBlock.TextProperty, binding: b);
+            txt.SetBinding(dp: CustomTextBlock.TextProperty, binding: b);
             return txt;
         }
+    }
+
+    class CustomTimePicker : TextBox
+    {
+        public CustomTimePicker()
+        {
+            Binding b = new Binding();
+            RelativeSource r = new RelativeSource();
+            r.Mode = RelativeSourceMode.Self;
+            PropertyPath p = new PropertyPath(path: "time", pathParameters: new object[] { });
+            b.Path = p;
+            b.RelativeSource = r;
+            TimeSpanToString conv = new TimeSpanToString();
+            b.Converter = conv;
+            BindingOperations.SetBinding(target: this, dp: CustomTimePicker.TextProperty, binding: b);
+        }
+
+        static CustomTimePicker()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomTimePicker), new FrameworkPropertyMetadata(typeof(CustomTimePicker)));
+        }
+
+        public TimeSpan time
+        {
+            get { return (TimeSpan)GetValue(timeProperty); }
+            set { SetValue(timeProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for time.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty timeProperty =
+            DependencyProperty.Register("time", typeof(TimeSpan), typeof(CustomTimePicker), new PropertyMetadata(new TimeSpan(0, 0, 0)));
+
+
     }
 }

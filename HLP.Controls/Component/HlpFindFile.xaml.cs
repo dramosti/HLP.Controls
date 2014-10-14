@@ -33,10 +33,6 @@ namespace HLP.Controls.Component
 
         public HlpFindFileViewModel CustomViewModel { get; set; }
 
-       
-
-
-
         private HLP.Controls.Enum.EnumControls.stFind _finder = HLP.Controls.Enum.EnumControls.stFind.File;
         public HLP.Controls.Enum.EnumControls.stFind Finder
         {
@@ -67,10 +63,6 @@ namespace HLP.Controls.Component
 
 
         #region Events
-        private void compBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-         //   txt.Focus();
-        }
 
         private void txt_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -83,7 +75,7 @@ namespace HLP.Controls.Component
                 this.CustomViewModel.command.ExecuteAcaoFind(this);
         }
 
-        private void txt_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        private void txt_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)  
         {
             if ((e.KeyboardDevice.Modifiers == ModifierKeys.Control)
                 && e.Key == Key.O)

@@ -44,7 +44,7 @@ namespace HLP.Controls.Component
     ///     <MyNamespace:CustomTextBlock/>
     ///
     /// </summary>
-    public class CustomTextBlock : Control
+    public class CustomTextBlock : TextBlock
     {
         static CustomTextBlock()
         {

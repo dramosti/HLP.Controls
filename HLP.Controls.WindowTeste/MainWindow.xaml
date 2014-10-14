@@ -3,7 +3,7 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Component="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls" xmlns:local="clr-namespace:HLP.Controls.WindowTeste" x:Class="HLP.Controls.WindowTeste.MainWindow"
-        Title="MainWindow" Height="500" Width="525" KeyUp="Window_KeyUp">
+        Title="MainWindow" Height="500" Width="800" KeyUp="Window_KeyUp">
     <Window.Resources>
         <CompositeCollection x:Key="colFrutas">
             <System:String>Banana</System:String>
@@ -14,9 +14,9 @@
     <Window.DataContext>
         <local:MainWindowDataContext x:Name="viewModel"/>
     </Window.DataContext>
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="2">
@@ -40,10 +40,17 @@
                                     />
                                 <Component:CustomDataGridCheckBox 
                                     Header="Ativo ?"
+                                    Width="80"
+                                    Binding="{Binding bAtivo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                <Component:CustomDataGridFindFileColumn 
+                                    Header="Arquivo"                                    
+                                    Width="100"
+                                    Binding="{Binding xArquivo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+                                <Component:CustomDataGridComboboxColumn
+                                    Header="Endereco"
                                     Width="*"
-                                    Binding="{Binding bAtivo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
-                                    />
-
+                                    xItemsList="0,COMERCIAL;1,ENTREGA;2,ENTREGA ALT;3,NOTA FISCAL;4,RESIDÊNCIA;5,SERVIÇO;6,SWIFT;7,PAGAMENTO;8,OUTRO;"
+                                    Binding="{Binding tpEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
                             </Component:CustomDataGrid.Columns>
                         </Component:CustomDataGrid>
                     </AdornerDecorator>
@@ -79,11 +86,13 @@
             <Button Content="DRAMOS" />
             <Button Content="DRAMOS" />
             <Button Content="DRAMOS" />
-            <Button Content="DRAMOS" />
-            <Component:CustomDatePicker Margin="0" Width="97"/>
-            <Component:CustomTimePicker Margin="0" TextWrapping="Wrap" Width="91"/>
-            <DatePicker/>
+            <Button Content="DRAMOS" Click="Button_Click"/>
+            
         </WrapPanel>
+    </Grid>-->
+    <Grid>
+        <Component:UserControTexto texto="sadas"/>
+        
     </Grid>
 
 

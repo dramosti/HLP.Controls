@@ -18,7 +18,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpDatePicker.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpStatus.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTreeView.g.cs
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\ViewWindow_\wdQuickSearch.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpFindFile.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindImage.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpTextBox.g.cs
@@ -28,7 +27,6 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpCheckBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpComboBox.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpDatePicker.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpIntellisense.baml
-D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\ViewWindow_\wdQuickSearch.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpFindFile.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\FindImage.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls.dll
@@ -50,3 +48,9 @@ D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpVersoes.baml
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpVersoes.g.cs
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\HLP.Controls_MarkupCompile.lref
 D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Themes\Generic.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpEndereco.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\HlpEndereco.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\View\wdQuickSearch.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\View\wdQuickSearch.baml
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\UserControTexto.g.cs
+D:\GitHub\HLP\HLP.Controls\HLP.Controls\obj\Debug\Component\UserControTexto.baml

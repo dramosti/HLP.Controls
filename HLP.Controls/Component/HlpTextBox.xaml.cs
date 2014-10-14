@@ -1,22 +1,8 @@
 ﻿using HLP.Controls.Base;
-using HLP.Controls.Converters.Component;
-using HLP.Controls.Static;
 using HLP.Controls.ViewModel.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HLP.Controls.Component
 {
@@ -32,24 +18,57 @@ namespace HLP.Controls.Component
             this.GotKeyboardFocus += HlpTextBox_GotFocus;
         }
 
-        void HlpTextBox_GotFocus(object sender, RoutedEventArgs e)
+
+        #region Properties
+        private HLP.Controls.Enum.EnumControls.stValidacao _validacao = Enum.EnumControls.stValidacao.Text;
+        [Category("HLP.Base")]
+        public HLP.Controls.Enum.EnumControls.stValidacao Validacao
         {
-            this.txt.Focus();
-            this.txt.SelectAll();
+            get { return _validacao; }
+            set { _validacao = value; base.NotifyPropertyChanged("Validacao"); this.CreateBinding(); }
         }
+
+        public int casasDecimais
+        {
+            get { return (int)GetValue(casasDecimaisProperty); }
+            set { SetValue(casasDecimaisProperty, value); }
+        }
+        [Category("HLP.Base")]
+        // Using a DependencyProperty as the backing store for casasDecimais.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty casasDecimaisProperty =
+            DependencyProperty.Register("casasDecimais", typeof(int), typeof(HlpTextBox), new PropertyMetadata(2));
+
+
+        public string Mask
+        {
+            get { return (string)GetValue(MaskProperty); }
+            set { SetValue(MaskProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Mask.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MaskProperty =
+            DependencyProperty.Register("Mask", typeof(string), typeof(HlpTextBox), new PropertyMetadata(""));
+
+
+
+        public string xContentTXT
+        {
+            get { return (string)GetValue(xContentTXTProperty); }
+            set { SetValue(xContentTXTProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for xContentTXT.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty xContentTXTProperty =
+            DependencyProperty.Register("xContentTXT", typeof(string), typeof(HlpTextBox), new PropertyMetadata(""));
+        
+        #endregion
+
+
+       
 
 
         private void CreateBinding()
         {
-            Binding b = new System.Windows.Data.Binding();
-
-            RelativeSource r = new RelativeSource();
-            r.Mode = RelativeSourceMode.FindAncestor;
-            r.AncestorType = typeof(HlpTextBox);
-            PropertyPath p = new PropertyPath(path: "Text", pathParameters: new object[] { });
-            b.Path = p;
-            b.RelativeSource = r;
-            BindingOperations.SetBinding(target: this.txt, dp: TextBox.TextProperty, binding: b);
+                                                                    
 
             this.xContentTXT = "";
             switch (this.Validacao)
@@ -144,52 +163,12 @@ namespace HLP.Controls.Component
         //}
 
 
-        private HLP.Controls.Enum.EnumControls.stValidacao _validacao = Enum.EnumControls.stValidacao.Text;
-        [Category("HLP.Base")]
-        public HLP.Controls.Enum.EnumControls.stValidacao Validacao
+        #region Events
+        void HlpTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            get { return _validacao; }
-            set { _validacao = value; base.NotifyPropertyChanged("Validacao"); this.CreateBinding(); }
+            this.txt.Focus();
+            this.txt.SelectAll();
         }
-
-        public int casasDecimais
-        {
-            get { return (int)GetValue(casasDecimaisProperty); }
-            set { SetValue(casasDecimaisProperty, value); }
-        }
-        [Category("HLP.Base")]
-        // Using a DependencyProperty as the backing store for casasDecimais.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty casasDecimaisProperty =
-            DependencyProperty.Register("casasDecimais", typeof(int), typeof(HlpTextBox), new PropertyMetadata(2));
-
-
-        public string Mask
-        {
-            get { return (string)GetValue(MaskProperty); }
-            set { SetValue(MaskProperty, value); }
-        }
-        // Using a DependencyProperty as the backing store for Mask.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MaskProperty =
-            DependencyProperty.Register("Mask", typeof(string), typeof(HlpTextBox), new PropertyMetadata(""));
-
-
-
-        public string xContentTXT
-        {
-            get { return (string)GetValue(xContentTXTProperty); }
-            set { SetValue(xContentTXTProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for xContentTXT.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty xContentTXTProperty =
-            DependencyProperty.Register("xContentTXT", typeof(string), typeof(HlpTextBox), new PropertyMetadata(""));
-
-
-
-
-
-        public HLPTextBoxViewModel CustomViewModel { get; set; }
-
         private void compBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             txt.Focus();
@@ -199,6 +178,15 @@ namespace HLP.Controls.Component
         {
             CreateBinding();
         }
+        
+        #endregion
+
+
+
+
+        public HLPTextBoxViewModel CustomViewModel { get; set; }
+
+      
 
 
 

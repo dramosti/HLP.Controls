@@ -1,54 +1,46 @@
-﻿using System;
+﻿using HLP.Controls.Static;
+using HLP.Controls.ViewModel.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HLP.Controls.Component
 {
-    /// <summary>
-    /// Follow steps 1a or 1b and then 2 to use this custom control in a XAML file.
-    ///
-    /// Step 1a) Using this custom control in a XAML file that exists in the current project.
-    /// Add this XmlNamespace attribute to the root element of the markup file where it is 
-    /// to be used:
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:HLP.Controls.Component"
-    ///
-    ///
-    /// Step 1b) Using this custom control in a XAML file that exists in a different project.
-    /// Add this XmlNamespace attribute to the root element of the markup file where it is 
-    /// to be used:
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:HLP.Controls.Component;assembly=HLP.Controls.Component"
-    ///
-    /// You will also need to add a project reference from the project where the XAML file lives
-    /// to this project and Rebuild to avoid compilation errors:
-    ///
-    ///     Right click on the target project in the Solution Explorer and
-    ///     "Add Reference"->"Projects"->[Browse to and select this project]
-    ///
-    ///
-    /// Step 2)
-    /// Go ahead and use your control in the XAML file.
-    ///
-    ///     <MyNamespace:CustomComboBox/>
-    ///
-    /// </summary>
     public class CustomComboBox : ComboBox
     {
+        public CustomComboBox()
+        {
+            this.CustomViewModel = new CustomComboBoxViewModel();
+        }
         static CustomComboBox()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomComboBox), new FrameworkPropertyMetadata(typeof(CustomComboBox)));
+            //DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomComboBox), new FrameworkPropertyMetadata(typeof(CustomComboBox)));
         }
+        public CustomComboBoxViewModel CustomViewModel { get; set; }
+
+        private string _xItemsList = "";
+        public string xItemsList
+        {
+            get { return _xItemsList; }
+            set
+            {
+                _xItemsList = value;
+                if (value != "")
+                {
+                    this.DisplayMemberPath = "display";
+                    this.SelectedValuePath = "index";
+                    if (!Util.IsDesignTime())
+                        this.ItemsSource = this.CustomViewModel.GetItemsList2(value);
+                }
+
+            }
+        }
+
+
+
     }
 }

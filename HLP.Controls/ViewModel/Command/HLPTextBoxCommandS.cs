@@ -1,7 +1,7 @@
 ﻿using HLP.Controls.Base;
 using HLP.Controls.Static;
 using HLP.Controls.ViewModel.ViewModel;
-using HLP.Controls.ViewWindow;
+using HLP.Controls.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
