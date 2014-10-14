@@ -1,8 +1,8 @@
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.Wcf.dll.config
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.Wcf.dll
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.Wcf.pdb
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.dll
+D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.pdb
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\obj\Debug\HLP.Controls.Wcf.csprojResolveAssemblyReference.cache
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\obj\Debug\HLP.Controls.Wcf.dll
 D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\obj\Debug\HLP.Controls.Wcf.pdb
-D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.dll
-D:\GitHub\HLP\HLP.Controls\HLP.Controls.Wcf\bin\HLP.Controls.pdb
